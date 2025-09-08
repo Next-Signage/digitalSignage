@@ -1,0 +1,73 @@
+.menu img {
+    width: 100%;
+    cursor: pointer;
+}
+.menu:hover .menubar {
+    transform: translate(0%,0%);
+}
+.menubar {
+    transition: 0.2s ease;
+    transform: translate(-100%,0%);
+    background-color: #bbb;
+    position: fixed;
+    height: 100%;
+    width: 80%;
+    left: 0px;
+    top: 0px;
+    border-radius: 50px;
+}
+.superior {
+    border-radius: 0 50px 0 0;
+    background: var(--background);
+    width: 100%;
+    height: 29.5%;
+    margin-bottom: 0.5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    * {
+        margin: 20px;
+        scale: 1.2;
+    }
+    h1 {
+        font-size: 100%;
+    }
+    img {
+        height: 60px;
+        width: 60px;
+        aspect-ratio: 1/1;
+    }
+}
+.inferior {
+    border-radius: 0 0 50px 0;
+    background: var(--background);
+    width: 100%;
+    height: 70%;
+}
+.inferior {
+    padding-top: 10px
+}
+.inferior div {
+    margin: 5px 50px 20px 20px;
+    padding-block: 0px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    * {
+        font-size: 150%;
+    }
+    img {
+        height: 50px;
+        width: 50px;
+        margin-block: 5px;
+        margin-left: 30px;
+    }
+    a {
+        margin-left: 30px;
+    }
+}
+.inferior div:hover {
+    cursor: pointer;
+    background-color: var(--background1);
+}

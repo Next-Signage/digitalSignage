@@ -1,0 +1,32 @@
+Options -Indexes
+
+AddDefaultCharset UTF-8
+
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Impede que o navegador tente "adivinhar" o tipo de conteúdo de um arquivo.
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Ativa o filtro de Cross-Site Scripting (XSS) em navegadores que o suportam.
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+<FilesMatch "^\.ht|composer\.(json|lock)|\.env">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    # Ativa o motor de reescrita de URL.
+    RewriteEngine On
+
+    RewriteBase /php-rascunho/public/
+
+    # CONDIÇÃO: Se a URL solicitada NÃO for um arquivo existente...
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # E a URL solicitada NÃO for um diretório existente...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # REGRA: ...então, reescreva a requisição para ser tratada pelo index.php.
+    RewriteRule . index.php [L]
+</IfModule>
