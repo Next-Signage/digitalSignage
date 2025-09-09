@@ -17,7 +17,7 @@ class AdmDAO {
         $sql->bindValue(':name', $admObject->getName());
         $sql->bindValue(':birthDate', $admObject->getBirthDate());
         $sql->bindValue(':username', $admObject->getUsername());
-        $sql->bindValue(':password', $admObject->hashCode());
+        $sql->bindValue(':password', $admObject->getPassword());
         $sql->bindValue(':cpf', $admObject->getCpf());
         $sql->bindValue(':email', $admObject->getEmail());
         $sql->bindValue(':admCode', $admObject->getAdmCode());
@@ -38,7 +38,7 @@ class AdmDAO {
         $sql->bindValue(':name', $admObject->getName());
         $sql->bindValue(':birthDate', $admObject->getBirthDate());
         $sql->bindValue(':username', $admObject->getUsername());
-        $sql->bindValue(':password', $admObject->hashCode()); 
+        $sql->bindValue(':password', $admObject->getPassword()); 
         $sql->bindValue(':email', $admObject->getEmail());
         $sql->bindValue(':admCode', $admObject->getAdmCode());
         $sql->bindValue(':cpf', $admObject->getCpf());
