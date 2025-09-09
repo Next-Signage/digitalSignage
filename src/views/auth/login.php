@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - PE SIGNAGE</title>
     
-    <link rel="stylesheet" type="text/css" href="/php-rascunho/public/css/responsive.css" media="(max-width: 880px)" />
-    <link rel="stylesheet" type="text/css" href="/php-rascunho/public/css/style.css" />
-    <link rel="stylesheet" href="/php-rascunho/public/header/header.css" />
-    <script defer src="/php-rascunho/public/header/header.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/css/responsive.css" media="(max-width: 880px)" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/header.css" />
+    <script defer src="<?= BASE_URL ?>/js/header.js"></script>
 </head>
 <body>
     <nav>
         <div class="logo">
             <div class="imagem">
-                <img class="projectimage" src="/php-rascunho/public/images/favicon.ico" />
+                <img class="projectimage" src="<?= BASE_URL ?>/images/favicon.ico" />
             </div>
             <h1 class="projecttitle"></h1>
         </div>
@@ -32,19 +32,19 @@
     <main>
         <div class="about-content">
             <div class="content">
-                <div class="circular-image"><img class="projectimage" src="/php-rascunho/public/images/favicon.ico" /></div>
+                <div class="circular-image"><img class="projectimage" src="<?= BASE_URL ?>/images/favicon.ico" /></div>
                 <h1 class="projecttitle"></h1>
-                <h3>Não tem uma conta? <a href="/php-rascunho/public/signup">Cadastrar</a>.</h3>
+                <h3>Não tem uma conta? <a href="<?= BASE_URL ?>/signup">Cadastrar</a>.</h3>
                 <h3>Que tal entender <a href="#">como nós trabalhamos</a>?</h3>
             </div>
         </div>
 
         <div class="form-container">
             <div class="content">
-                <div class="onlyresponsive"><img class="projectimage" src="/php-rascunho/public/images/favicon.ico" /></div>
+                <div class="onlyresponsive"><img class="projectimage" src="<?= BASE_URL ?>/images/favicon.ico" /></div>
                 <h1>Bem-vindo</h1>
                 <h3>É bom te ter de volta! Insira seus dados para voltar ao sistema</h3>
-                <h3 class="onlyresponsive">Não tem uma conta? <a href="/php-rascunho/public/signup">Cadastrar</a>.</h3>
+                <h3 class="onlyresponsive">Não tem uma conta? <a href="<?= BASE_URL ?>/signup">Cadastrar</a>.</h3>
 
                 <?php
 
@@ -65,7 +65,7 @@
                 }
                 ?>
                 
-                <form method="POST" action="/php-rascunho/public/login/authenticate">
+                <form method="POST" action="<?= BASE_URL ?>/login/authenticate">
                     <label>E-mail</label><br />
                     <input type="email" name="email" required/><br />
                     <label>Senha</label><br />

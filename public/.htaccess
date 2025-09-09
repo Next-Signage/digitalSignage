@@ -20,7 +20,7 @@ AddDefaultCharset UTF-8
     # Ativa o motor de reescrita de URL.
     RewriteEngine On
 
-    RewriteBase /php-rascunho/public/
+    # RewriteBase /php-rascunho/public/
 
     # CONDIÇÃO: Se a URL solicitada NÃO for um arquivo existente...
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -28,5 +28,5 @@ AddDefaultCharset UTF-8
     RewriteCond %{REQUEST_FILENAME} !-d
     
     # REGRA: ...então, reescreva a requisição para ser tratada pelo index.php.
-    RewriteRule . index.php [L]
+    RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
 </IfModule>

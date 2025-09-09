@@ -1,10 +1,9 @@
 <?php
-//This is the system maneger 
     define('DB_HOST', 'localhost');
-    define('DB_NAME', 'pe_signage');
+    define('DB_NAME', 'digitalsignage');
     define('DB_USER', 'root');
     define('DB_PASS', '');
     define('DB_CHARSET', 'utf8mb4');
 
-    define('APP_NAME', 'Meu Projeto');
-    define('BASE_URL', '/php-rascunho/public');
+    define('APP_NAME', 'PE Signage');
+    define('BASE_URL', '/digitalSignage/public');

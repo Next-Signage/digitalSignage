@@ -2,67 +2,58 @@
 
 session_start();
 
-// carregar controllers
-
-// pra frente talvez vamos usar composer, daí movemos isso
+// Carrega os arquivos necessários (futuramente substituído por autoloading)
+require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../src/core/Database.php';
 require_once __DIR__ . '/../src/controllers/AuthController.php';
 require_once __DIR__ . '/../src/controllers/UserController.php';
 
-// aqui é a config do router
-$request_uri = $_SERVER['REQUEST_URI'];
+$db = new Database();
+$pdo = $db->getConnection();
 
-$base_path = dirname($_SERVER['SCRIPT_NAME']);
-
-
-$route = str_replace($base_path, '', $request_uri);
+// extração da rota
+$route = $_GET['route'] ?? ''; // pega a rota da query string de .htacess (ou deixa vazio)
 $route = trim($route, '/');
-$route = strtok($route, '?'); // Remove query strings (ex: ?error=1)
 
 if ($route === '') {
     $route = 'login';
 }
 
-// cria instâncias dos controllers
-$authController = new AuthController();
-$userController = new UserController();
+// pega o método HTTP
+$method = $_SERVER['REQUEST_METHOD'];
 
-// agora as rotas
-switch ($route) {
-    case 'login':
-        $authController->showLoginForm();
-        break;
-    case 'login/authenticate':
-        $authController->authenticate();
-        break;
-    case 'logout':
-        $authController->logout();
-        break;
-    case 'signup':
-        $userController->showSignupForm();
-        break;
-    case 'signup/register':
-        $userController->register();
-        break;
-    
-    case 'dashboard':
+// e mapeia elas
+$routes = [
+    'GET' => [
+        'login' => ['AuthController', 'showLoginForm'],
+        'logout' => ['AuthController', 'logout'],
+        'signup' => ['UserController', 'showSignupForm'],
+        'dashboard' => ['UserController', 'dashboard'],
+        'verificar-email' => ['UserController', 'verifyEmailAjax'],
+        'verificar-cpf' => ['UserController', 'verifyCpfAjax'],
+    ],
+    'POST' => [
+        'login/authenticate' => ['AuthController', 'authenticate'],
+        'signup/register' => ['UserController', 'register'],
+    ]
+];
+
+// despacho
+if (isset($routes[$method][$route])) {
+    list($controllerName, $action) = $routes[$method][$route];
+
+    // proteção
+    if ($route === 'dashboard') {
         if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-            header('Location: ' . $base_path . '/login');
+            header('Location: ' . BASE_URL . '/login');
             exit;
         }
+    }
 
-        $userController->dashboard();
-        break;
+    $controller = new $controllerName($pdo); // entrega o $pdo para o controller
+    $controller->$action();
 
-    case 'verificar-email':
-        $userController->verifyEmailAjax();
-        break;
-    case 'verificar-cpf':
-        $userController->verifyCpfAjax();
-        break;
-        
-    default:
-        http_response_code(404);
-        echo "<h1>Erro 404 - Página Não Encontrada</h1>";
-        break;
+} else {
+    http_response_code(404);
+    echo "<h1>Erro 404 - Página Não Encontrada</h1>";
 }

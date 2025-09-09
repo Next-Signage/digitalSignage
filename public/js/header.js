@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     document.querySelector("nav").insertAdjacentHTML("afterbegin",
     `
       <div class="menu onlyresponsive">
-        <img src="header/hamburguer.svg" />
+        <img src="images/hamburguer.svg" />
         <div class="menubar">
           <div class="superior">
             <img src="images/favicon.ico" />
