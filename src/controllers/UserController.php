@@ -28,12 +28,13 @@ class UserController {
         // 1. Pega os dados do formulário
         $nome = filter_input(INPUT_POST, 'name');
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $senha = $_POST['paswd'] ?? '';
+        $senha = filter_input(INPUT_POST,'paswd');
+        $username = filter_input(INPUT_POST,'username');
         $cpf = filter_input(INPUT_POST, 'cpf'); // Adicionar validação se necessário
         $data_nascimento = filter_input(INPUT_POST, 'birthday');
 
         // 2. Validação básica
-        if (!$nome || !$email || empty($senha) || !$cpf || !$data_nascimento) {
+        if (!$nome || !$email || empty($senha) || !$cpf || !$data_nascimento || !$username) {
             header('Location: ' . BASE_URL . '/signup?status=error&message=' . urlencode('Todos os campos são obrigatórios.'));
             exit();
         }
@@ -42,6 +43,7 @@ class UserController {
             // 3. Cria um objeto do tipo Adm (Model) com os dados do formulário
             $newAdmin = new Adm();
             $newAdmin->setName($nome);
+            $newAdmin->setUsername($nome);
             $newAdmin->setEmail($email);
             $newAdmin->setPassword($senha); // O hashing é feito dentro do model/DAO
             $newAdmin->setCpf($cpf);

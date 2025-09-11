@@ -50,8 +50,12 @@
                 </h3>
 
                 <form id="formulario" method="POST" action="<?= BASE_URL ?>/signup/register">
-                    <label>Nome de usuário</label><br />
+                    <label>Nome</label><br />
                     <input type="text" name="name" required /><br />
+
+                    <label>Nome de Usuario</label><br />
+                    <input type="text" name="username" id="birthday" required /><br />
+                    <span id="birthday-error" style="color: red; font-size: 0.9em"></span>
 
                     <label>E-mail</label><br />
                     <input type="email" name="email" id="email" required /><br />
@@ -76,6 +80,8 @@
                     <label>Data de Aniversário</label><br />
                     <input type="date" name="birthday" id="birthday" required /><br />
                     <span id="birthday-error" style="color: red; font-size: 0.9em"></span>
+
+                    
 
                     <input type="submit" value="Cadastrar" id="submitform" />
                 </form>

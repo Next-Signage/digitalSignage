@@ -3,7 +3,7 @@
 class AdmDAO {
     
     private $pdo;
-
+    
     /**
      * agora recebe por PDO 
      */
