@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="projecttitle"></title>
+    <link rel="stylesheet" href="header/header.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="normal-container confirm">
+        <h1>Pronto! Verifique seu e-mail para começar</h1>
+        <p id="emailtext">Um código de 6 digitos foi enviado à<br><strong>emailsuperoficial@iorgute.net</strong></p>
+        <p>O código expira em 5 minutos</p>
+        <form>
+          <label for="code"><strong>Insira seu código de 6 dígitos</strong></label>
+          <input id="Code" type="number" maxlength="6" value="000000" name="code">
+          <label for="submit">Não recebeu nenhum código? <a href="">Re-enviar Código</a></label>
+          <input type="submit" value="Verificar" name="submit">
+        </form>
+      </div>
+    </main>
+  </body>
+  <script src="js/confirm.js"></script>
+</html>
