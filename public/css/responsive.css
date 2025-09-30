@@ -9,6 +9,12 @@
   }
   .onlyresponsive {
     display: block !important;
+    .projectimage {
+      width: 100% !important;
+    }
+  }
+  .responsivelogo {
+    width: 100%;
   }
   nav {
     position: absolute;
@@ -26,6 +32,13 @@
   }
   .confirm-container {
     width: 100%;
+  }
+  .projectimage {
+    width: 50% !important;
+  }
+  #usermessage {
+    width: 200px !important;
+    height: 60px !important;
   }
 }
 @media (max-width: 680px) {
