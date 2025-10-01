@@ -1,0 +1,4 @@
+eu passei tudo já pro front end, e preciso que tu sincronize as coisa dai Gabriel, os codigos dos antigos tão ainda ai
+depois você só copia e cola e depois deleta
+
+provavelmente as coisas não estão 100% sincronizadas, mas tentei do jeito que eu vi nos outros códigos

@@ -1,3 +1,37 @@
+#usermessage {
+    position: fixed;
+    bottom: 0px;
+    left: -50%;
+
+    width: 150px;
+    height: 40px;
+
+    margin: 15px;
+    border-radius: 7px;
+    display: flex;
+    background-color: rgb(43, 173, 50);
+    h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 7px;
+        height: 100%;
+        width: 95%;
+        text-align: center;
+        font-family: Arial;
+        background-color: var(--background);
+        font-size: 100%;
+    }
+}
+@keyframes aparecer {
+    0% {left: -50%}
+    20% {left: 0%}
+    80% {left: 0%}
+    100% {left: -50%}
+}
+.menu {
+    z-index: 1;
+}
 .menu img {
     width: 100%;
     cursor: pointer;
@@ -70,4 +104,17 @@
 .inferior div:hover {
     cursor: pointer;
     background-color: var(--background1);
+}
+
+.navbar2 {
+    display: flex;
+    align-items: center;
+    > * {
+        margin-block: 10px;
+    }
+    a {
+        background-color: var(--background2);
+        padding: 10px;
+        margin-right: 1px;
+    }
 }

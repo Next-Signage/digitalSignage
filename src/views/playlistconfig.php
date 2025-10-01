@@ -7,9 +7,11 @@ require_once __DIR__ . '/../../config/config.php';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="widp=device-widp, initial-scale=1.0" />
 		<title>Dashboard</title>
-		<link rel="stylesheet" href="css/playlistsconfig.css" />
-		<link rel="stylesheet" href="header/header.css" />
-    	<script src="js/dashboardheader.js"></script>
+	
+		<link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
+		<link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardheader.css" />
+		<link rel="stylesheet" href="<?= BASE_URL ?>/css/playlistsconfig.css" />
+		<script src="<?= BASE_URL ?>/js/dashboardheader.js"></script>
 	</head>
 	<body>
 		<main>
@@ -24,22 +26,22 @@ require_once __DIR__ . '/../../config/config.php';
 				<div class="main">
 					<div class="titlemain">
 						<div>
-							<h1>Configurar <span>{ PlaylistName }</span></h1>
+							<h1 id="titleplaylist">Playlist da cozinha do tio do meu amigo</h1>
 						</div>
 						<div>
 							<button id="addfile">
 								<p>Carregar arquivo</p>
-								<img src="images/icons/plus.svg" />
+								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
 							</button>
 							<button id="associarPlaylist">
 								<p>Associar Playlist</p>
-								<img src="images/icons/plus.svg" />
+								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
 							</button>
 							<button id="associarPlaylist">
 								<p>Salvar Playlist</p>
-								<img src="images/icons/plus.svg" />
+								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
 							</button>
-							<button><img src="images/icons/trash.svg" /></button>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
 						</div>
 					</div>
 					<div class="playlists">
@@ -140,5 +142,5 @@ require_once __DIR__ . '/../../config/config.php';
 			</div>
 		</div>
 	</body>
-	<script src="js/playlistconfig.js"></script>
+	<script src="<?= BASE_URL ?>/js/playlistconfig.js"></script>
 </html>

@@ -28,60 +28,6 @@ nav {
     }
 }
 
-main {
-    display: flex;
-    height: calc(100% - 60px);
-}
-
-.left-painel {
-    border-radius: 10px;
-    margin: 5px 10px 5px 5px;
-    width: 20%;
-    background-color: var(--background1);
-    display: flex;
-    flex-direction: column;
-    .botoes {
-        flex: 1;
-        margin-bottom: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .cima a, .cima p {
-            text-decoration: none;
-            color: black;
-        }
-    }
-    .botao:hover {
-        filter: brightness(90%);
-    }
-    .logo {
-        width: 100%;
-        height: 20%;
-        display: flex;
-        justify-content: center;
-        img {
-            margin: 10px;
-            aspect-ratio: 1/1;
-        }
-    }
-    .botao {
-        display: flex;
-        align-items: center;
-        height: 50px;
-        flex: 1;
-        background-color: var(--background);
-        margin-right: 25px;
-        margin-block: 15px;
-        border-radius: 0 20px 20px 0;
-        * {
-            margin-left: 8%;
-            font-size: 100%;
-            height: 80%;
-            align-content: center;
-            font-size: 130%;
-        }
-    }
-}
 .right-painel {
     flex: 1;
     margin: 5px 5px 5px 0px;
@@ -128,19 +74,19 @@ main {
         button {
             display: flex;
             border: none;
-            margin: 10px;
+            margin: 15px;
             justify-content: space-between;
             align-items: center;
             border-radius: 10px;
-            padding: 15px;
+            padding: 10px;
         }
         #newplaylist {
+            padding-inline: 20px;
             background-color: var(--second);
             color: white;
-            padding-inline: 30px;
             p {
-                margin-right: 20px;
-                font-size: 130%;
+                margin-left: 20px;
+                font-size: 120%;
                 flex: 1;
             }
             img {
@@ -160,7 +106,7 @@ main {
             align-items: center;
             border-radius: 10px;
             padding-block: 15px;
-            font-size: 120%;
+            font-size: 100%;
             input {
                 width: 20px;
                 height: 20px;
@@ -169,7 +115,7 @@ main {
             div {
                 display: flex;
                 justify-content: center;
-                flex: 1;
+                width: 500px;
             }
             button {
                 margin-inline: 20px;
@@ -191,7 +137,7 @@ main {
             div {
                 display: flex;
                 justify-content: center;
-                flex: 1;
+                width: 500px;
             }
         }
     }
@@ -202,10 +148,6 @@ select {
 button {
     cursor: pointer;
 }
-.botao {
-    cursor: pointer;
-}
-
 #copy-dispositivo {
     display: none;
 }

@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title class="projecttitle"></title>
-    <link rel="stylesheet" href="header/header.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/confirm.css" />
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/css/responsive.css" />
   </head>
 
   <body>
@@ -24,5 +24,5 @@
       </div>
     </main>
   </body>
-  <script src="js/confirm.js"></script>
+  <script src="<?= BASE_URL ?>/js/confirm.js"></script>
 </html>

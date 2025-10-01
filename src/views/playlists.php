@@ -7,9 +7,11 @@ require_once __DIR__ . '/../../config/config.php';
     <meta charset="UTF-8" />
     <meta name="viewport" content="widp=device-widp, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="css/playlists.css" />
-    <link rel="stylesheet" href="header/header.css" />
-    <script src="js/dashboardheader.js"></script>
+    
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardheader.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/playlists.css" />
+    <script src="<?= BASE_URL ?>/js/dashboardheader.js"></script>
   </head>
   <body>
     <main>
@@ -17,7 +19,7 @@ require_once __DIR__ . '/../../config/config.php';
         <div class="title" style="display: none;">
           <h2>Playlists</h2>
           <div class="search">
-            <img src="images/icons/search.svg" />
+            <img src="<?= BASE_URL ?>/images/icons/search.svg" />
             <input placeholder="Procurar por playlist" />
           </div>
         </div>
@@ -28,10 +30,10 @@ require_once __DIR__ . '/../../config/config.php';
             </div>
             <div>
               <button id="newplaylist">
+                <img src="<?= BASE_URL ?>/images/icons/plus.svg" />
                 <p>Nova playlist</p>  
-                <img src="images/icons/plus.svg" />
               </button>
-              <button><img src="images/icons/trash.svg" /></button>
+              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
             </div>
           </div>
           <div class="playlists">
@@ -49,25 +51,25 @@ require_once __DIR__ . '/../../config/config.php';
               <input type="checkbox" />
               <div><p>Esporte 1</p></div>
               <div><p>Colocar em ocasiões normais</p></div>
-              <button onclick="GoEditPlaylist()"><img src="images/icons/config.svg"></button>
+              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
             </div>
             <div class="linha">
               <input type="checkbox" />
               <div><p>Esporte 1</p></div>
               <div><p>Colocar em ocasiões normais</p></div>
-              <button onclick="GoEditPlaylist()"><img src="images/icons/config.svg"></button>
+              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
             </div>
             <div class="linha">
               <input type="checkbox" />
               <div><p>Playlist da Cozinha</p></div>
               <div><p>Colocar quando tiver visita</p></div>
-              <button onclick="GoEditPlaylist()"><img src="images/icons/config.svg"></button>
+              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
             </div>
             <div class="linha">
               <input type="checkbox" />
               <div><p>Incêndio</p></div>
               <div><p>Colocar quando tiver incêndio</p></div>
-              <button onclick="GoEditPlaylist()"><img src="images/icons/config.svg"></button>
+              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
             </div>
           </div>
         </div>

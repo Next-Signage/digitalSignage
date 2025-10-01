@@ -7,54 +7,45 @@ require_once __DIR__ . '/../../config/config.php';
     <meta charset="UTF-8" />
     <meta name="viewport" content="widp=device-widp, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="header/header.css" />
-    <link rel="stylesheet" href="css/dashboardheader.css" />
-
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <script src="js/dashboardheader.js"></script>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardheader.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboard.css" />
+    <script src="<?= BASE_URL ?>/js/dashboardheader.js"></script>
   </head>
   <body>
     <main>
       <div class="right-painel">
         <div class="information">
           <div>
-            <img src="images/others/rasperry.webp" />
-            <p><span id="CountDispositivo">X</span> Dispositivos</p>
+            <p><span id="CountDispositivo">20</span> Dispositivos</p>
           </div>
           <div>
-            <img src="images/others/rasperry.webp" />
-            <p><span id="CountDispOnline">X</span> Onlines</p>
+            <p><span id="CountDispOnline">15</span> Onlines</p>
           </div>
           <div>
-            <img src="images/others/rasperry.webp" />
-            <p><span id="CountDispOffline">X</span> Offlines</p>
+            <p><span id="CountDispOffline">5</span> Offlines</p>
           </div>
           <!-- <button id="newdisp">Novo Dipositivo
             <img src="images/plus.svg" />
           </button> -->
-          <button id="newplaylist">Nova Playlist
-            <img src="images/icons/plus.svg" />
-          </button>
-          <button class="disabled">Aplicar</button>
+          <div style="display: flex;">
+            <button id="newplaylist">
+              <img src="<?= BASE_URL ?>/images/icons/plus.svg" />Nova Playlist
+            </button>
+            <button class="disabled">Aplicar</button>
+          </div>
         </div>
         <div class="main">
           <p>Todos os Dispositivos</p>
           <div class="dispositivos" id="dispositivos">
             <div class="linha-info">
-              <div><img src=""></div>
               <div><p>Nome</p></div>
               <div><p>Descrição</p></div>
               <div><p>Status</p></div>
               <div><p>Playlist</p></div>
               <div><p>#</p></div>
             </div>
-            <!-- 
-            as playlists ficam aqui, copie o "copy-dispositivo"
-            dependendo de quantos dispositivos tiver, um para cada,
-            e remova o ID do elemento ao copia-lo,
-            exemplo logo abaixo-->
             <div class="linha" id="copy-dispositivo">
-              <div><img src="images/others/rasperry.webp"></div>
               <div><p id="name">Lorem</p></div>
               <div><p id="locali">ipsum</p></div>
               <div><p id="status">dolor</p></div>
@@ -68,10 +59,9 @@ require_once __DIR__ . '/../../config/config.php';
               <div><p id="idnumber">1</p></div>
             </div>
             <div class="linha">
-              <div><img src="images/others/rasperry.webp"></div>
               <div><p id="name">Lorem</p></div>
               <div><p id="locali">ipsum</p></div>
-              <div><p id="status">dolor</p></div>
+              <div><p id="status" class="online">Online</p></div>
               <div>
                 <select class="selectplaylist">
                     <option selected>Esporte 1</option>
@@ -82,10 +72,9 @@ require_once __DIR__ . '/../../config/config.php';
               <div><p id="idnumber">1</p></div>
             </div>
             <div class="linha">
-              <div><img src="images/others/rasperry.webp"></div>
               <div><p id="name">Lorem</p></div>
               <div><p id="locali">ipsum</p></div>
-              <div><p id="status">dolor</p></div>
+              <div><p id="status" class="offline">Offline</p></div>
               <div>
                 <select class="selectplaylist">
                     <option>Esporte 1</option>
@@ -96,10 +85,9 @@ require_once __DIR__ . '/../../config/config.php';
               <div><p id="idnumber">2</p></div>
             </div>
             <div class="linha">
-              <div><img src="images/others/rasperry.webp"></div>
               <div><p id="name">Lorem</p></div>
               <div><p id="locali">ipsum</p></div>
-              <div><p id="status">dolor</p></div>
+              <div><p id="status" class="online">Online</p></div>
               <div>
                 <select class="selectplaylist">
                     <option>Esporte 1</option>
@@ -143,7 +131,7 @@ require_once __DIR__ . '/../../config/config.php';
       </div>
     </div>
   </body>
-  <script src="js/dashboard.js"></script>
+  <script src="<?= BASE_URL ?>/js/dashboard.js"></script>
   <script>
     document.getElementById("newplaylist").addEventListener("click",()=>{
       window.location.href = "playlistconfig.html"

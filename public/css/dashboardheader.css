@@ -6,9 +6,14 @@
   font-family: "Montserrat", sans-serif;
 }
 
+main {
+    display: flex;
+    height: 100%;
+}
+
 .left-painel {
     border-radius: 10px;
-    margin: 5px 10px 5px 5px;
+    margin: 5px 5px 5px 5px;
     width: 20%;
     background-color: var(--background1);
     display: flex;
@@ -33,17 +38,31 @@
         margin-inline: 20px;
         font-weight: bolder;
         align-items: center;
-        div {
+        > div {
             flex: 1;
             display: flex;
             align-items: center;
+            > div {
+                display: flex;
+                background-color: rgb(255, 219, 57);
+                height: 45px;
+                width: 45px;
+                align-items: center;
+                justify-content: center;
+                font-size: 200%;
+                border-radius: 8px;
+            }
+            > p {
+                font-size: 120%;
+                margin-left: 15px;
+            }
         }
-        p {
-            margin-left: 15px;
-            font-size: 100%;
-        }
-        img {
+        img, svg {
             height: 50px;
+        }
+        svg {
+            cursor: pointer;
+            scale: 0.6;
         }
     }
     .logo {

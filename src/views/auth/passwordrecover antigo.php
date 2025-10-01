@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title class="projecttitle"></title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/header.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/passwordrecover.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/css/responsive.css" />
   </head>
 

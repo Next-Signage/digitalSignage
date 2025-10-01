@@ -28,11 +28,6 @@ nav {
     }
 }
 
-main {
-    display: flex;
-    height: calc(100% - 60px);
-}
-
 .right-painel {
     flex: 1;
     margin: 5px 5px 5px 0px;
@@ -44,20 +39,20 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
         background-color: transparent;
-        > * {
-            display: flex;
-            flex: 1;
-            padding: 10px;
-            margin: 10px;
-            align-items: center;
-            justify-content: space-evenly;
+        p {
+            margin-left: 30px;
         }
         button {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
             background-color: var(--second);
             justify-content: space-around;
             border: none;
+            margin: 15px;
+            padding: 10px;
+            padding-inline: 20px;
             border-radius: 10px;
             color: var(--background);
             height: 50px;
@@ -106,9 +101,6 @@ main {
             display: flex;
             flex-direction: column;
             flex: 1;
-            .selectplaylist:focus {
-                border: none;
-            }
             .selectplaylist {
                 height: 70%;
                 width: 70%;
@@ -158,10 +150,6 @@ select {
 button {
     cursor: pointer;
 }
-.botao {
-    cursor: pointer;
-}
-
 #copy-dispositivo {
     display: none;
 }
@@ -254,6 +242,25 @@ button {
     }
 }
 
-#user_name::after {
-    content: "a";
+#status {
+    font-weight: bolder;
+}
+.offline {
+    display: flex;
+    background-color: rgb(247, 70, 70);
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 30%;
+    border-radius: 10px;
+}
+
+.online {
+    display: flex;
+    background-color: rgb(99, 203, 99);
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 30%;
+    border-radius: 10px;
 }
