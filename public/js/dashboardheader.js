@@ -13,26 +13,26 @@ document.addEventListener("DOMContentLoaded", ()=>{
         </div>
         <div class="botoes">
           <div class="cima">
-            <div class="botao">
-              <a href="dashboard.php">Conexões</a>
-            </div>
-            <div class="botao">
-              <a href="playlists.php">Playlists</a>
-            </div>
+            <a class="botao" href="dashboard.php">
+              <p>Conexões</p>
+            </a>
+            <a class="botao" href="playlists.php">
+              <p>Playlists</p>
+            </a>
           </div>
           <div class="baixo">
-            <div class="botao">
+            <a class="botao">
               <img src="" />
               <p>Documentação</p>
-            </div>
-            <div class="botao">
+            </a>
+            <a class="botao">
               <img src="" />
               <p>Sobre a ferramenta</p>
-            </div>
-            <div class="botao">
-              <img src="" />
+            </a>
+            <a class="botao" href="https://github.com/digitalsignageifc/digitalSignage">
+              <img src=""/>
               <p>Github</p>
-            </div>
+            </a>
           </div>
         </div>
       </div>
