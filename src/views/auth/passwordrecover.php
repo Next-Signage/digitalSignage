@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../../../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -21,7 +24,7 @@
           <label for="email" class="obrigatorio">Esse campo é obrigatório</label>
           <input type="submit" value="Enviar Solicitação" name="submit">
         </form>
-        <p class="lemb">Lembrou sua senha? <a href="login.html">Fazer login</a></p>
+        <p class="lemb">Lembrou sua senha? <a href="login.php">Fazer login</a></p>
       </div>
     </main>
   </body>

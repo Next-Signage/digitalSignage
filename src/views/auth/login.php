@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../../../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -37,7 +40,7 @@
       <div class="about-content">
         <div class="content">
           <img class="circular-image" src="<?= BASE_URL ?>/images/others/logo.png" />
-          <h3>Não tem uma conta? <a href="signup.html">Cadastrar</a>.</h3>
+          <h3>Não tem uma conta? <a href="signup.php">Cadastrar</a>.</h3>
           <h3>Que tal entender <a href="">como nós trabalhamos</a>?</h3>
         </div>
       </div>
@@ -49,7 +52,7 @@
           <h3>
             É bom te ter de volta! Insira seus dados para voltar ao sistema
           </h3>
-          <h3 class="onlyresponsive">Não tem uma conta? <a href="signup.html">Cadastrar</a>.</h3>
+          <h3 class="onlyresponsive">Não tem uma conta? <a href="signup.php">Cadastrar</a>.</h3>
           <form>
             <label>E-mail</label><br />
             <input type="email" name="email" required/><br />

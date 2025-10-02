@@ -134,7 +134,7 @@ require_once __DIR__ . '/../../config/config.php';
   <script src="<?= BASE_URL ?>/js/dashboard.js"></script>
   <script>
     document.getElementById("newplaylist").addEventListener("click",()=>{
-      window.location.href = "playlistconfig.html"
+      window.location.href = "playlistconfig.php"
     })
   </script>
 </html>

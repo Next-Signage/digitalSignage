@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
         <div class="botoes">
           <div class="cima">
             <div class="botao">
-              <a href="dashboard.html">Conexões</a>
+              <a href="dashboard.php">Conexões</a>
             </div>
             <div class="botao">
-              <a href="playlists.html">Playlists</a>
+              <a href="playlists.php">Playlists</a>
             </div>
           </div>
           <div class="baixo">

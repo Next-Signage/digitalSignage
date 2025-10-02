@@ -78,12 +78,12 @@ require_once __DIR__ . '/../../config/config.php';
   </body>
   <script>
     document.getElementById("newplaylist").addEventListener("click",()=>{
-      window.location.href = "playlistconfig.html"
+      window.location.href = "playlistconfig.php"
     })
   </script>
   <script>
     function GoEditPlaylist() {
-      window.location.href = "playlistconfig.html?<nome da playlist>"
+      window.location.href = "playlistconfig.php?<nome da playlist>"
     }
   </script>
 </html>
