@@ -27,6 +27,19 @@ try {
     echo "<p style='color:blue;'>Conexão com o banco de dados '" . DB_NAME . "' bem-sucedida.</p>";
 
     $sql = "
+    CREATE TABLE redefinicoes (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        token VARCHAR(4) NOT NULL,
+        expira DATETIME NOT NULL,
+        criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE TABLE Content (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        url VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        fileType VARCHAR(50) NOT NULL
+    );
     CREATE TABLE adm (
         id INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(100) NOT NULL,
@@ -40,7 +53,7 @@ try {
 
     $pdo->exec($sql);
 
-    echo "<p style='color:green;'>Tabela 'adm' criada com sucesso!</p>";
+    echo "<p style='color:green;'>Tabelas  criadas com sucesso!</p>";
 
 } catch (PDOException $e) {
 
