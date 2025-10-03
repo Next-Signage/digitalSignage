@@ -58,7 +58,7 @@ main {
 
   flex: 1;
   justify-content: center;
-  background: radial-gradient(circle at 50% -200%, #502bf5 0%, #1D223B 100%);
+  background: radial-gradient(circle at 100% -25%, var(--primario) 0%, var(--second) 70%, var(--quarta) 100%);
   padding-block: 3%;
 
   div {
@@ -124,7 +124,7 @@ main {
       width: 100%;
       border: none;
       border-radius: 60px;
-      background-color: var(--realce);
+      background-color: var(--second);
       color: white;
       font-size: 130%;
       cursor: pointer;
@@ -245,7 +245,7 @@ main {
       border: none;
       border-radius: 20px;
       color: white;
-      background-color: var(--realce);
+      background-color: var(--primario);
       font-size: 130%;
       cursor: pointer;
       transition: 0.1s ease;

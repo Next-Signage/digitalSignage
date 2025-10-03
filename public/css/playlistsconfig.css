@@ -80,6 +80,9 @@ nav {
             align-items: center;
             border-radius: 10px;
             padding: 10px;
+            img {
+                margin-right: 10px;
+            }
         }
         #titleplaylist {
             width: 370px;
@@ -97,7 +100,7 @@ nav {
                 flex: 1;
             }
             img {
-                scale: 1.2;
+                scale: 1.5;
             }
         }
     }
@@ -134,6 +137,12 @@ nav {
                     width: 250px;              /* define a largura da área */
                 }
             }
+            button {
+                border: none;
+                background-color: transparent;
+                margin-right: 20px;
+                scale: 1.1;
+            }
         }
         .linha-info {
             background-color: var(--background1);
@@ -149,6 +158,13 @@ nav {
                 display: flex;
                 justify-content: center;
                 flex: 1;
+            }
+            button {
+                cursor: auto;
+                border: none;
+                background-color: transparent;
+                margin-right: 20px;
+                scale: 1.1;
             }
         }
     }

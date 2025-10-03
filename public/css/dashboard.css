@@ -12,6 +12,7 @@ body {
     background-color: rgb(0, 0, 0);
     height: 100%;
     overflow-y: hidden;
+    background: radial-gradient(circle at 100% -25%, var(--primario) 0%, var(--second) 70%, var(--quarta) 100%);
 }
 
 nav {
@@ -45,25 +46,31 @@ nav {
         }
         button {
             display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            background-color: var(--second);
-            justify-content: space-around;
             border: none;
             margin: 15px;
-            padding: 10px;
-            padding-inline: 20px;
+            justify-content: space-between;
+            align-items: center;
             border-radius: 10px;
-            color: var(--background);
-            height: 50px;
-            font-size: 100%;
+            padding: 10px;
         }
-        img {
-            height: 40px;
+        #newplaylist {
+            padding-inline: 20px;
+            background-color: var(--second);
+            color: white;
+            p {
+                margin-left: 20px;
+                font-size: 120%;
+                flex: 1;
+            }
+            img {
+                scale: 1.5;
+            }
         }
         .disabled {
-            cursor: auto;
-            background-color: grey;
+            font-size: 100%;
+            padding-inline: 30px;
+            background-color: rgb(31,31,31);
+            color: white;
         }
     }
     .skip {
@@ -85,6 +92,7 @@ nav {
         align-items: center;
         flex-direction: column;
         background-color: transparent;
+        margin-inline: 20px;
         height: 100%;
         p {
             margin: 20px;

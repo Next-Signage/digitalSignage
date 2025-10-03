@@ -30,7 +30,8 @@ require_once __DIR__ . '/../../config/config.php';
           </button> -->
           <div style="display: flex;">
             <button id="newplaylist">
-              <img src="<?= BASE_URL ?>/images/icons/plus.svg" />Nova Playlist
+              <img src="<?= BASE_URL ?>/images/icons/plus.svg" />
+              <p>Nova Playlist</p>
             </button>
             <button class="disabled">Aplicar</button>
           </div>

@@ -31,45 +31,40 @@ require_once __DIR__ . '/../../config/config.php';
             <div>
               <button id="newplaylist">
                 <img src="<?= BASE_URL ?>/images/icons/plus.svg" />
-                <p>Nova playlist</p>  
+                <p>Nova playlist</p>
               </button>
-              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
             </div>
           </div>
           <div class="playlists">
             <div class="linha-info">
-              <input type="checkbox" onchange="
-                Array.from(document.getElementsByClassName('linha')).forEach(element => {
-                  element.querySelector('input').checked = this.checked;
-                });" />
               <div><p>Nome</p></div>
               <div><p>Descrição</p></div>
             </div>
             <!-- a mesma coisa dita no comentario acima do elemento do ID "copy-dispositivo" no arquivo conections.html
              a única diferença é que é para a playlist -->
             <div class="linha" id="copy-playlist">
-              <input type="checkbox" />
               <div><p>Esporte 1</p></div>
               <div><p>Colocar em ocasiões normais</p></div>
               <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
+              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
             </div>
             <div class="linha">
-              <input type="checkbox" />
               <div><p>Esporte 1</p></div>
               <div><p>Colocar em ocasiões normais</p></div>
               <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
+              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
             </div>
             <div class="linha">
-              <input type="checkbox" />
               <div><p>Playlist da Cozinha</p></div>
               <div><p>Colocar quando tiver visita</p></div>
               <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
+              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
             </div>
             <div class="linha">
-              <input type="checkbox" />
               <div><p>Incêndio</p></div>
               <div><p>Colocar quando tiver incêndio</p></div>
               <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
+              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
             </div>
           </div>
         </div>

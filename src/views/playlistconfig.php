@@ -30,64 +30,56 @@ require_once __DIR__ . '/../../config/config.php';
 						</div>
 						<div>
 							<button id="addfile">
+								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
 								<p>Carregar arquivo</p>
-								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
 							</button>
 							<button id="associarPlaylist">
+								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
 								<p>Associar Playlist</p>
-								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
 							</button>
 							<button id="associarPlaylist">
-								<p>Salvar Playlist</p>
 								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
+								<p>Salvar Playlist</p>
 							</button>
-							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
 						</div>
 					</div>
 					<div class="playlists">
           				<p>Todas as Mídias</p>
 						<div class="linha-info">
-							<input
-								type="checkbox"
-								onchange="
-                Array.from(document.getElementsByClassName('linha')).forEach(element => {
-                  element.querySelector('input').checked = this.checked;
-                });"
-							/>
 							<div><p>Nome</p></div>
 							<div><p>Descrição</p></div>
 							<div><p>Data de Adição</p></div>
 							<div><p>Duração</p></div>
+							<button style="opacity: 0;"><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
 						</div>
 						<!-- a mesma coisa dita no comentario acima do elemento do ID "copy-dispositivo" no arquivo conections.html
              a única diferença é que é para a playlist -->
 						<div class="linha" id="copy-file">
-							<input type="checkbox" />
 							<div><p id="namevideo">Video1.mp4</p></div>
 							<div><p>Bem vindo ao povo</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
 						</div>
 						<div class="linha">
-							<input type="checkbox" />
 							<div><p id="namevideo">Video1.mp4</p></div>
 							<div><p>Bem vindo ao povo</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
 						</div>
 						<div class="linha">
-							<input type="checkbox" />
 							<div><p id="namevideo">Black Screen.png</p></div>
 							<div><p>Transição Magnifica</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
 						</div>
 						<div class="linha">
-							<input type="checkbox" />
 							<div><p id="namevideo">Whatzapp Web 123-456-789-999-999-999-999-999</p></div>
 							<div><p>Video pego do zap</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
 						</div>
 					</div>
 				</div>
