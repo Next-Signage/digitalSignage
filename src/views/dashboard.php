@@ -16,21 +16,24 @@ require_once __DIR__ . '/../../config/config.php';
     <main>
       <div class="right-painel">
         <div class="information">
-          <div>
-            <p><span id="CountDispositivo">20</span> Dispositivos</p>
+          <div class="disps">
+            <div class="disp d1">
+              <p><span id="CountDispositivo">20</span> Dispositivos</p>
+            </div>
+            <div class="disp d2">
+              <p><span id="CountDispOnline">15</span> Onlines</p>
+            </div>
+            <div class="disp d3">
+              <p><span id="CountDispOffline">5</span> Offlines</p>
+            </div>
           </div>
-          <div>
-            <p><span id="CountDispOnline">15</span> Onlines</p>
-          </div>
-          <div>
-            <p><span id="CountDispOffline">5</span> Offlines</p>
-          </div>
-          <!-- <button id="newdisp">Novo Dipositivo
-            <img src="images/plus.svg" />
-          </button> -->
           <div style="display: flex;">
+            <button id="newdisp">
+              <i class="fa-solid fa-plus"></i>
+              <p>Novo Dipositivo</p>
+            </button>
             <button id="newplaylist">
-              <img src="<?= BASE_URL ?>/images/icons/plus.svg" />
+              <i class="fa-solid fa-plus"></i>
               <p>Nova Playlist</p>
             </button>
             <button class="disabled">Aplicar</button>
@@ -40,9 +43,9 @@ require_once __DIR__ . '/../../config/config.php';
           <p>Todos os Dispositivos</p>
           <div class="dispositivos" id="dispositivos">
             <div class="linha-info">
-              <div><p>Nome</p></div>
-              <div><p>Descrição</p></div>
-              <div><p>Status</p></div>
+              <div><p><i class="fa-solid fa-tag"> </i> Nome</p></div>
+              <div><p><i class="fas fa-align-left"> </i> Descrição</p></div>
+              <div><p><i class="fa-solid fa-signal"> </i> Status</p></div>
               <div><p>Playlist</p></div>
               <div><p>#</p></div>
             </div>
@@ -112,18 +115,26 @@ require_once __DIR__ . '/../../config/config.php';
     <div id="AddDispositivo" style="display: none;">
       <div class="blackscreen">
         <h1>Adicionar Dispositivo</h1>
-        <form>
+        <form id="addDispForm">
           <label for="nome">Nome</label>
-          <input type="text" maxlength="30" name="nome" placeholder="Nome do dispositivo" required>
+          <input type="text" maxlength="30" name="nome" placeholder="Dispositivo..." required>
           <label for="desc">Descrição</label>
-          <input type="text" maxlength="30" name="desc" placeholder="Insira uma descrição" required>
+          <input type="text" maxlength="50" name="desc" placeholder="Descrição..." required>
+          <label for="desc">Endereço IPv4 or IPv6</label>
+          <input type="text" maxlength="15" name="ipv4" placeholder="192.168.X.X ou fe80::1c3b:2eff:fe4f:1234" required>
+          <label for="desc">Localização</label>
+          <input type="text" maxlength="50" name="ipv4" placeholder="Sala de estar..." required>
           <label for="playlist">Playlist</label>
-          <select required>
-            <option value="">Selecione uma playlist</option>
+          <select>
+            <option value="">Nenhuma</option>
             <option value="Esporte 1">Esporte 1</option>
             <option value="TV primária">TV primária</option>
             <option value="Shopping">Shopping</option>
           </select>
+          <div class="status">
+            <label for="desc">O dispositivo está online?</label>
+            <input type="checkbox" name="status">
+          </div>
           <div>
             <button class="cancelar" id="cancelPlaylist">Cancelar</button>
             <button class="confirm" id="createPlaylist">Confirmar</button>

@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
+    document.querySelector("head").insertAdjacentHTML("afterbegin", `
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    `)
     document.querySelector("main").insertAdjacentHTML("afterbegin",
     `
       <div class="left-painel">
@@ -14,9 +17,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
         <div class="botoes">
           <div class="cima">
             <a class="botao" href="dashboard.php">
+              <i class="fa-solid fa-plug"></i>
               <p>Conexões</p>
             </a>
             <a class="botao" href="playlists.php">
+              <i class="fa-solid fa-list"></i>
               <p>Playlists</p>
             </a>
           </div>

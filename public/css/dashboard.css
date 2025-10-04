@@ -9,10 +9,8 @@ html, body {
 }
 
 body {
-    background-color: rgb(0, 0, 0);
     height: 100%;
     overflow-y: hidden;
-    background: radial-gradient(circle at 100% -25%, var(--primario) 0%, var(--second) 70%, var(--quarta) 100%);
 }
 
 nav {
@@ -37,34 +35,71 @@ nav {
     display: flex;
     flex-direction: column;
     .information {
+        margin-block: 10px;
+        margin-inline: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: transparent;
-        p {
-            margin-left: 30px;
+        > div {
+            margin-inline: 10px;
+            margin-block: 5px;
+            height: 100%;
+            gap: 10px;
+        }
+        .disps {
+            color: white;
+            display: flex;
+            flex: 1;
+            p {
+                padding-inline: 20px;
+                border-radius: 15px;
+                display: flex;
+                align-items: center;
+                flex: 1;
+                span {
+                    margin-right: 20px;
+                }
+            }
+            .disp {
+                display: flex;
+                flex: 1;
+                border-radius: 10px;
+            }
+            .d1 {
+                background: linear-gradient(135deg, var(--primario) 0%, var(--terceira) 100%);
+            }
+            .d2 {
+                background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            }
+            .d3 {
+                background: linear-gradient(135deg, var(--second) 0%, rgb(0,0,0) 500%);
+            }
+        }
+        span {
+            font-weight: bolder;
+            font-size: 200%;
         }
         button {
             display: flex;
             border: none;
-            margin: 15px;
             justify-content: space-between;
             align-items: center;
             border-radius: 10px;
             padding: 10px;
         }
-        #newplaylist {
-            padding-inline: 20px;
+        #newplaylist, #newdisp {
             background-color: var(--second);
             color: white;
             p {
-                margin-left: 20px;
-                font-size: 120%;
+                padding-inline: 10px;
+                display: flex;
                 flex: 1;
+                font-size: 120%;
             }
-            img {
-                scale: 1.5;
-            }
+        }
+        #newdisp {
+            background-color: var(--terceira);
         }
         .disabled {
             font-size: 100%;
@@ -101,7 +136,7 @@ nav {
             background-color: var(--background1);
             display: flex;
             height: 2%;
-            margin-top: 0px;
+            align-items: center;
             font-weight: bolder;
         }
         .dispositivos {
@@ -121,6 +156,7 @@ nav {
             .linha-info {
                 justify-content: space-around;
                 display: flex;
+                font-weight: bold;
                 margin-inline: 5px;
                 margin-block: -15px;
                 border-radius: 10px;
@@ -170,6 +206,7 @@ button {
     width: 100%;
     background-color: rgba(0,0,0,0.3);
     .blackscreen {
+        animation: aparecerAddDisp 0.2s ease;
         position: absolute;
         background-color: var(--background);
         display: flex;
@@ -185,9 +222,9 @@ button {
             margin-inline: 80px;
         }
         h1 {
-            margin-top: 30px;
+            margin-top: 15px;
             width: 100%;
-            font-size: 150%;
+            font-size: 120%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -203,7 +240,7 @@ button {
         }
         button {
             transition: 0.2s ease;
-            padding: 15px;
+            padding: 10px;
             padding-inline: 30px;
             border: none;
             border-radius: 5px;
@@ -217,9 +254,8 @@ button {
             flex-direction: row;
             justify-content: center;
             width: 90%;
-            margin-bottom: 20px;
         }
-        form {
+        #addDispForm {
             display: flex;
             width: 100%;
             flex-direction: column;
@@ -230,8 +266,7 @@ button {
                 margin-block: 0px;
             }
             label {
-                font-size: 120%;
-                margin-inline: 30px;
+                font-size: 100%;
             }
             input, select {
                 text-indent: 10px;
@@ -243,8 +278,15 @@ button {
                 font-size: 100%;
             }
             > * {
-                margin: 10px;
-                margin-inline: 30px;
+                margin: 8px;
+                margin-inline: 20px;
+            }
+            .status {
+                justify-content: start;
+                gap: 10px;
+                input {
+                    scale: 1.5;
+                }
             }
         }
     }
@@ -252,23 +294,24 @@ button {
 
 #status {
     font-weight: bolder;
-}
-.offline {
-    display: flex;
-    background-color: rgb(247, 70, 70);
-    justify-content: center;
-    align-items: center;
+    border-radius: 100px;
     height: 60%;
     width: 30%;
-    border-radius: 10px;
+    justify-content: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-inline: 40px;
+}
+.offline {
+    background: linear-gradient(135deg, var(--second) 0%, rgb(0,0,0) 5000%);
 }
 
 .online {
-    display: flex;
-    background-color: rgb(99, 203, 99);
-    justify-content: center;
-    align-items: center;
-    height: 60%;
-    width: 30%;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+@keyframes aparecerAddDisp {
+    0% {margin-top: 20px}
+    100% {margin-top: 0px}
 }

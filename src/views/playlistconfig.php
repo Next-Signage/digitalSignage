@@ -19,7 +19,7 @@ require_once __DIR__ . '/../../config/config.php';
 				<div class="title" style="display: none">
 					<h1>Playlists</h1>
 					<div class="search">
-						<img src="images/icons/search.svg" />
+						<img src="images/icons/search.svg" class="svg-branco" />
 						<input placeholder="Procurar por playlist" />
 					</div>
 				</div>
@@ -30,16 +30,13 @@ require_once __DIR__ . '/../../config/config.php';
 						</div>
 						<div>
 							<button id="addfile">
-								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
-								<p>Carregar arquivo</p>
+								<p><i class="fa-solid fa-plus"></i> Carregar arquivo</p>
 							</button>
 							<button id="associarPlaylist">
-								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
-								<p>Associar Playlist</p>
+								<p><i class="fa-solid fa-link"></i> Associar Playlist</p>
 							</button>
 							<button id="associarPlaylist">
-								<img src="<?= BASE_URL ?>/images/icons/plus.svg" />
-								<p>Salvar Playlist</p>
+								<p><i class="fa-solid fa-floppy-disk"></i> Salvar Mídia</p>
 							</button>
 						</div>
 					</div>
@@ -50,7 +47,7 @@ require_once __DIR__ . '/../../config/config.php';
 							<div><p>Descrição</p></div>
 							<div><p>Data de Adição</p></div>
 							<div><p>Duração</p></div>
-							<button style="opacity: 0;"><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
+							<button style="opacity: 0;"><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
 						</div>
 						<!-- a mesma coisa dita no comentario acima do elemento do ID "copy-dispositivo" no arquivo conections.html
              a única diferença é que é para a playlist -->
@@ -65,21 +62,21 @@ require_once __DIR__ . '/../../config/config.php';
 							<div><p>Bem vindo ao povo</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
-							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
 						</div>
 						<div class="linha">
 							<div><p id="namevideo">Black Screen.png</p></div>
 							<div><p>Transição Magnifica</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
-							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
 						</div>
 						<div class="linha">
 							<div><p id="namevideo">Whatzapp Web 123-456-789-999-999-999-999-999</p></div>
 							<div><p>Video pego do zap</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
-							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" /></button>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
 						</div>
 					</div>
 				</div>
@@ -133,6 +130,7 @@ require_once __DIR__ . '/../../config/config.php';
 				</div>
 			</div>
 		</div>
+		<input type="file" style="display: none;" id="sendfile" accept=".png,.jpg,.jpeg,.mp4,.avif,.webp,.ico">
 	</body>
 	<script src="<?= BASE_URL ?>/js/playlistconfig.js"></script>
 </html>
