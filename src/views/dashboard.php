@@ -18,13 +18,13 @@ require_once __DIR__ . '/../../config/config.php';
         <div class="information">
           <div class="disps">
             <div class="disp d1">
-              <p><span id="CountDispositivo">20</span> Dispositivos</p>
+              <p><i class="fa-solid fa-desktop"></i> <span id="CountDispositivo">20</span> Dispositivos</p>
             </div>
             <div class="disp d2">
-              <p><span id="CountDispOnline">15</span> Onlines</p>
+              <p><i class="fa-solid fa-globe"></i> <span id="CountDispOnline">15</span> Onlines</p>
             </div>
             <div class="disp d3">
-              <p><span id="CountDispOffline">5</span> Offlines</p>
+              <p><i class="fa-solid fa-x"></i> <span id="CountDispOffline">5</span> Offlines</p>
             </div>
           </div>
           <div style="display: flex;">
@@ -36,7 +36,9 @@ require_once __DIR__ . '/../../config/config.php';
               <i class="fa-solid fa-plus"></i>
               <p>Nova Playlist</p>
             </button>
-            <button class="disabled">Aplicar</button>
+            <button class="disabled">
+            <i class="fa-solid fa-check"></i>
+            Aplicar</button>
           </div>
         </div>
         <div class="main">

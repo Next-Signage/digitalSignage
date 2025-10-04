@@ -30,23 +30,23 @@ require_once __DIR__ . '/../../config/config.php';
 						</div>
 						<div>
 							<button id="addfile">
-								<p><i class="fa-solid fa-plus"></i> Carregar arquivo</p>
+								<p><i class="fa-solid fa-plus"> </i> Carregar arquivo</p>
 							</button>
 							<button id="associarPlaylist">
-								<p><i class="fa-solid fa-link"></i> Associar Playlist</p>
+								<p><i class="fa-solid fa-link"> </i> Associar Playlist</p>
 							</button>
 							<button id="associarPlaylist">
-								<p><i class="fa-solid fa-floppy-disk"></i> Salvar Mídia</p>
+								<p><i class="fa-solid fa-floppy-disk"> </i> Salvar Mídia</p>
 							</button>
 						</div>
 					</div>
 					<div class="playlists">
           				<p>Todas as Mídias</p>
 						<div class="linha-info">
-							<div><p>Nome</p></div>
-							<div><p>Descrição</p></div>
-							<div><p>Data de Adição</p></div>
-							<div><p>Duração</p></div>
+							<div><p><i class="fa-solid fa-tag"> </i> Nome</p></div>
+							<div><p><i class="fas fa-align-left"> </i> Descrição</p></div>
+							<div><p><i class="fa-solid fa-calendar-days"></i> Data de Adição</p></div>
+							<div><p><i class="fa-solid fa-clock"></i> Duração</p></div>
 							<button style="opacity: 0;"><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
 						</div>
 						<!-- a mesma coisa dita no comentario acima do elemento do ID "copy-dispositivo" no arquivo conections.html
@@ -62,21 +62,21 @@ require_once __DIR__ . '/../../config/config.php';
 							<div><p>Bem vindo ao povo</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
-							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg"></button>
 						</div>
 						<div class="linha">
 							<div><p id="namevideo">Black Screen.png</p></div>
 							<div><p>Transição Magnifica</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
-							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg"/></button>
 						</div>
 						<div class="linha">
 							<div><p id="namevideo">Whatzapp Web 123-456-789-999-999-999-999-999</p></div>
 							<div><p>Video pego do zap</p></div>
 							<div><p>XX/XX/XXXX</p></div>
 							<div><p>0:03</p></div>
-							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
+							<button><img src="<?= BASE_URL ?>/images/icons/trash.svg"/></button>
 						</div>
 					</div>
 				</div>
