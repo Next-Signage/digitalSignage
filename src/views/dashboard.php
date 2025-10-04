@@ -28,14 +28,19 @@ require_once __DIR__ . '/../../config/config.php';
             </div>
           </div>
           <div style="display: flex;">
-            <button id="newdisp">
+            <div id="AddPlayOrDisp">
               <i class="fa-solid fa-plus"></i>
-              <p>Novo Dipositivo</p>
-            </button>
-            <button id="newplaylist">
-              <i class="fa-solid fa-plus"></i>
-              <p>Nova Playlist</p>
-            </button>
+              <div class="show">
+                <button id="newdisp">
+                  <i class="fa-solid fa-plus"></i>
+                  <p>Novo Dipositivo</p>
+                </button>
+                <button id="newplaylist">
+                  <i class="fa-solid fa-plus"></i>
+                  <p>Nova Playlist</p>
+                </button>
+              </div>
+            </div>
             <button class="disabled">
             <i class="fa-solid fa-check"></i>
             Aplicar</button>

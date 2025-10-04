@@ -53,10 +53,38 @@ nav {
         button:hover {
             transform: scale(1.05);
         }
+        .show {
+            position: absolute;
+            top: 100%;
+            width: 350%;
+            z-index: 0.5;
+        }
+        #AddPlayOrDisp {
+            background: linear-gradient(135deg, var(--second) 0%, rgb(0, 0, 0) 500%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            font-size: 150%;
+            cursor: pointer;
+            flex-direction: column;
+            transition: 0.2s ease;
+        }
+        #AddPlayOrDisp:hover {
+            scale: 1.05;
+        }
+        #AddPlayOrDisp:hover .show {
+            display: block;
+        }
+        .show {
+            display: none;
+        }
         .disps {
             color: white;
             display: flex;
-            flex: 1;
+            width: 60%;
             i {
                 margin-right: 10px;
             }
@@ -100,6 +128,8 @@ nav {
         #newplaylist, #newdisp {
             background-color: var(--second);
             color: white;
+            width: 100%;
+            margin-block: 5px;
             p {
                 padding-inline: 10px;
                 display: flex;
