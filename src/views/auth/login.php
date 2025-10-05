@@ -40,8 +40,6 @@ require_once __DIR__ . '/../../../config/config.php';
       <div class="about-content">
         <div class="content">
           <img class="circular-image" src="<?= BASE_URL ?>/images/others/logo.png" />
-          <h3>Não tem uma conta? <a href="signup.php">Cadastrar</a>.</h3>
-          <h3>Que tal entender <a href="">como nós trabalhamos</a>?</h3>
         </div>
       </div>
 
@@ -54,11 +52,12 @@ require_once __DIR__ . '/../../../config/config.php';
           </h3>
           <h3 class="onlyresponsive">Não tem uma conta? <a href="signup.php">Cadastrar</a>.</h3>
           <form>
-            <label>E-mail</label><br />
+            <label>E-mail</label>
             <input type="email" name="email" required/><br />
-            <label>Senha</label><br />
+            <label>Senha</label>
             <input type="password" name="paswd" required/><br />
-            <input type="submit" value="Logar">
+            <input type="submit" value="Logar"><br />
+            <h3>Não tem uma conta? <a href="signup.php">Cadastrar</a></h3>
           </form>
         </div>
       </div>

@@ -36,34 +36,34 @@ require_once __DIR__ . '/../../config/config.php';
           </div>
           <div class="playlists">
             <div class="linha-info">
-              <div><p><i class="fa-solid fa-tag"> </i> Nome</p></div>
-              <div><p><i class="fas fa-align-left"> </i> Descrição</p></div>
+              <div><p>Nome</p></div>
+              <div><p>Descrição</p></div>
               <button><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
               <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
             </div>
             <div class="linha" id="copy-playlist">
-              <div><p>Esporte 1</p></div>
-              <div><p>Colocar em ocasiões normais</p></div>
-              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
-              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
+              <div><p>Incêndio</p></div>
+              <div><p>Colocar quando tiver incêndio</p></div>
+              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-trash"></i>
             </div>
             <div class="linha">
               <div><p>Esporte 1</p></div>
               <div><p>Colocar em ocasiões normais</p></div>
-              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
-              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg"/></button>
+              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-trash"></i>
             </div>
             <div class="linha">
               <div><p>Playlist da Cozinha</p></div>
               <div><p>Colocar quando tiver visita</p></div>
-              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
-              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg"/></button>
+              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-trash"></i>
             </div>
             <div class="linha">
               <div><p>Incêndio</p></div>
               <div><p>Colocar quando tiver incêndio</p></div>
-              <button onclick="GoEditPlaylist()"><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
-              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg"/></button>
+              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-trash"></i>
             </div>
           </div>
         </div>

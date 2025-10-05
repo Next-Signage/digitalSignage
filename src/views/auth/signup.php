@@ -35,8 +35,6 @@ require_once __DIR__ . '/../../../config/config.php';
       <div class="about-content">
         <div class="content">
           <img class="circular-image" src="<?= BASE_URL ?>/images/others/logo.png" />
-          <h3>Já tem uma conta? <a href="login.php">Entrar</a>.</h3>
-          <h3>Que tal entender <a href="">como nós trabalhamos</a>?</h3>
         </div>
       </div>
 
@@ -71,6 +69,7 @@ require_once __DIR__ . '/../../../config/config.php';
             <label>Data de Nascimento</label><br />
             <input type="date" name="birthday" required /><br />
             <input type="submit" value="Cadastrar" id="submitform" />
+            <h3>Já tem uma conta? <a href="login.php">Entrar</a></h3>
           </form>
         </div>
       </div>

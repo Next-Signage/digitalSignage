@@ -43,7 +43,7 @@ nav {
         background-color: transparent;
         > div {
             margin-inline: 10px;
-            margin-block: 5px;
+            margin-block: 10px;
             height: 100%;
             gap: 10px;
         }
@@ -180,12 +180,11 @@ nav {
         margin-inline: 20px;
         height: 100%;
         p {
-            margin: 20px;
+            margin: 10px;
         }
         > p {
             background-color: var(--background1);
             display: flex;
-            height: 2%;
             align-items: center;
             font-weight: bolder;
         }
@@ -194,6 +193,9 @@ nav {
             display: flex;
             flex-direction: column;
             flex: 1;
+            p {
+                margin: 15px;
+            }
             .selectplaylist {
                 height: 70%;
                 width: 70%;
@@ -208,12 +210,18 @@ nav {
                 display: flex;
                 font-weight: bold;
                 margin-inline: 5px;
-                margin-block: -15px;
                 border-radius: 10px;
                 div {
-                    justify-content: space-around;
                     display: flex;
+                    justify-content: start;
+                    align-items: center;
                     flex: 1;
+                }
+                .center {
+                    justify-content: center;
+                }
+                .end {
+                    justify-content: end;
                 }
             }
             .linha {
@@ -225,14 +233,16 @@ nav {
                 justify-content: space-around;
                 display: flex;
                 div {
-                    justify-content: space-around;
-                    align-items: center;
                     display: flex;
+                    justify-content: start;
+                    align-items: center;
                     flex: 1;
                 }
-                img {
-                    height: 40px;
-                    margin-block: 10px;
+                .center {
+                    justify-content: center;
+                }
+                .end {
+                    justify-content: end;
                 }
             }
         }
@@ -258,7 +268,7 @@ button {
     .blackscreen {
         animation: aparecer 0.2s ease;
         position: absolute;
-        background-color: var(--background);
+        background-color: var(--background1);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -287,7 +297,7 @@ button {
             background-color: var(--second);
         }
         button:hover {
-            background-color: var(--background1);
+            background-color: var(--background3);
         }
         button {
             transition: 0.2s ease;
@@ -323,7 +333,7 @@ button {
             input, select {
                 text-indent: 10px;
                 padding-block: 10px;
-                background-color: var(--background1);
+                background-color: var(--background2);
                 border: none;
                 border-bottom: 2px solid black;
                 border-radius: 5px;

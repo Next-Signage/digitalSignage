@@ -118,7 +118,7 @@ nav {
         }
         .linha {
             margin-block: 2px;
-            padding-block: 10px;
+            padding-block: 8px;
             display: flex;
             background-color: var(--background2);
             align-items: center;
@@ -130,14 +130,14 @@ nav {
             }
             div {
                 display: flex;
-                justify-content: center;
-                flex: 1;
+                justify-content: start;
+                width: 60%;
+                margin-inline: 5%;
                 #namevideo {
-                    text-align: center;
                     white-space: nowrap;       /* tudo em uma linha só */
                     overflow: hidden;          /* corta o excesso */
                     text-overflow: ellipsis;   /* coloca "..." no final */
-                    width: 250px;              /* define a largura da área */
+                    width: 150px;              /* define a largura da área */
                 }
             }
             button {
@@ -166,15 +166,17 @@ nav {
             }
             div {
                 display: flex;
-                justify-content: center;
-                flex: 1;
+                justify-content: start;
+                width: 60%;
+                margin-inline: 5%;
             }
             button {
-                cursor: auto;
                 border: none;
+                cursor: default;
                 background-color: transparent;
-                margin-right: 20px;
                 scale: 1.1;
+                margin-right: 20px;
+                transition: 0.2s ease;
             }
         }
     }

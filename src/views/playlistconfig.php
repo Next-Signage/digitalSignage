@@ -43,10 +43,10 @@ require_once __DIR__ . '/../../config/config.php';
 					<div class="playlists">
           				<p>Todas as Mídias</p>
 						<div class="linha-info">
-							<div><p><i class="fa-solid fa-tag"> </i> Nome</p></div>
-							<div><p><i class="fas fa-align-left"> </i> Descrição</p></div>
-							<div><p><i class="fa-solid fa-calendar-days"></i> Data de Adição</p></div>
-							<div><p><i class="fa-solid fa-clock"></i> Duração</p></div>
+							<div><p>Nome</p></div>
+							<div><p>Descrição</p></div>
+							<div><p>Data de Adição</p></div>
+							<div><p>Duração</p></div>
 							<button style="opacity: 0;"><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
 						</div>
 						<!-- a mesma coisa dita no comentario acima do elemento do ID "copy-dispositivo" no arquivo conections.html

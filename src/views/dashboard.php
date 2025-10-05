@@ -24,7 +24,7 @@ require_once __DIR__ . '/../../config/config.php';
               <p><i class="fa-solid fa-globe"></i> <span id="CountDispOnline">15</span> Onlines</p>
             </div>
             <div class="disp d3">
-              <p><i class="fa-solid fa-x"></i> <span id="CountDispOffline">5</span> Offlines</p>
+              <p><i class="fa-solid fa-plane-circle-xmark"></i> <span id="CountDispOffline">5</span> Offlines</p>
             </div>
           </div>
           <div style="display: flex;">
@@ -32,11 +32,9 @@ require_once __DIR__ . '/../../config/config.php';
               <i class="fa-solid fa-plus"></i>
               <div class="show">
                 <button id="newdisp">
-                  <i class="fa-solid fa-plus"></i>
                   <p>Novo Dipositivo</p>
                 </button>
                 <button id="newplaylist">
-                  <i class="fa-solid fa-plus"></i>
                   <p>Nova Playlist</p>
                 </button>
               </div>
@@ -50,65 +48,65 @@ require_once __DIR__ . '/../../config/config.php';
           <p>Todos os Dispositivos</p>
           <div class="dispositivos" id="dispositivos">
             <div class="linha-info">
-              <div><p><i class="fa-solid fa-tag"> </i> Nome</p></div>
-              <div><p><i class="fas fa-align-left"> </i> Descrição</p></div>
-              <div><p><i class="fa-solid fa-signal"> </i> Status</p></div>
-              <div><p>Playlist</p></div>
-              <div><p>#</p></div>
+              <div><p>Nome</p></div>
+              <div><p>Descrição</p></div>
+              <div><p>Status</p></div>
+              <div class="center"><p>Playlist</p></div>
+              <div class="end"><p>#</p></div>
             </div>
             <div class="linha" id="copy-dispositivo">
               <div><p id="name">Lorem</p></div>
               <div><p id="locali">ipsum</p></div>
-              <div><p id="status">dolor</p></div>
-              <div>
-                <select class="selectplaylist">
-                    <option>Esporte 1</option>
-                    <option>Playlist da Cozinha</option>
-                    <option selected>Nenhum</option>
-                </select>
-              </div>
-              <div><p id="idnumber">1</p></div>
-            </div>
-            <div class="linha">
-              <div><p id="name">Lorem</p></div>
-              <div><p id="locali">ipsum</p></div>
               <div><p id="status" class="online">Online</p></div>
-              <div>
+              <div class="center">
                 <select class="selectplaylist">
                     <option selected>Esporte 1</option>
                     <option>Playlist da Cozinha</option>
                     <option>Nenhum</option>
                 </select>
               </div>
-              <div><p id="idnumber">1</p></div>
+              <div class="end"><p id="idnumber">1</p></div>
+            </div>
+            <div class="linha">
+              <div><p id="name">Lorem</p></div>
+              <div><p id="locali">ipsum</p></div>
+              <div><p id="status" class="online">Online</p></div>
+              <div class="center">
+                <select class="selectplaylist">
+                    <option selected>Esporte 1</option>
+                    <option>Playlist da Cozinha</option>
+                    <option>Nenhum</option>
+                </select>
+              </div>
+              <div class="end"><p id="idnumber">1</p></div>
             </div>
             <div class="linha">
               <div><p id="name">Lorem</p></div>
               <div><p id="locali">ipsum</p></div>
               <div><p id="status" class="offline">Offline</p></div>
-              <div>
+              <div class="center">
                 <select class="selectplaylist">
                     <option>Esporte 1</option>
                     <option selected>Playlist da Cozinha</option>
                     <option>Nenhum</option>
                 </select>
               </div>
-              <div><p id="idnumber">2</p></div>
+              <div class="end"><p id="idnumber">2</p></div>
             </div>
             <div class="linha">
               <div><p id="name">Lorem</p></div>
               <div><p id="locali">ipsum</p></div>
               <div><p id="status" class="online">Online</p></div>
-              <div>
+              <div class="center">
                 <select class="selectplaylist">
                     <option>Esporte 1</option>
-                    <option>Playlist da Cozinha</option>  
+                    <option>Playlist da Cozinha</option>
                     <option selected>Nenhum</option>
                 </select>
               </div>
-              <div><p id="idnumber">3</p></div>
+              <div class="end"><p id="idnumber">3</p></div>
             </div>
-          </table>
+          </div>
         </div>
         <div class="bottom">
           <div class="skip">
