@@ -17,24 +17,17 @@ require_once __DIR__ . '/../../../config/config.php';
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/css/login.css" />
     
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/header.css" />
-    <script src="<?= BASE_URL ?>/js/header.js"></script>
+    <script src="<?= BASE_URL ?>/js/authheader.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", ()=>{
+        document.querySelectorAll(".systemlogo").forEach(element => {
+          element.src = "<?= BASE_URL ?>/images/others/logo.png";
+        });
+      })
+    </script>
   </head>
 
   <body>
-    <nav>
-      <div class="logo">
-        <h1>Next Signage</h1>
-      </div>
-      <div class="items">
-        <a href="">Sobre nós</a>
-        <p>|</p>
-        <a href="">Conhecer a ferramenta</a>
-        <p>|</p>
-        <a href="">Encarregados</a>
-        <p>|</p>
-        <a href="">Github</a>
-      </div>
-    </nav>
 
     <main>
       <div class="about-content">

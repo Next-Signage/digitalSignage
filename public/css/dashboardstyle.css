@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.right-painel {
+    flex: 1;
+    background-color: var(--background1);
+    margin: 5px 5px 5px 0px;
+    border-radius: 10px;
+    justify-content: space-between;
+    .up {
+        height: 92%;
+        .information {
+            display: flex;
+            flex: 1;
+            .left-info, .right-info {
+                display: flex;
+                flex: 1;
+            }
+            .right-info .title {
+                margin: 10px;
+            }
+            .left-info {
+                justify-content: end;
+            }
+            .stylisedbutton {
+                cursor: pointer;
+                background-color: var(--second);
+                margin: 10px;
+                border-radius: 10px;
+                color: white;
+                display: flex;
+                align-items: center;
+                font-size: 90%;
+                * {
+                    margin: 10px 15px;
+                }
+            }
+            .disps {
+                cursor: default;
+                span {
+                    font-size: 120%;
+                }
+            }
+            .justicon {
+                margin-inline: 10px;
+            }
+            .justicon i {
+                font-size: 90%;
+                * {
+                    font-size: 90%;
+                    font-weight: normal;
+                }
+            }
+            .onhover {
+                cursor: pointer;
+                justify-content: center;
+                .show {
+                    display: block;
+                    position: absolute;
+                    transform: translate(0,60%);
+                    opacity: 0;
+                    transition: transform 0.1s ease;
+                    scale: 0;
+                    flex: 1;
+                }
+            }
+            .onhover:hover .show {
+                opacity: 1;
+                scale: 1;
+                transform: translate(0,70%);
+            }
+            .refresh {
+                background-color: grey;
+                cursor: not-allowed;
+            }
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 82%;
+            .title {
+                text-align: center;
+                font-size: 120%;
+                margin-block: 10px;
+                font-weight: bolder;
+            }
+            .table {
+                display: flex;
+                flex-direction: column;
+                .linha-info, .linha {
+                    font-size: 90%;
+                    display: flex;
+                    i {cursor: pointer; scale: 1.2;}
+                    div {
+                        display: flex;
+                    }
+                    > * {
+                        flex: 1;
+                        align-items: center;
+                        justify-content: start;
+                        margin-block: 8px;
+                        margin-inline: 15px;
+                    }
+                    .end {
+                        justify-content: end;
+                    }
+                    .end * {
+                        flex: 0;
+                        display: flex;
+                        justify-content: end;
+                    }
+                    .center {
+                        display: flex;
+                        justify-content: center;
+                        * {
+                            display: flex;
+                            justify-content: center;
+                        }
+                    }
+                    .selectplaylist {
+                        padding-block: 5px;
+                        margin: 0px;
+                        border: none;
+                        border-radius: 10px;
+                        background-color: transparent;
+                    }
+                    .invisible {
+                        opacity: 0;
+                        cursor: default;
+                    }
+                }
+                .linha {
+                    background-color: var(--background2);
+                    margin: 2.5px 5px;
+                    border-radius: 10px;
+                    i {
+                        margin: 10px;
+                    }
+                    .online, .offline {
+                        padding: 5px 20px;
+                        font-weight: bolder;
+                        color: white;
+                        border-radius: 15px;
+                    }
+                    .online {
+                        background-color: #3DA86A;
+                    }
+                    .offline {
+                        background-color: var(--second);
+
+                    }
+                }
+                .linha-info {
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+    .bottom {
+        display: flex;
+        justify-self: center;
+        button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        * {
+            font-size: 90%;
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+}
+
+#AddDispositivo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    .blackscreen {
+        animation: aparecer 0.2s ease;
+        position: absolute;
+        background-color: var(--background1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        > * {
+            margin: 10px;
+            margin-inline: 80px;
+        }
+        h1 {
+            margin-top: 15px;
+            margin-bottom: 0px;
+            width: 100%;
+            font-size: 120%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cancelar {
+            background-color: grey;
+        }
+        .confirm {
+            background-color: var(--second);
+        }
+        button:hover {
+            background-color: var(--background3);
+        }
+        button {
+            transition: 0.2s ease;
+            padding: 10px;
+            padding-inline: 30px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 90%;
+            margin-inline: 10px;
+            flex: 1;
+            cursor: pointer;
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 90%;
+        }
+        #addDispForm {
+            margin-top: 0px;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            p {
+                opacity: 0;
+                color: red;
+                font-size: 90%;
+                margin-block: 0px;
+            }
+            label {
+                font-size: 90%;
+            }
+            input, select {
+                text-indent: 10px;
+                padding-block: 7px;
+                background-color: var(--background2);
+                border: none;
+                border-bottom: 2px solid black;
+                border-radius: 5px;
+                font-size: 90%;
+            }
+            > * {
+                margin: 8px;
+                margin-inline: 20px;
+            }
+            .status {
+                justify-content: start;
+                gap: 10px;
+                input {
+                    scale: 1.5;
+                }
+            }
+        }
+    }
+}
+
+#associarPlaylistMSG {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    .blackscreen {
+        animation: aparecer 0.2s ease;
+        position: absolute;
+        background-color: var(--background1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        >*{
+            margin: 15px;
+            margin-inline: 20px;
+        }
+        p {
+            font-size: 90%;
+        }
+        .cancelar {
+            background-color: grey;
+        }
+        .confirm {
+            background-color: var(--second);
+        }
+        button:hover {
+            background-color: var(--background1);
+        }
+        button {
+            cursor: pointer;
+            transition: 0.2s ease;
+            padding: 15px;
+            padding-inline: 30px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 90%;
+            flex: 1;
+        }
+        .dispositivos {
+            background-color: var(--background);
+            width: 95%;
+            .linha2, .linha-info {
+                background-color: var(--background1);
+                margin: 5px;
+                padding-block: 10px;
+                display: flex;
+                justify-content: space-evenly;
+                > div {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    input {
+                        height: 20px;
+                        width: 20px;
+                        margin-left: auto;
+                        margin-right: 50px;
+                    }
+                }
+            }
+            .linha-info {
+                padding-block: 5px;
+            }
+            #copy-dispositivo {
+                display: none;
+            }
+        }
+    }
+}

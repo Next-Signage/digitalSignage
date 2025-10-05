@@ -8,64 +8,83 @@ require_once __DIR__ . '/../../config/config.php';
     <meta name="viewport" content="widp=device-widp, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardheader.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/playlists.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/leftnav.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardstyle.css" />
     <script src="<?= BASE_URL ?>/js/dashboardheader.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", ()=>{
+        document.querySelectorAll(".systemlogo").forEach(element => {
+          element.src = "<?= BASE_URL ?>/images/others/logo.png";
+        });
+      })
+    </script>
   </head>
   <body>
     <main>
       <div class="right-painel">
-        <div class="title" style="display: none;">
-          <h2>Playlists</h2>
-          <div class="search">
-            <img src="<?= BASE_URL ?>/images/icons/search.svg" class="svg-branco" />
-            <input placeholder="Procurar por playlist" />
+        <div class="up">
+          <div class="information">
+            <div class="right-info">
+              <div class="title">
+                <h1>Todas as Playlists</h1>
+              </div>
+            </div>
+            <div class="left-info">
+              <div class="stylisedbutton">
+                <i class="fa-solid fa-plus"></i>
+                <p>Nova Playlist</p>
+              </div>
+            </div>
+          </div>
+          <div class="main">
+            <div class="table">
+              <div class="linha-info">
+                <div><p>Nome</p></div>
+                <div><p>Descrição</p></div>
+                <div class="end invisible">
+                  <i class="fa-solid fa-gear"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </div>
+              </div>
+              <div class="linha" id="copy-playlist">
+                <div><p>Incêndio</p></div>
+                <div><p>Colocar quando tiver incêndio</p></div>
+                <div class="end">
+                  <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </div>
+              </div>
+              <div class="linha">
+                <div><p>Esporte 1</p></div>
+                <div><p>Colocar em ocasiões normais</p></div>
+                <div class="end">
+                  <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </div>
+              </div>
+              <div class="linha">
+                <div><p>Playlist da Cozinha</p></div>
+                <div><p>Colocar quando tiver visita</p></div>
+                <div class="end">
+                  <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </div>
+              </div>
+              <div class="linha">
+                <div><p>Incêndio</p></div>
+                <div><p>Colocar quando tiver incêndio</p></div>
+                <div class="end">
+                  <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
+                  <i class="fa-solid fa-trash"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="main">
-          <div class="titlemain">
-            <div>
-              <h1>Todas as Playlists</h1>
-            </div>
-            <div>
-              <button id="newplaylist">
-                <i class="fa-solid fa-plus"></i>
-                <p>Nova playlist</p>
-              </button>
-            </div>
-          </div>
-          <div class="playlists">
-            <div class="linha-info">
-              <div><p>Nome</p></div>
-              <div><p>Descrição</p></div>
-              <button><img src="<?= BASE_URL ?>/images/icons/config.svg"></button>
-              <button><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
-            </div>
-            <div class="linha" id="copy-playlist">
-              <div><p>Incêndio</p></div>
-              <div><p>Colocar quando tiver incêndio</p></div>
-              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
-              <i class="fa-solid fa-trash"></i>
-            </div>
-            <div class="linha">
-              <div><p>Esporte 1</p></div>
-              <div><p>Colocar em ocasiões normais</p></div>
-              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
-              <i class="fa-solid fa-trash"></i>
-            </div>
-            <div class="linha">
-              <div><p>Playlist da Cozinha</p></div>
-              <div><p>Colocar quando tiver visita</p></div>
-              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
-              <i class="fa-solid fa-trash"></i>
-            </div>
-            <div class="linha">
-              <div><p>Incêndio</p></div>
-              <div><p>Colocar quando tiver incêndio</p></div>
-              <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
-              <i class="fa-solid fa-trash"></i>
-            </div>
-          </div>
+        <div class="bottom">
+          <button><</button>
+          <p>1</p>
+          <button>></button>
         </div>
       </div>
     </main>

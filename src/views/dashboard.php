@@ -8,112 +8,126 @@ require_once __DIR__ . '/../../config/config.php';
     <meta name="viewport" content="widp=device-widp, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardheader.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboard.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/leftnav.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardstyle.css" />
     <script src="<?= BASE_URL ?>/js/dashboardheader.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", ()=>{
+        document.querySelectorAll(".systemlogo").forEach(element => {
+          element.src = "<?= BASE_URL ?>/images/others/logo.png";
+        });
+      })
+    </script>
   </head>
   <body>
     <main>
       <div class="right-painel">
-        <div class="information">
-          <div class="disps">
-            <div class="disp d1">
-              <p><i class="fa-solid fa-desktop"></i> <span id="CountDispositivo">20</span> Dispositivos</p>
+        <div class="up">
+          <div class="information">
+            <div class="right-info">
+              <div class="stylisedbutton disps" style="background-color: var(--primario);">
+                <i class="fa-solid fa-desktop"></i>
+                <span id="CountDispositivo">20</span>
+                <p>Dispositivos</p>
+              </div>
+              <div class="stylisedbutton disps" style="background-color: #3DA86A;">
+                <i class="fa-solid fa-globe"></i>
+                <span id="CountDispOnline">15</span>
+                <p>Onlines</p>
+              </div>
+              <div class="stylisedbutton disps">
+                <i class="fa-solid fa-plane-circle-xmark"></i>
+                <span id="CountDispOffline">5</span>
+                <p>Offlines</p>
+              </div>
             </div>
-            <div class="disp d2">
-              <p><i class="fa-solid fa-globe"></i> <span id="CountDispOnline">15</span> Onlines</p>
-            </div>
-            <div class="disp d3">
-              <p><i class="fa-solid fa-plane-circle-xmark"></i> <span id="CountDispOffline">5</span> Offlines</p>
+            <div class="left-info">
+              <div class="onhover stylisedbutton justicon">
+                <i class="fa-solid fa-plus"></i>
+                <div class="show">
+                  <div id="newdisp" class="stylisedbutton">
+                    <p>Novo Dipositivo</p>
+                  </div>
+                  <div id="newplaylist" class="stylisedbutton">
+                    <p>Nova Playlist</p>
+                  </div>
+                </div>
+              </div>
+              <div class="stylisedbutton disps refresh">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                <p>Refresh</p>
+              </div>
             </div>
           </div>
-          <div style="display: flex;">
-            <div id="AddPlayOrDisp">
-              <i class="fa-solid fa-plus"></i>
-              <div class="show">
-                <button id="newdisp">
-                  <p>Novo Dipositivo</p>
-                </button>
-                <button id="newplaylist">
-                  <p>Nova Playlist</p>
-                </button>
+          <div class="main">
+            <p class="title">Todos os Dispositivos</p>
+            <div class="table">
+              <div class="linha-info">
+                <div><p>Nome</p></div>
+                <div><p>Descrição</p></div>
+                <div><p>Status</p></div>
+                <div class="center"><p>Playlist</p></div>
+                <div class="end"><p>#</p></div>
               </div>
-            </div>
-            <button class="disabled">
-            <i class="fa-solid fa-check"></i>
-            Aplicar</button>
-          </div>
-        </div>
-        <div class="main">
-          <p>Todos os Dispositivos</p>
-          <div class="dispositivos" id="dispositivos">
-            <div class="linha-info">
-              <div><p>Nome</p></div>
-              <div><p>Descrição</p></div>
-              <div><p>Status</p></div>
-              <div class="center"><p>Playlist</p></div>
-              <div class="end"><p>#</p></div>
-            </div>
-            <div class="linha" id="copy-dispositivo">
-              <div><p id="name">Lorem</p></div>
-              <div><p id="locali">ipsum</p></div>
-              <div><p id="status" class="online">Online</p></div>
-              <div class="center">
-                <select class="selectplaylist">
-                    <option selected>Esporte 1</option>
-                    <option>Playlist da Cozinha</option>
-                    <option>Nenhum</option>
-                </select>
+              <div class="linha" id="copy-dispositivo">
+                <div><p id="name">Lorem Nome longo</p></div>
+                <div><p id="locali">ipsum</p></div>
+                <div><p id="status" class="offline">Offline</p></div>
+                <div class="center">
+                  <select class="selectplaylist">
+                      <option selected>Esporte 1</option>
+                      <option>Playlist da Cozinha</option>
+                      <option>Nenhum</option>
+                  </select>
+                </div>
+                <div class="end"><p id="idnumber">1</p></div>
               </div>
-              <div class="end"><p id="idnumber">1</p></div>
-            </div>
-            <div class="linha">
-              <div><p id="name">Lorem</p></div>
-              <div><p id="locali">ipsum</p></div>
-              <div><p id="status" class="online">Online</p></div>
-              <div class="center">
-                <select class="selectplaylist">
-                    <option selected>Esporte 1</option>
-                    <option>Playlist da Cozinha</option>
-                    <option>Nenhum</option>
-                </select>
+              <div class="linha">
+                <div><p id="name">Lorem</p></div>
+                <div><p id="locali">ipsum Nome longo</p></div>
+                <div><p id="status" class="online">Online</p></div>
+                <div class="center">
+                  <select class="selectplaylist">
+                      <option selected>Esporte 1</option>
+                      <option>Playlist da Cozinha</option>
+                      <option>Nenhum</option>
+                  </select>
+                </div>
+                <div class="end"><p id="idnumber">1</p></div>
               </div>
-              <div class="end"><p id="idnumber">1</p></div>
-            </div>
-            <div class="linha">
-              <div><p id="name">Lorem</p></div>
-              <div><p id="locali">ipsum</p></div>
-              <div><p id="status" class="offline">Offline</p></div>
-              <div class="center">
-                <select class="selectplaylist">
-                    <option>Esporte 1</option>
-                    <option selected>Playlist da Cozinha</option>
-                    <option>Nenhum</option>
-                </select>
+              <div class="linha">
+                <div><p id="name">Lorem</p></div>
+                <div><p id="locali">ipsum</p></div>
+                <div><p id="status" class="offline">Offline</p></div>
+                <div class="center">
+                  <select class="selectplaylist">
+                      <option>Esporte 1</option>
+                      <option selected>Playlist da Cozinha</option>
+                      <option>Nenhum</option>
+                  </select>
+                </div>
+                <div class="end"><p id="idnumber">2</p></div>
               </div>
-              <div class="end"><p id="idnumber">2</p></div>
-            </div>
-            <div class="linha">
-              <div><p id="name">Lorem</p></div>
-              <div><p id="locali">ipsum</p></div>
-              <div><p id="status" class="online">Online</p></div>
-              <div class="center">
-                <select class="selectplaylist">
-                    <option>Esporte 1</option>
-                    <option>Playlist da Cozinha</option>
-                    <option selected>Nenhum</option>
-                </select>
+              <div class="linha">
+                <div><p id="name">Lorem</p></div>
+                <div><p id="locali">ipsum</p></div>
+                <div><p id="status" class="online">Online</p></div>
+                <div class="center">
+                  <select class="selectplaylist">
+                      <option>Esporte 1</option>
+                      <option>Playlist da Cozinha</option>
+                      <option selected>Nenhum Nome longo</option>
+                  </select>
+                </div>
+                <div class="end"><p id="idnumber">3</p></div>
               </div>
-              <div class="end"><p id="idnumber">3</p></div>
             </div>
           </div>
         </div>
         <div class="bottom">
-          <div class="skip">
-            <button><</button>
-            <p>1</p>
-            <button>></button>
-          </div>
+          <button><</button>
+          <p>1</p>
+          <button>></button>
         </div>
       </div>
     </main>
@@ -148,7 +162,8 @@ require_once __DIR__ . '/../../config/config.php';
       </div>
     </div>
   </body>
-  <script src="<?= BASE_URL ?>/js/dashboard.js"></script>
+  <script src="<?= BASE_URL ?>/js/dashboardjs.js"></script>
+  <script>dashboard()</script>
   <script>
     document.getElementById("newplaylist").addEventListener("click",()=>{
       window.location.href = "playlistconfig.php"
