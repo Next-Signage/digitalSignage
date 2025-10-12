@@ -30,10 +30,10 @@ require_once __DIR__ . '/../../config/config.php';
               </div>
             </div>
             <div class="left-info">
-              <div class="stylisedbutton">
+              <a class="stylisedbutton" id="newplaylist">
                 <i class="fa-solid fa-plus"></i>
                 <p>Nova Playlist</p>
-              </div>
+              </a>
             </div>
           </div>
           <div class="main">
@@ -47,32 +47,32 @@ require_once __DIR__ . '/../../config/config.php';
                 </div>
               </div>
               <div class="linha" id="copy-playlist">
-                <div><p>Incêndio</p></div>
-                <div><p>Colocar quando tiver incêndio</p></div>
+                <div><input value="Incêndio"></div>
+                <div><input value="Colocar quando tiver incêndio"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
               <div class="linha">
-                <div><p>Esporte 1</p></div>
-                <div><p>Colocar em ocasiões normais</p></div>
+                <div><input value="Esporte 1"></div>
+                <div><input value="Colocar em ocasiões normais"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
               <div class="linha">
-                <div><p>Playlist da Cozinha</p></div>
-                <div><p>Colocar quando tiver visita</p></div>
+                <div><input value="Playlist da Cozinha"></div>
+                <div><input value="Colocar quando tiver visita"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
               <div class="linha">
-                <div><p>Incêndio</p></div>
-                <div><p>Colocar quando tiver incêndio</p></div>
+                <div><input value="Incêndio"></div>
+                <div><input value="Colocar quando tiver incêndio"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
@@ -91,7 +91,7 @@ require_once __DIR__ . '/../../config/config.php';
   </body>
   <script>
     document.getElementById("newplaylist").addEventListener("click",()=>{
-      window.location.href = "playlistconfig.php"
+      window.location.href = "playlistcreate.php"
     })
   </script>
   <script>

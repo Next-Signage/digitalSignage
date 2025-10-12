@@ -27,4 +27,14 @@ function playlistconfig() {
     document.getElementById("addfile").addEventListener("click", ()=>{
         document.getElementById("sendfile").click();
     })
+
+    document.getElementById("title").addEventListener("input", ()=>{
+        let text = document.getElementById("title").value;
+        
+        if (30 >= text.length >= 3) {
+            // ENVIAR PARA O BACKEND VIA WEBSOCKET
+
+            // LEMBRAR DE: FILTRAR O TAMANHO DA PALAVRA (3 até 30), PROTEJER CONTRA SQL INJECTION
+        }
+    })
 }

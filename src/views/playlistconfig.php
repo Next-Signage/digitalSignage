@@ -27,7 +27,7 @@ require_once __DIR__ . '/../../config/config.php';
 					<div class="information">
 						<div class="right-info">
 							<div class="title">
-								<h1>Playlist da cozinha do tio do meu amigo</h1>
+								<input type="text" value="Playlist da cozinha do tio do meu amigo" maxlength="40" id="title">
 							</div>
 						</div>
 						<div class="left-info">
@@ -38,10 +38,6 @@ require_once __DIR__ . '/../../config/config.php';
 							<div class="stylisedbutton" id="associarPlaylist">
 								<i class="fa-solid fa-link"> </i> 
 								<p>Associar Playlist</p>
-							</div>
-							<div class="stylisedbutton refresh" id="SaveMidia">
-								<i class="fa-solid fa-floppy-disk"></i>
-								<p>Salvar Mídia</p>
 							</div>
 						</div>
 					</div>
@@ -56,24 +52,43 @@ require_once __DIR__ . '/../../config/config.php';
 								<button style="opacity: 0;"><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
 							</div>
 							<div class="linha">
-								<div><p id="namevideo">Video1.mp4</p></div>
-								<div><p>Bem vindo ao povo</p></div>
+								<div><input id="namevideo" value="Video1.mp4" maxlength="50"></div>
+								<div><input value="Bem vindo ao povo"></div>
 								<div class="center"><p>XX/XX/XXXX</p></div>
-								<div class="center"><p>0:03</p></div>
+								<div class="center"><input type="text"
+										placeholder="00:00"
+										maxlength="5"
+										pattern="^[0-9]{1,2}:[0-9]{2}$"
+										title="Use o formato mm:ss (ex: 0:03)"
+										style="width: 40px"
+										value="00:00"></div>
 								<div class="end"><i class="fa-solid fa-trash"></i></div>
 							</div>
 							<div class="linha">
-								<div><p id="namevideo">Black Screen.png</p></div>
-								<div><p>Transição Magnifica</p></div>
+								<div><input id="namevideo" value="Black Screen.png" maxlength="50"></div>
+								<div><input value="Transição Magnifica"></div>
 								<div class="center"><p>XX/XX/XXXX</p></div>
-								<div class="center"><p>0:03</p></div>
+								<div class="center"><input type="text"
+										placeholder="00:00"
+										maxlength="5"
+										pattern="^[0-9]{1,2}:[0-9]{2}$"
+										title="Use o formato mm:ss (ex: 0:03)"
+										style="width: 40px"
+										value="00:00"></div>
 								<div class="end"><i class="fa-solid fa-trash"></i></div>
 							</div>
 							<div class="linha">
-								<div><p id="namevideo">Whatzapp Web 123-456-789-999-999-999-999-999</p></div>
-								<div><p>Video pego do zap</p></div>
+								<div><input id="namevideo" value="Whatzapp Web 123-456-789-999-999-999-999-999" maxlength="50"></div>
+								<div><input value="Video pego do zap"></div>
 								<div class="center"><p>XX/XX/XXXX</p></div>
-								<div class="center"><p>0:03</p></div>
+								<div class="center"><input type="text"
+										placeholder="00:00"
+										maxlength="5"
+										pattern="^[0-9]{1,2}:[0-9]{2}$"
+										title="Use o formato mm:ss (ex: 0:03)"
+										style="width: 40px"
+										value="00:00">
+								</div>
 								<div class="end"><i class="fa-solid fa-trash"></i></div>
 							</div>
 						</div>

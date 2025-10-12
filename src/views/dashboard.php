@@ -64,14 +64,13 @@ require_once __DIR__ . '/../../config/config.php';
             <div class="table">
               <div class="linha-info">
                 <div><p>Nome</p></div>
-                <div><p>Descrição</p></div>
                 <div><p>Status</p></div>
                 <div class="center"><p>Playlist</p></div>
-                <div class="end"><p>#</p></div>
+                <div class="center"><p>IP</p></div>
+                <div><p>Descrição</p></div>
               </div>
               <div class="linha" id="copy-dispositivo">
-                <div><p id="name">Lorem Nome longo</p></div>
-                <div><p id="locali">ipsum</p></div>
+                <div><input id="name" value="Lorem Nome Longo"></div>
                 <div><p id="status" class="offline">Offline</p></div>
                 <div class="center">
                   <select class="selectplaylist">
@@ -80,11 +79,11 @@ require_once __DIR__ . '/../../config/config.php';
                       <option>Nenhum</option>
                   </select>
                 </div>
-                <div class="end"><p id="idnumber">1</p></div>
+                <div class="center"><p id="idnumber">1.1.1.1</p></div>
+                <div><input id="desc" value="ipsum"></div>
               </div>
               <div class="linha">
-                <div><p id="name">Lorem</p></div>
-                <div><p id="locali">ipsum Nome longo</p></div>
+                <div><input id="name" value="Lorem"></div>
                 <div><p id="status" class="online">Online</p></div>
                 <div class="center">
                   <select class="selectplaylist">
@@ -93,11 +92,11 @@ require_once __DIR__ . '/../../config/config.php';
                       <option>Nenhum</option>
                   </select>
                 </div>
-                <div class="end"><p id="idnumber">1</p></div>
+                <div class="center"><p id="idnumber">127.0.0.1</p></div>
+                <div><input id="desc" value="ipsum nome longo 12356435642516243"></div>
               </div>
               <div class="linha">
-                <div><p id="name">Lorem</p></div>
-                <div><p id="locali">ipsum</p></div>
+                <div><input id="name" value="Lorem"></div>
                 <div><p id="status" class="offline">Offline</p></div>
                 <div class="center">
                   <select class="selectplaylist">
@@ -106,11 +105,11 @@ require_once __DIR__ . '/../../config/config.php';
                       <option>Nenhum</option>
                   </select>
                 </div>
-                <div class="end"><p id="idnumber">2</p></div>
+                <div class="center"><p id="idnumber">192.168.0.1</p></div>
+                <div><input id="desc" value="ipsum"></div>
               </div>
               <div class="linha">
-                <div><p id="name">Lorem</p></div>
-                <div><p id="locali">ipsum</p></div>
+                <div><input id="name" value="Lorem"></div>
                 <div><p id="status" class="online">Online</p></div>
                 <div class="center">
                   <select class="selectplaylist">
@@ -119,7 +118,8 @@ require_once __DIR__ . '/../../config/config.php';
                       <option selected>Nenhum Nome longo</option>
                   </select>
                 </div>
-                <div class="end"><p id="idnumber">3</p></div>
+                <div class="center"><p id="idnumber">192.168.0.101</p></div>
+                <div><input id="desc" value="ipsum"></div>
               </div>
             </div>
           </div>
@@ -166,7 +166,7 @@ require_once __DIR__ . '/../../config/config.php';
   <script>dashboard()</script>
   <script>
     document.getElementById("newplaylist").addEventListener("click",()=>{
-      window.location.href = "playlistconfig.php"
+      window.location.href = "playlistcreate.php"
     })
   </script>
 </html>

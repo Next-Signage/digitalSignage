@@ -33,6 +33,18 @@ body {
             }
             .right-info .title {
                 margin: 10px;
+                display: flex;
+                flex: 1;
+                input {
+                    background-color: transparent;
+                    font-size: 200%;
+                    height: 100%;
+                    width: 100%;
+                    border: none;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
             }
             .left-info {
                 justify-content: end;
@@ -93,7 +105,7 @@ body {
             display: flex;
             flex-direction: column;
             flex: 1;
-            height: 82%;
+            height: 80%;
             .title {
                 text-align: center;
                 font-size: 120%;
@@ -152,6 +164,12 @@ body {
                     i {
                         margin: 10px;
                     }
+                    input {
+                        border: none;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
                     .online, .offline {
                         padding: 5px 20px;
                         font-weight: bolder;
@@ -168,6 +186,12 @@ body {
                 }
                 .linha-info {
                     font-weight: bolder;
+                }
+                #nomidia {
+                    display: flex;
+                    height: 100%;
+                    color: grey;
+                    justify-content: center;
                 }
             }
         }
