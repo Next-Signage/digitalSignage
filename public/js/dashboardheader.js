@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     `
       <div class="left-painel">
         <div class="mini-profilelogo">
+          <div>
             <div>
-              <div>
-                <img class="systemlogo">
-                <p>Digital Signage</p>
-              </div>
-              <a class="avatar" href="dashboard.php"><p>P</p></a>
+              <img class="systemlogo">
+              <p>Digital Signage</p>
             </div>
+            <a class="avatar" href="dashboard.php"><p>P</p></a>
+          </div>
         </div>
         <div class="botoes">
           <div class="cima">

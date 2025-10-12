@@ -15,7 +15,7 @@ body {
     background-color: var(--background);
 }
 .systemlogo {
-    height: 50px;
+    height: 40px;
 }
 .avatar {
     cursor: pointer;
@@ -64,10 +64,8 @@ body {
                 display: flex;
                 align-items: center;
                 gap: 10px;
-            }
-            > div {
                 > p {
-                    font-size: 120%;
+                    font-size: 90%;
                     cursor: default;
                     margin-left: 15px;
                 }
