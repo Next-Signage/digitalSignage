@@ -39,7 +39,7 @@ require_once __DIR__ . '/../../config/config.php';
 								<i class="fa-solid fa-link"> </i> 
 								<p>Associar Playlist</p>
 							</div>
-							<div class="stylisedbutton refresh" id="SaveMidia">
+							<div class="stylisedbutton" id="SaveMidia">
 								<i class="fa-solid fa-floppy-disk"></i>
 								<p>Salvar Mídia</p>
 							</div>
