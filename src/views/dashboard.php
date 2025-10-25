@@ -70,55 +70,59 @@ require_once __DIR__ . '/../../config/config.php';
                 <div><p>Descrição</p></div>
               </div>
               <div class="linha" id="copy-dispositivo">
-                <div><input id="name" value="Lorem Nome Longo"></div>
+                <div><input id="name" value="Dispositivo 1"></div>
                 <div><p id="status" class="offline">Offline</p></div>
                 <div class="center">
                   <select class="selectplaylist">
-                      <option selected>Esporte 1</option>
-                      <option>Playlist da Cozinha</option>
-                      <option>Nenhum</option>
+                      <option selected>Playlist 1</option>
+                      <option>Marketing</option>
+                      <option>Anúncio</option>
+                      <option>Novidades do campus</option>
                   </select>
                 </div>
-                <div class="center"><p id="idnumber">1.1.1.1</p></div>
+                <div class="center"><p id="idnumber">192.168.0.115</p></div>
                 <div><input id="desc" value="ipsum"></div>
               </div>
               <div class="linha">
-                <div><input id="name" value="Lorem"></div>
+                <div><input id="name" value="Marketing"></div>
                 <div><p id="status" class="online">Online</p></div>
                 <div class="center">
                   <select class="selectplaylist">
-                      <option selected>Esporte 1</option>
-                      <option>Playlist da Cozinha</option>
-                      <option>Nenhum</option>
+                      <option selected>Playlist 1</option>
+                      <option>Marketing</option>
+                      <option>Anúncio</option>
+                      <option>Novidades do campus</option>
                   </select>
                 </div>
-                <div class="center"><p id="idnumber">127.0.0.1</p></div>
+                <div class="center"><p id="idnumber">192.168.0.112</p></div>
                 <div><input id="desc" value="ipsum nome longo 12356435642516243"></div>
               </div>
               <div class="linha">
-                <div><input id="name" value="Lorem"></div>
+                <div><input id="name" value="Anúncio"></div>
                 <div><p id="status" class="offline">Offline</p></div>
                 <div class="center">
                   <select class="selectplaylist">
-                      <option>Esporte 1</option>
-                      <option selected>Playlist da Cozinha</option>
-                      <option>Nenhum</option>
+                      <option selected>Playlist 1</option>
+                      <option>Marketing</option>
+                      <option>Anúncio</option>
+                      <option>Novidades do campus</option>
                   </select>
                 </div>
-                <div class="center"><p id="idnumber">192.168.0.1</p></div>
+                <div class="center"><p id="idnumber">192.168.0.159</p></div>
                 <div><input id="desc" value="ipsum"></div>
               </div>
               <div class="linha">
-                <div><input id="name" value="Lorem"></div>
+                <div><input id="name" value="Novidades"></div>
                 <div><p id="status" class="online">Online</p></div>
                 <div class="center">
                   <select class="selectplaylist">
-                      <option>Esporte 1</option>
-                      <option>Playlist da Cozinha</option>
-                      <option selected>Nenhum Nome longo</option>
+                      <option selected>Playlist 1</option>
+                      <option>Marketing</option>
+                      <option>Anúncio</option>
+                      <option>Novidades do campus</option>
                   </select>
                 </div>
-                <div class="center"><p id="idnumber">192.168.0.101</p></div>
+                <div class="center"><p id="idnumber">192.168.0.255</p></div>
                 <div><input id="desc" value="ipsum"></div>
               </div>
             </div>

@@ -47,7 +47,7 @@ require_once __DIR__ . '/../../config/config.php';
                 </div>
               </div>
               <div class="linha" id="copy-playlist">
-                <div><input value="Incêndio"></div>
+                <div><input value="Plalist 1"></div>
                 <div><input value="Colocar quando tiver incêndio"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
@@ -55,7 +55,7 @@ require_once __DIR__ . '/../../config/config.php';
                 </div>
               </div>
               <div class="linha">
-                <div><input value="Esporte 1"></div>
+                <div><input value="Marketing"></div>
                 <div><input value="Colocar em ocasiões normais"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
@@ -63,7 +63,7 @@ require_once __DIR__ . '/../../config/config.php';
                 </div>
               </div>
               <div class="linha">
-                <div><input value="Playlist da Cozinha"></div>
+                <div><input value="Anúncio"></div>
                 <div><input value="Colocar quando tiver visita"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
@@ -71,7 +71,7 @@ require_once __DIR__ . '/../../config/config.php';
                 </div>
               </div>
               <div class="linha">
-                <div><input value="Incêndio"></div>
+                <div><input value="Novidade do campus"></div>
                 <div><input value="Colocar quando tiver incêndio"></div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
