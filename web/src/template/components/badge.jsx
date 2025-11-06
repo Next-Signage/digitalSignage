@@ -1,0 +1,4 @@
+export const Badge = ({text, type}) => {
+    return (<span className={`badge badge-${type}`}>{text}</span>)
+
+}
