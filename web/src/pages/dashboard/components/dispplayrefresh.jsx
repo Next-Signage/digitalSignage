@@ -4,9 +4,9 @@ import { Button } from "../../../template/components/button";
 export const DispPlayRefresh = () => {
 	return (
         <div className="newdispplayrefresh">
-            <Button content={"Novo dispositivo"} bgcolor={"var(--red)"} icon={<FontAwesomeIcon icon={"fa-solid fa-plus"}/>}/>
-            <Button content={"Nova playlist"} bgcolor={"var(--red)"} icon={<FontAwesomeIcon icon={"fa-solid fa-plus"}/>}/>
-            <Button content={"Atualizar"} bgcolor={"grey"} icon={<FontAwesomeIcon icon={"fa-solid fa-arrows-rotate"}/>}/>
+            <Button type={"red"} content={"Novo dispositivo"} icon={<FontAwesomeIcon icon={"fa-solid fa-plus"}/>}/>
+            <Button type={"red"} content={"Nova playlist"} icon={<FontAwesomeIcon icon={"fa-solid fa-plus"}/>}/>
+            <Button type={"grey"} content={"Salvar Modificações"} icon={<FontAwesomeIcon icon={"fa-solid fa-arrows-rotate"}/>}/>
         </div>
     )
 };

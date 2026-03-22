@@ -44,7 +44,7 @@ export const PlaylistConfig = ({controller}) => {
     },[]);
 
     const getItems = () => {
-        if (items.length == 0) {
+        if (items.length === 0) {
             return null;
         }
         return items.conteudo.map((item, index) => {
@@ -65,8 +65,8 @@ export const PlaylistConfig = ({controller}) => {
             <PageHeader
                 title={"thrgefsv"}
                 actionItems={[
-                    <Button bgcolor="var(--red)" icon={<FontAwesomeIcon icon="fa-solid fa-plus" />} content="Carregar Arquivos" onClick={UploadFile}/>,
-                    <Button bgcolor="var(--red)" icon={<FontAwesomeIcon icon="fa-solid fa-floppy-disk" />} content="Salvar Mídia" onClick={CreatePlaylist}/>
+                    <Button type="red" icon={<FontAwesomeIcon icon="fa-solid fa-plus" />} content="Carregar Arquivos" onClick={UploadFile}/>,
+                    <Button type="red" icon={<FontAwesomeIcon icon="fa-solid fa-floppy-disk" />} content="Salvar Modificações" onClick={CreatePlaylist}/>
                 ]}
             />
             <h2 class="page-title">Todas as mídias</h2>

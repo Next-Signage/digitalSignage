@@ -41,7 +41,7 @@ export const PlaylistList = ({controller}) => {
     },[]);
 
     const getItems = () => {
-        if (items.length == 0) {
+        if (items.length === 0) {
             return null;
         }
         return items.map((item, index) => {
@@ -60,7 +60,7 @@ export const PlaylistList = ({controller}) => {
             <PageHeader
                 title="Todas as playlists"
                 actionItems={[
-                    <Button id="newplaylist" bgcolor="var(--red)" icon={<FontAwesomeIcon icon="fa-solid fa-plus" />} content="Nova Playlist" onClick={CreatePlaylist}/>
+                    <Button type={"red"} id="newplaylist" icon={<FontAwesomeIcon icon="fa-solid fa-plus" />} content="Nova Playlist" onClick={CreatePlaylist}/>
                 ]}
             />
             <div className="page-body">
@@ -68,7 +68,7 @@ export const PlaylistList = ({controller}) => {
                     headers={['Nome', 'Descrição', ' ']}
                     items={getItems()}
                 />
-          </div>
+            </div>
         </div>
     );
 }

@@ -55,7 +55,7 @@ require_once __DIR__ . '/../../config/config.php';
               </div>
               <div class="stylisedbutton disps refresh">
                 <i class="fa-solid fa-arrows-rotate"></i>
-                <p>Refresh</p>
+                <p>Atualizar Mídia</p>
               </div>
             </div>
           </div>

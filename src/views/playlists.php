@@ -47,32 +47,32 @@ require_once __DIR__ . '/../../config/config.php';
                 </div>
               </div>
               <div class="linha" id="copy-playlist">
-                <div><input value="Plalist 1"></div>
-                <div><input value="Colocar quando tiver incêndio"></div>
+                <div>Plalist 1</div>
+                <div>Colocar quando tiver incêndio</div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
               <div class="linha">
-                <div><input value="Marketing"></div>
-                <div><input value="Colocar em ocasiões normais"></div>
+                <div>Marketing</div>
+                <div>Colocar em ocasiões normais</div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
               <div class="linha">
-                <div><input value="Anúncio"></div>
-                <div><input value="Colocar quando tiver visita"></div>
+                <div>Anúncio</div>
+                <div>Colocar quando tiver visita</div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
               <div class="linha">
-                <div><input value="Novidade do campus"></div>
-                <div><input value="Colocar quando tiver incêndio"></div>
+                <div>Novidade do campus</div>
+                <div>Colocar quando tiver incêndio</div>
                 <div class="end">
                   <i onclick="GoEditPlaylist()" class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>

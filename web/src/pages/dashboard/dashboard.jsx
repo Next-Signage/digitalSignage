@@ -67,7 +67,7 @@ export const Dashboard = () => {
                             content={[
                                 item.id,
                                 item.nome,
-                                <Badge text={item.status} type={item.status == 'online' ? 'success' : 'error'} />,
+                                <Badge text={item.status} type={item.status === 'online' ? 'success' : 'error'} />,
                                 item.playlist,
                                 item.ip,
                                 item.descricao,

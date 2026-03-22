@@ -1,8 +1,7 @@
-export const Button = ({id, icon, content, onClick, bgcolor}) => {
+export const Button = ({id, icon, content, onClick, type}) => {
     return (
         <button
-            style={{ "background-color":bgcolor }}
-            className="stylized-button"
+            className={`stylized-button button-${type}`}
             id={id}
             onClick={onClick}>
             {icon}{content}
