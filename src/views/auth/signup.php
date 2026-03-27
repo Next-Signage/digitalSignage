@@ -6,108 +6,107 @@ require_once __DIR__ . '/../../../config/config.php';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title class="projecttitle"></title>
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/css/responsive.css" />
-
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/signup.css" />
+    <title>Cadastro | Next Signage</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
-
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/auth.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/header.css" />
     <script src="<?= BASE_URL ?>/js/authheader.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", ()=>{
-        document.querySelectorAll(".systemlogo").forEach(element => {
-          element.src = "<?= BASE_URL ?>/images/others/logo.png";
-        });
-      })
-    </script>
   </head>
-  <body>
 
-    <main>
-      <div class="about-content">
-        <div class="content">
-          <img class="circular-image" src="<?= BASE_URL ?>/images/others/logo.png" />
-        </div>
-      </div>
+  <body
+    data-page="signup"
+    data-logo-src="<?= BASE_URL ?>/images/others/logo.png"
+    data-dashboard-url="<?= BASE_URL ?>/dashboard"
+  >
+    <main class="auth-page">
+      <section class="auth-layout">
+        <aside class="auth-panel auth-panel--brand" aria-hidden="true">
+          <div class="auth-brand">
+            <img
+              class="auth-brand__image"
+              src="<?= BASE_URL ?>/images/others/logo.png"
+              alt="Digital Signage"
+            />
+          </div>
+        </aside>
 
-      <div class="form-container">
-        <div class="content">
-          <h1>Bem-vindo</h1>
-          <h3>Cadastre-se agora para usar o sistema</h3>
-          <h3 class="onlyresponsive">
-            Já tem uma conta? <a href="login.php">Entrar</a>.
-          </h3>
-          <form id="formulario" method="GET" action="../dashboard.php">
-            <label>Nome de usuário</label><br />
-            <input type="text" name="name" required /><br />
-            <label>E-mail</label><br />
-            <input type="email" name="email" required /><br />
-            <div>
-              <div>
-                <label>Senha</label><br />
-                <input type="password" name="paswd" required /><br />
-              </div>
-              <div>
-                <label>Confirmar senha</label><br />
-                <input type="password" name="paswdconfirm" required /><br />
-              </div>
+        <section class="auth-panel auth-panel--form">
+          <div class="auth-card">
+            <div class="auth-card__logo auth-card__logo--mobile">
+              <img
+                class="auth-card__logo-image"
+                src="<?= BASE_URL ?>/images/others/logo.png"
+                alt="Digital Signage"
+              />
             </div>
-            <label>CPF</label><br />
-            <input type="text" id="cpf" name="cpf"
-                  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                  placeholder="000.000.000-00"
-                  title="Digite o CPF no formato 000.000.000-00"
-                  required>
-            <label>Data de Nascimento</label><br />
-            <input type="date" name="birthday" required /><br />
-            <input type="submit" value="Cadastrar" id="submitform" />
-            <h3>Já tem uma conta? <a href="login.php">Entrar</a></h3>
-          </form>
-        </div>
-      </div>
+
+            <header class="auth-card__header">
+              <h1 class="auth-card__title">Cadastre-se agora</h1>
+              <p class="auth-card__subtitle">Crie uma conta de gra&ccedil;a</p>
+              <p class="auth-switch auth-switch--mobile">
+                J&aacute; possui uma conta?
+                <a class="auth-switch__link" href="login.php">Entrar</a>.
+              </p>
+            </header>
+
+            <form
+              class="auth-form"
+              id="signupForm"
+              method="POST"
+              action="/mock-api/auth/signup"
+              data-endpoint="/mock-api/auth/signup"
+              data-after-submit="handleSignupAfterSubmit"
+            >
+              <div id="signup-step-one" data-signup-step="one" class="auth-card confirm-signup">
+                <div class="auth-form__field">
+                  <label class="auth-form__label" for="signup-email">E-mail</label>
+                  <input
+                    class="auth-form__input"
+                    id="signup-email"
+                    type="email"
+                    name="email"
+                    placeholder="Endereco de e-mail"
+                    required
+                  />
+                </div>
+
+                <div class="auth-form__field">
+                  <label class="auth-form__label" for="signup-password">Senha</label>
+                  <input
+                    class="auth-form__input"
+                    id="signup-password"
+                    type="password"
+                    name="paswd"
+                    placeholder="Senha"
+                    required
+                  />
+                </div>
+
+                <div class="auth-form__field">
+                  <label class="auth-form__label" for="signup-password-confirm">Confirmar Senha</label>
+                  <input
+                    class="auth-form__input"
+                    id="signup-password-confirm"
+                    placeholder="Confirme sua senha"
+                    required
+                  />
+                </div>
+
+                <button class="auth-form__submit" id="signup-next-step" type="button">Continuar</button>
+              </div>
+
+              <?php include 'confirm-signup.php'; ?>
+
+              <p class="auth-switch auth-switch--desktop">
+                J&aacute; possui uma conta?
+                <a class="auth-switch__link" href="login.php">Entrar</a>
+              </p>
+            </form>
+          </div>
+        </section>
+      </section>
     </main>
-    <div id="usermessage">
-        <h2>Cadastrado com sucesso!</h2>
-    </div>
-
-    <script>
-      // verificar se a senha é a mesma de verificar senha
-      document.getElementById("formulario").addEventListener("submit", (e) => {
-        if (
-          document.getElementsByName("paswd")[0].value !==
-          document.getElementsByName("paswdconfirm")[0].value
-        ) {
-          e.preventDefault();
-          alert("As senhas não coincidem!");
-          document.getElementsByName("paswd")[0].style.color = "red";
-          document.getElementsByName("paswdconfirm")[0].style.color = "red";
-
-          document
-            .getElementsByName("paswd")[0]
-            .parentElement.querySelector("label").style.color = "red";
-          document
-            .getElementsByName("paswdconfirm")[0]
-            .parentElement.querySelector("label").style.color = "red";
-        }
-      });
-
-      function setDefault() {
-        document.getElementsByName("paswd")[0].style.color = "black";
-        document.getElementsByName("paswdconfirm")[0].style.color = "black";
-        document
-          .getElementsByName("paswd")[0]
-          .parentElement.querySelector("label").style.color = "black";
-        document
-          .getElementsByName("paswdconfirm")[0]
-          .parentElement.querySelector("label").style.color = "black";
-      }
-      document
-        .getElementsByName("paswd")[0]
-        .addEventListener("input", setDefault);
-      document
-        .getElementsByName("paswdconfirm")[0]
-        .addEventListener("input", setDefault);
-    </script>
   </body>
+  <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
+  <script src="<?= BASE_URL ?>/js/pages/signup.js"></script>
 </html>

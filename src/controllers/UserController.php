@@ -75,7 +75,7 @@ class UserController {
      * Exibe a página principal do usuário (dashboard).
      */
     public function dashboard() {
-        require_once __DIR__ . '/../views/dashboard.php';
+        require_once __DIR__ . '/../views/dashboard/dashboard.php';
     }
 
     /**

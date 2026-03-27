@@ -1,4 +1,4 @@
-#usermessage {
+/* #usermessage {
     position: fixed;
     bottom: 0px;
     left: -50%;
@@ -22,7 +22,7 @@
         background-color: var(--background);
         font-size: 100%;
     }
-}
+} */
 @keyframes aparecer {
     0% {left: -50%}
     20% {left: 0%}

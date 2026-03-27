@@ -3,8 +3,8 @@
 * {
     font-family: "Ubuntu", sans-serif;
     font-weight: 500;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
@@ -18,23 +18,24 @@ body {
 
 .right-painel {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     background-color: var(--background1);
-    margin: 5px 5px 5px 0px;
+    margin: 5px 5px 5px 0;
     border-radius: 10px;
     justify-content: space-between;
+    border: none;
     .up {
         height: 92%;
         .information {
             display: flex;
-            flex: 1;
-            .left-info, .right-info {
-                display: flex;
-                flex: 1;
-            }
+            justify-content: space-between;
+            gap: 10px;
             .right-info .title {
                 margin: 10px;
                 display: flex;
                 flex: 1;
+                align-items: center;
                 input {
                     background-color: transparent;
                     font-size: 200%;
@@ -46,59 +47,65 @@ body {
                     text-overflow: ellipsis;
                 }
             }
-            .left-info {
-                justify-content: end;
-            }
             .stylisedbutton {
                 cursor: pointer;
                 background-color: var(--second);
                 margin: 10px;
                 border-radius: 10px;
                 color: white;
-                display: flex;
+                display: inline-flex;
                 align-items: center;
+                gap: 12px;
+                min-height: 48px;
+                min-width: 180px;
+                padding: 0 18px;
+                border: none;
+                text-decoration: none;
                 font-size: 90%;
+                transition: filter 0.15s ease;
                 * {
-                    margin: 10px 15px;
+                    margin: 0;
                 }
+                i {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                p {
+                    white-space: nowrap;
+                }
+            }
+            .stylisedbutton:hover {
+                filter: brightness(110%);
             }
             .disps {
                 cursor: default;
+                justify-content: flex-start;
                 span {
                     font-size: 120%;
+                    min-width: 24px;
+                    text-align: center;
                 }
             }
-            .justicon {
-                margin-inline: 10px;
-            }
-            .justicon i {
-                font-size: 90%;
-                * {
-                    font-size: 90%;
-                    font-weight: normal;
-                }
-            }
-            .onhover {
-                cursor: pointer;
-                justify-content: center;
-                .show {
-                    display: block;
-                    position: absolute;
-                    transform: translate(0,60%);
-                    opacity: 0;
-                    transition: transform 0.1s ease;
-                    scale: 0;
-                    flex: 1;
-                }
-            }
-            .onhover:hover .show {
-                opacity: 1;
-                scale: 1;
-                transform: translate(0,70%);
+            .disps:hover {
+                filter: none;
             }
             .refresh {
                 background-color: grey;
                 cursor: not-allowed;
+                opacity: 0.9;
+                transition: background-color 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+            }
+            .refresh:hover {
+                filter: none;
+            }
+            .refresh.pending-changes {
+                background-color: var(--second);
+                cursor: pointer;
+                opacity: 1;
+            }
+            .refresh.pending-changes:hover {
+                filter: brightness(110%);
             }
         }
         .main {
@@ -115,12 +122,22 @@ body {
             .table {
                 display: flex;
                 flex-direction: column;
+                min-height: 0;
+                .table-body {
+                    display: flex;
+                    flex-direction: column;
+                }
                 .linha-info, .linha {
                     font-size: 90%;
                     display: flex;
-                    i {cursor: pointer; scale: 1.2;}
+                    align-items: center;
+                    i {
+                        cursor: pointer;
+                        scale: 1.2;
+                    }
                     div {
                         display: flex;
+                        align-items: center;
                     }
                     > * {
                         flex: 1;
@@ -132,11 +149,6 @@ body {
                     .end {
                         justify-content: end;
                     }
-                    .end * {
-                        flex: 0;
-                        display: flex;
-                        justify-content: end;
-                    }
                     .center {
                         display: flex;
                         justify-content: center;
@@ -146,8 +158,9 @@ body {
                         }
                     }
                     .selectplaylist {
-                        padding-block: 5px;
-                        margin: 0px;
+                        width: 100%;
+                        padding: 8px 12px;
+                        margin: 0;
                         border: none;
                         border-radius: 10px;
                         background-color: transparent;
@@ -161,27 +174,30 @@ body {
                     background-color: var(--background2);
                     margin: 2.5px 5px;
                     border-radius: 10px;
-                    i {
-                        margin: 10px;
-                    }
-                    input {
+                    input,
+                    select {
                         border: none;
+                        background-color: transparent;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }
-                    .online, .offline {
-                        padding: 5px 20px;
+                    .status-badge,
+                    .status-label {
+                        align-items: center;
+                        justify-content: center;
+                        padding: 6px 16px;
                         font-weight: bolder;
                         color: white;
                         border-radius: 15px;
+                        text-align: center;
+                        min-width: 90px;
                     }
                     .online {
                         background-color: #3DA86A;
                     }
                     .offline {
                         background-color: var(--second);
-
                     }
                 }
                 .linha-info {
@@ -189,16 +205,18 @@ body {
                 }
                 #nomidia {
                     display: flex;
-                    height: 100%;
+                    min-height: 160px;
                     color: grey;
                     justify-content: center;
+                    align-items: center;
                 }
             }
         }
     }
     .bottom {
         display: flex;
-        justify-self: center;
+        justify-content: center;
+        align-items: center;
         button {
             border: none;
             background-color: transparent;
@@ -212,6 +230,87 @@ body {
     }
 }
 
+.playlist-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.inline-icon-form {
+    margin: 0;
+    display: flex;
+    flex: 0 0 auto;
+}
+
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit;
+    border-radius: 8px;
+}
+
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.success-icon {
+    color: #3DA86A;
+}
+
+.cancel-icon {
+    color: grey;
+}
+
+.media-row input[readonly] {
+    text-align: center;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.panel-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+}
+
+.panel-form .main {
+    min-height: 0;
+}
+
+.playlist-title-wrap {
+    flex: 0 1 560px !important;
+}
+
+.playlist-title-input {
+    max-width: 560px;
+}
+
+.mock-form-feedback {
+    width: calc(100% - 40px);
+    margin: 4px 20px 0;
+    font-size: 85%;
+    color: var(--second);
+}
+
+.mock-form-feedback.error {
+    color: #c44536;
+}
+
 #AddDispositivo {
     position: absolute;
     left: 0;
@@ -220,7 +319,6 @@ body {
     width: 100%;
     background-color: rgba(0,0,0,0.3);
     .blackscreen {
-        animation: aparecer 0.2s ease;
         position: absolute;
         background-color: var(--background1);
         display: flex;
@@ -230,13 +328,14 @@ body {
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
+        animation: Appear 0.2s;
         > * {
             margin: 10px;
             margin-inline: 80px;
         }
         h1 {
             margin-top: 15px;
-            margin-bottom: 0px;
+            margin-bottom: 0;
             width: 100%;
             font-size: 120%;
             display: flex;
@@ -260,9 +359,9 @@ body {
             border-radius: 5px;
             color: white;
             font-size: 90%;
-            margin-inline: 10px;
             flex: 1;
             cursor: pointer;
+            margin: 5px;
         }
         div {
             display: flex;
@@ -271,16 +370,10 @@ body {
             width: 90%;
         }
         #addDispForm {
-            margin-top: 0px;
+            margin-top: 0;
             display: flex;
             width: 100%;
             flex-direction: column;
-            p {
-                opacity: 0;
-                color: red;
-                font-size: 90%;
-                margin-block: 0px;
-            }
             label {
                 font-size: 90%;
             }
@@ -302,10 +395,16 @@ body {
                 gap: 10px;
                 input {
                     scale: 1.5;
+                    width: auto;
                 }
             }
         }
     }
+}
+
+@keyframes Appear {
+    0% { transform: translate(-50%, -40%); opacity: 0; }
+    100% { transform: translate(-50%, -50%); opacity: 1; }
 }
 
 #associarPlaylistMSG {
@@ -316,7 +415,7 @@ body {
     width: 100%;
     background-color: rgba(0,0,0,0.3);
     .blackscreen {
-        animation: aparecer 0.2s ease;
+        animation: Appear 0.2s;
         position: absolute;
         background-color: var(--background1);
         display: flex;
@@ -327,12 +426,27 @@ body {
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
-        >*{
-            margin: 15px;
+        > * {
+            margin: 5px;
             margin-inline: 20px;
         }
         p {
             font-size: 90%;
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 90%;
+        }
+        .association-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            > * {
+                margin: 5px;
+            }
         }
         .cancelar {
             background-color: grey;
@@ -341,32 +455,43 @@ body {
             background-color: var(--second);
         }
         button:hover {
-            background-color: var(--background1);
+            background-color: var(--background3);
         }
         button {
-            cursor: pointer;
             transition: 0.2s ease;
-            padding: 15px;
+            padding: 10px;
             padding-inline: 30px;
             border: none;
             border-radius: 5px;
             color: white;
             font-size: 90%;
             flex: 1;
+            cursor: pointer;
+            margin: 5px;
         }
         .dispositivos {
-            background-color: var(--background);
-            width: 95%;
+            display: flex;
+            flex-direction: column;
+            #associated-devices-body {
+                background-color: var(--background);
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+            }
             .linha2, .linha-info {
                 background-color: var(--background1);
-                margin: 5px;
                 padding-block: 10px;
                 display: flex;
+                width: 100%;
                 justify-content: space-evenly;
                 > div {
                     flex: 1;
                     display: flex;
                     justify-content: center;
+                    align-items: center;
                     input {
                         height: 20px;
                         width: 20px;
@@ -376,11 +501,12 @@ body {
                 }
             }
             .linha-info {
-                padding-block: 5px;
-            }
-            #copy-dispositivo {
-                display: none;
+                padding: 5px 10px;
             }
         }
     }
+}
+
+#idnumber {
+    cursor: default;
 }
