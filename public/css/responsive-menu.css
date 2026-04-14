@@ -1,0 +1,356 @@
+/* 
+ * Estilos responsivos para menu hambúrguer e layout responsivo
+ * Digital Signage - Menu Responsivo
+ */
+
+/* Menu Hamburguer */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1002;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { transform-origin: 0% 0%; }
+.hamburger span:nth-child(2) { transform-origin: 0% 50%; }
+.hamburger span:nth-child(3) { transform-origin: 0% 100%; }
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menu Lateral */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--background2);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 1001;
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.mobile-menu.open {
+    transform: translateX(300px);
+}
+
+/* Conteúdo principal com menu aberto */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Responsividade */
+@media (max-width: 1023px) {
+    /* Esconder menu lateral em telas pequenas */
+    .left-painel {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100%;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .left-painel.open {
+        transform: translateX(300px);
+    }
+    
+    /* Botão hamburguer visível apenas em mobile/tablet */
+    .hamburger {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+    }
+    
+    /* Ajuste do conteúdo principal quando menu está aberto */
+    .right-painel {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 320px) {
+    .mobile-menu {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .hamburger {
+        left: 10px;
+        top: 10px;
+    }
+}
+
+/* Animações do menu hamburguer */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Ajustes para acessibilidade */
+.hamburger:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: 2px;
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 320px) {
+    .mobile-menu {
+        width: 100%;
+    }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+    .mobile-menu {
+        width: 60%;
+    }
+}
+
+/* Ajustes para acessibilidade - alto contraste */
+@media (prefers-contrast: high) {
+    .hamburger span {
+        background: #000;
+    }
+}
+
+/* Ajustes para modo escuro */
+@media (prefers-color-scheme: dark) {
+    .hamburger span {
+        background: #fff;
+    }
+}
+
+/* Animações suaves para transições */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Ajustes para toque em dispositivos móveis */
+@media (hover: none) and (pointer: coarse) {
+    .hamburger {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .mobile-menu a,
+    .mobile-menu button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Ajustes para impressão */
+@media print {
+    .hamburger,
+    .mobile-menu,
+    .menu-overlay {
+        display: none !important;
+    }
+}
+
+/* Ajustes para telas muito largas */
+@media (min-width: 1920px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+/* Ajustes para acessibilidade - foco visível */
+.hamburger:focus-visible {
+    outline: 3px solid var(--primario);
+    outline-offset: 2px;
+}
+
+/* Ajustes para navegação por teclado */
+.hamburger:focus {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Suporte para navegadores antigos */
+@supports not (display: grid) {
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Ajustes para telas de toque */
+@media (hover: none) and (pointer: coarse) {
+    .hamburger {
+        padding: 10px;
+    }
+    
+    .hamburger span {
+        background: var(--dark);
+    }
+}
+
+/* Ajustes para modo de alto contraste do Windows */
+@media (forced-colors: active) {
+    .hamburger span {
+        background: ButtonText;
+    }
+}
+
+/* Ajustes para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Ajustes para navegação por teclado */
+.hamburger:focus-visible {
+    outline: 3px solid var(--primario);
+    outline-offset: 2px;
+}
+
+/* Ajustes para impressão */
+@media print {
+    .hamburger,
+    .mobile-menu,
+    .menu-overlay {
+        display: none !important;
+    }
+}
+
+/* Ajustes para telas de toque em dispositivos móveis */
+@media (hover: none) and (pointer: coarse) {
+    .hamburger {
+        padding: 15px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .hamburger span {
+        height: 4px;
+    }
+}
+
+/* Ajustes para modo de alto contraste */
+@media (prefers-contrast: high) {
+    .hamburger span {
+        background: ButtonText;
+    }
+}
+
+/* Ajustes para modo de economia de energia (prefers-reduced-motion) */
+@media (prefers-reduced-motion: reduce) {
+    .hamburger span,
+    .mobile-menu,
+    .menu-overlay {
+        transition: none;
+    }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+    .mobile-menu {
+        width: 50%;
+    }
+}
+
+/* Ajustes para telas muito pequenas (smartphones antigos) */
+@media (max-width: 320px) {
+    .hamburger {
+        left: 10px;
+        top: 10px;
+    }
+    
+    .mobile-menu {
+        width: 100%;
+    }
+}
+
+/* Ajustes para telas muito grandes */
+@media (min-width: 1920px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+/* Ajustes para modo de alto contraste do Windows */
+@media (forced-colors: active) {
+    .hamburger span {
+        background: ButtonText;
+    }
+}
+
+/* Ajustes para navegadores que não suportam gap no flexbox */
+@supports not (gap: 1px) {
+    .hamburger {
+        margin-right: 10px;
+    }
+}
+
+/* Ajustes para navegadores antigos */
+@supports not (display: grid) {
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Ajustes para impressão */
+@media print {
+    .hamburger,
+    .mobile-menu,
+    .menu-overlay {
+        display: none !important;
+    }
+}

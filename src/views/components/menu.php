@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../../config/config.php';
 ?>
-<div class="left-painel">
+<div class="left-painel" id="mainMenu">
 	<div class="mini-profilelogo">
 		<div>
 			<div>
@@ -42,7 +42,4 @@ require_once __DIR__ . '/../../../config/config.php';
 			</a>
 		</div>
 	</div>
-	<script>
-		
-	</script>
 </div>

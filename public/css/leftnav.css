@@ -9,6 +9,7 @@
 main {
     display: flex;
     height: 100%;
+    min-height: 100vh;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
 
 .systemlogo {
     height: 40px;
+    max-width: 100%;
 }
 
 .avatar {
@@ -28,16 +30,26 @@ body {
     padding: 6px 12px;
     font-size: 150%;
     border-radius: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .left-painel {
     border-radius: 10px;
     margin: 5px;
-    width: 17%;
+    width: 250px;
     min-width: 250px;
     background-color: var(--background2);
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    height: calc(100vh - 10px);
+    overflow-y: auto;
+    
     .botoes {
         flex: 1;
         margin-bottom: 15px;
@@ -127,4 +139,55 @@ body {
 
 img.svg-branco {
     filter: brightness(0) invert(1);
+}
+
+/* Responsividade para o menu lateral */
+@media (max-width: 1023px) {
+    .left-painel {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+    
+    .left-painel.open {
+        transform: translateX(300px);
+    }
+    
+    main {
+        flex-direction: column;
+    }
+}
+
+/* Ajustes para mobile muito pequeno */
+@media (max-width: 320px) {
+    .left-painel {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .left-painel.open {
+        transform: translateX(100%);
+    }
+}
+
+/* Ajustes para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .left-painel {
+        transition: none;
+    }
+}
+
+/* Suporte a toque */
+@media (hover: none) and (pointer: coarse) {
+    .botao, .avatar {
+        min-height: 44px;
+        min-width: 44px;
+    }
 }
