@@ -1,59 +1,31 @@
 <?php
 
-session_start();
+require_once(__DIR__ . "/../src/core/Router.php");
+require_once(__DIR__ . "/../src/core/Database.php");
 
-// Carrega os arquivos necessários (futuramente substituído por autoloading)
-require_once __DIR__ . '/../config/config.php';
-require_once __DIR__ . '/../src/core/Database.php';
-require_once __DIR__ . '/../src/controllers/AuthController.php';
-require_once __DIR__ . '/../src/controllers/UserController.php';
 
-$db = new Database();
-$pdo = $db->getConnection();
+require_once(__DIR__ . "/../src/controllers/AuthController.php");
+require_once(__DIR__ . "/../src/controllers/NavgationAdmController.php");
 
-// extração da rota
-$route = $_GET['route'] ?? ''; // pega a rota da query string de .htacess (ou deixa vazio)
-$route = trim($route, '/');
+echo "chegouuuu!!";
+$router = new Router();
+$router->get("/login",[AuthController::class,"login"]);
+$router->get("/exec",[AuthController::class,"exec"]);
+$router->get("/v2",[AuthController::class,"viewTeste2"]);
+$router->get("/v1",[AuthController::class,"viewTeste1"]);
+$router->get("/dashboard",[NavgationAdmController::class,"dashboard"]);
 
-if ($route === '') {
-    $route = 'login';
-}
 
-// pega o método HTTP
-$method = $_SERVER['REQUEST_METHOD'];
+$router->listAllRoutesGET();
 
-// e mapeia elas
-$routes = [
-    'GET' => [
-        'login' => ['AuthController', 'showLoginForm'],
-        'logout' => ['AuthController', 'logout'],
-        'signup' => ['UserController', 'showSignupForm'],
-        'dashboard' => ['UserController', 'dashboard'],
-        'verificar-email' => ['UserController', 'verifyEmailAjax'],
-        'verificar-cpf' => ['UserController', 'verifyCpfAjax'],
-    ],
-    'POST' => [
-        'login/authenticate' => ['AuthController', 'authenticate'],
-        'signup/register' => ['UserController', 'register'],
-    ]
-];
 
-// despacho
-if (isset($routes[$method][$route])) {
-    list($controllerName, $action) = $routes[$method][$route];
+//testando a conexão
+/*try{
+    $conectInst = new Database();
+    $conectInst->getConnection();
+    echo "boa";
+}catch( Exception){
+    echo"erro";
+}*/
 
-    // proteção
-    if ($route === 'dashboard') {
-        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-            header('Location: ' . BASE_URL . '/login');
-            exit;
-        }
-    }
-
-    $controller = new $controllerName($pdo); // entrega o $pdo para o controller
-    $controller->$action();
-
-} else {
-    http_response_code(404);
-    echo "<h1>Erro 404 - Página Não Encontrada</h1>";
-}
+$router->dispach();
