@@ -27,12 +27,12 @@ class Router {
     }
     
     public function dispach(){
-        echo "passando pelo dispach";
+       
         $type_request_method_post_get = $_SERVER["REQUEST_METHOD"];
         
         $uri = parse_url($_SERVER["REQUEST_URI"],PHP_URL_PATH);
-
-        $uri = str_replace("/public", "", $uri);
+        
+        $uri = strtolower(str_replace(BASE_URL, "", $uri));
 
         if ($uri === "") {
             $uri = "/";
@@ -47,7 +47,7 @@ class Router {
 
         }else if ($uri != "/"){
             
-            echo "404 - Rota não encontrada";
+            include __DIR__."/../src/views/auth/erro404.php";
         }
 
     }

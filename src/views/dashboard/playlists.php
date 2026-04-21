@@ -14,7 +14,9 @@ require_once __DIR__ . '/../../../config/config.php';
   </head>
   <body data-page="playlists" data-logo-src="<?= BASE_URL ?>/images/others/logo.png">
     <main>
-      <?php include '../components/menu.php'; ?>
+      <?php 
+       include  __DIR__.'/../components/menu.php';
+      ?>
       <div class="right-painel">
         <div class="up">
           <div class="information">
@@ -36,6 +38,7 @@ require_once __DIR__ . '/../../../config/config.php';
                 <div><p>Nome</p></div>
                 <div><p>Descri&ccedil;&atilde;o</p></div>
                 <div class="end invisible">
+                  <!-- OBS:  <a href="./playlist-config" class="fa-solid fa-gear"></i></a>-->
                   <i class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
