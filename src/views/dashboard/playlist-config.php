@@ -14,7 +14,9 @@ require_once __DIR__ . '/../../../config/config.php';
   </head>
   <body data-page="playlistconfig" data-logo-src="<?= BASE_URL ?>/images/others/logo.png">
     <main>
-      <?php include '../components/menu.php'; ?>
+      <?php 
+       include  __DIR__.'/../components/menu.php';
+      ?>
       <div class="right-painel">
         <div class="up">
           <form

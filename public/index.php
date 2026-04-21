@@ -9,14 +9,14 @@ require_once(__DIR__ . "/../src/controllers/NavgationAdmController.php");
 
 
 $router = new Router();
-
+// o nome a rota deve estar em minusculo
 $router->get("/login",[AuthController::class,"login"]);
 $router->get("/exec",[AuthController::class,"exec"]);
 $router->get("/v2",[AuthController::class,"viewTeste2"]);
 $router->get("/v1",[AuthController::class,"viewTeste1"]);
 $router->get("/dashboard",[NavgationAdmController::class,"dashboard"]);
 $router->get("/playlists",[NavgationAdmController::class,"playlists"]);
-$router->get("/playlistConfig",[NavgationAdmController::class,"playlistConfig"]);
+$router->get("/playlistconfig",[NavgationAdmController::class,"playlistConfig"]);
 
 //testando a conexão
 /*

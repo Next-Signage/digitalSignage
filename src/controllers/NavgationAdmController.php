@@ -32,6 +32,7 @@ class NavgationAdmController {
         include $caminho;
     }
     public function playlistConfig(){
+        
          $caminho = __DIR__ . "/../views/dashboard/playlist-config.php";
          $menu = __DIR__ . "/../views/components/menu.php";
     
