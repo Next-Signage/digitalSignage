@@ -2,7 +2,7 @@
     const pageData = window.PlaylistsPageData || { playlists: [] };
 
     function getPlaylistConfigPath() {
-        return "playlist-config.php";
+        return "playlistConfig";
     }
 
     function createCell() {
