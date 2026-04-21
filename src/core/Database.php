@@ -17,7 +17,10 @@ class Database {
 
         try {
             $this->pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+            
         } catch (\PDOException $e) {
+            
+
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }

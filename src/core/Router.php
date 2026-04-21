@@ -32,6 +32,7 @@ class Router {
         
         $uri = parse_url($_SERVER["REQUEST_URI"],PHP_URL_PATH);
         
+        
         $uri = strtolower(str_replace(BASE_URL, "", $uri));
 
         if ($uri === "") {
