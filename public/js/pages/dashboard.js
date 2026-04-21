@@ -213,7 +213,7 @@
             document.getElementById("addDispForm")?.reset();
         });
         newPlaylistButton?.addEventListener("click", () => {
-            window.location.href = "playlists.php";
+            window.location.href = "playlists";
         });
     }
 
