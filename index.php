@@ -1,3 +1,5 @@
 <?php
 require_once "config/config.php";
-header("Location:".BASE_URL."/");
+//Um atalho pra testar por enquanto
+$where = "dashboard";
+header("Location:".BASE_URL."/".$where);
