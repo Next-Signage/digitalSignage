@@ -6,6 +6,10 @@ require_once(__DIR__ . "/../src/core/Database.php");
 
 require_once(__DIR__ . "/../src/controllers/AuthController.php");
 require_once(__DIR__ . "/../src/controllers/NavgationAdmController.php");
+require_once(__DIR__ . "/../src/controllers/ContentController.php");
+
+var_dump($_POST);
+var_dump($_FILES);
 
 
 $router = new Router();
@@ -17,9 +21,12 @@ $router->get("/v1",[AuthController::class,"viewTeste1"]);
 $router->get("/dashboard",[NavgationAdmController::class,"dashboard"]);
 $router->get("/playlists",[NavgationAdmController::class,"playlists"]);
 $router->get("/playlistconfig",[NavgationAdmController::class,"playlistConfig"]);
+$router->post("/update",[ContentController::class,"update"]);
+
+echo $router->listAllRoutesPOST();
 
 //testando a conexão
-/*
+
 try{
     $conectInst = new Database();
     $conectInst->getConnection();
@@ -27,7 +34,7 @@ try{
 }catch( Exception){
     echo"erro";
 }
-*/
+
 $router->dispach();
 
 ?>

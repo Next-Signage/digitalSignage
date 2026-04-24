@@ -23,8 +23,9 @@ require_once __DIR__ . '/../../../config/config.php';
             id="playlistMainForm"
             class="panel-form"
             method="POST"
-            action="/mock-api/playlists/update"
-            data-endpoint="/mock-api/playlists/update"
+            action="/update"
+            data-endpoint="/update"
+            enctype="multipart/form-data"
             data-before-submit="preparePlaylistConfigSubmission"
             data-reload-after-submit="true"
           >
@@ -71,6 +72,10 @@ require_once __DIR__ . '/../../../config/config.php';
               </div>
             </div>
           </form>
+
+
+
+          
         </div>
         <div class="bottom">
           <button type="button"><</button>
@@ -86,7 +91,7 @@ require_once __DIR__ . '/../../../config/config.php';
           id="associarPlaylistForm"
           class="association-form"
           method="POST"
-          action="/mock-api/playlists/associate"
+          action="/associate"
           data-endpoint="/mock-api/playlists/associate"
           data-reload-after-submit="true"
         >
