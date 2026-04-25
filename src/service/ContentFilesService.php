@@ -79,19 +79,22 @@
         }
 
         
-    /*public function deleteContent(){
+    public function deleteFile($id){
+        if(!$id){
+            throw new Exception("ID não fornecido para exclusão.");
+        }
         $db = new Database();
         $pdo = $db->getConnection();
         $contentDao = new ContentDAO($pdo);
-        if(isset($_GET["deletar"])){
-            $id = intval($_GET["deletar"]);
-            $content = $contentDao->getById($id);
-            unlink($content->getUrl());
-            $contentDao->remove($id);
-
-
+        $content = $contentDao->getById($id);
+        if($content){
+            if (file_exists($content->getUrl())) {
+                unlink($content->getUrl());
+            }
+             $contentDao->remove($id);
         }
-    }*/
+        
+    }
         
     
 }

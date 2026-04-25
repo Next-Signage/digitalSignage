@@ -22,4 +22,17 @@ class ContentController {
         
 
     }
+    public function deleteContent(){
+        $json = file_get_contents('php://input');
+        $data = json_decode($json,true);
+
+        
+        /*$service =new  ContentFilesService();
+        $service->deleteFile($mediaFiles);*/
+        header('Content-Type: application/json');
+        echo json_encode(["status" => "success", "received" => $data]);
+        
+        
+
+    }
 }
