@@ -13,7 +13,7 @@
             $file = $_FILES["file"];
 
             foreach($file["name"] as $index => $arq){
-                if(pushFiles($file["name"][$index],$file["tmp_name"][$index],$file["size"][$index],$file["error"][$index])){
+                if(self::pushFiles($file["name"][$index],$file["tmp_name"][$index],$file["size"][$index],$file["error"][$index])){
 
                 }
             }
