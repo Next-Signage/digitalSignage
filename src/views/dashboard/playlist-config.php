@@ -23,11 +23,10 @@ require_once __DIR__ . '/../../../config/config.php';
             id="playlistMainForm"
             class="panel-form"
             method="POST"
-            action="/update"
-            data-endpoint="/update"
-            enctype="multipart/form-data"
+            action="update"
+            data-endpoint="update"
             data-before-submit="preparePlaylistConfigSubmission"
-            data-reload-after-submit="true"
+            data-reload-after-submit="false"
           >
             <div class="information">
               <div class="right-info">
