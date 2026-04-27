@@ -126,9 +126,9 @@
         form.className = "linha playlist-inline-form";
         form.id = "addPlaylistForm";
         form.method = "POST";
-        form.action = "/mock-api/playlists/create";
-        form.dataset.endpoint = "/mock-api/playlists/create";
-        form.dataset.reloadAfterSubmit = "true";
+        form.action = "createplaylist";
+        form.dataset.endpoint = "createplaylist";
+        form.dataset.reloadAfterSubmit = "false";
 
         const nameCell = createCell();
         const nameInput = document.createElement("input");

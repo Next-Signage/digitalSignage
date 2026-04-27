@@ -11,10 +11,16 @@ class PlayerDAO {
         $this->pdo = $pdo;
     }
     public function save(Player $Object) {
-        $sql = $this->pdo->prepare("INSERT INTO adm(name, ip) VALUES (:name, :ip)");
+        $sql = $this->pdo->prepare("INSERT INTO player(name,description,ip_adress,locale,status,playlist) VALUES (:name,:description,:ip_adress,:locale,:status,:playlist)");
         
         $sql->bindValue(':name', $Object->getName());
-        $sql->bindValue(':ip', $Object->getIp());
+        $sql->bindValue(':ip_adress', $Object->getIp());
+        $sql->bindValue(':locale', $Object->getLocal());
+        $sql->bindValue(':playlist', $Object->getPlaylist());
+        $sql->bindValue(':description', $Object->getDescription());
+        $sql->bindValue(':status', $Object->getStatus());
+
+
         $sql->execute();
         return $this->pdo->lastInsertId();
     }

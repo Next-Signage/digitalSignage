@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../service/ContentFilesService.php';
-class ContentController {
+require_once __DIR__ . '/../service/PlayerService.php';
+class PlayerController{
     
     private $pdo;
 
@@ -8,22 +8,20 @@ class ContentController {
      * O construtor recebe a conexão PDO via Injeção de Dependência.
      * Esta conexão será usada para criar os DAOs necessários.
      */
-    public function update(){
+    public function registerPlayer(){
         $json = file_get_contents('php://input');
+        $service = new PlayerService();
         $data = json_decode($json,true);
-        $playlistName = ['playlist_name'] ?? 'Sem nome';
-        $mediaFiles = $data['media_files'] ?? [];
-        
-        $service =new  ContentFilesService();
-        $service->rollPushFiles($mediaFiles);
-        header('Content-Type: application/json');
-        echo $service->listContents();
-        echo json_encode(["status" => "success", "received" => $playlistName]);
-        
+        $aux = $service->createPlayer($data);
+
         
 
+        header('Content-Type: application/json');
+        print_r($data);
+
+
     }
-    public function deleteContent(){
+    public function showAllPlayers(){
         $json = file_get_contents('php://input');
         $data = json_decode($json,true);
 

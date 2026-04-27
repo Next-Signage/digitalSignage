@@ -114,6 +114,10 @@ require_once __DIR__ . '/../../../config/config.php';
 
     <input type="file" style="display: none;" id="sendfile" accept=".png,.jpg,.jpeg,.mp4,.avif,.webp,.ico" multiple />
   </body>
+  <script>
+    // O PHP imprime o array do Service transformado em objeto JavaScript
+    window.PlaylistConfigPageData = <?= json_encode($playlistData, JSON_UNESCAPED_UNICODE) ?>;
+</script>
   <script src="<?= BASE_URL ?>/js/data/playlist-config-data.js"></script>
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/playlist-config.js"></script>

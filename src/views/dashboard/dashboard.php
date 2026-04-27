@@ -92,9 +92,9 @@ require_once __DIR__ . '/../../../config/config.php';
         <form
           id="addDispForm"
           method="POST"
-          action="/mock-api/dashboard/devices/create"
-          data-endpoint="/mock-api/dashboard/devices/create"
-          data-reload-after-submit="true"
+          action="registerplayer"
+          data-endpoint="registerplayer"
+          data-reload-after-submit="false"
         >
           <label for="device_name">Nome</label>
           <input id="device_name" type="text" maxlength="30" name="device_name" placeholder="Dispositivo..." required />
@@ -114,7 +114,12 @@ require_once __DIR__ . '/../../../config/config.php';
       </div>
     </div>
   </body>
-  <script src="<?= BASE_URL ?>/js/data/dashboard-data.js"></script>
+
+  <script>
+      window.DashboardPageData = <?= json_encode($pageData, JSON_UNESCAPED_UNICODE) ?>;
+    </script>
+  
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/dashboard.js"></script>
+  <script src="<?= BASE_URL ?>/js/data/dashboard-data.js"></script>
 </html>

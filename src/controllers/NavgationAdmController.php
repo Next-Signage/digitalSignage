@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../service/PlayerService.php';
 class NavgationAdmController {
     
     private $pdo;
@@ -11,13 +11,17 @@ class NavgationAdmController {
     public function dashboard(){
         
         $caminho = __DIR__ . "/../views/dashboard/dashboard.php";
-        $menu = __DIR__ . "/../views/components/menu.php";
+        $service = new PlayerService();
+        $pageData = $service->listAllPlayers();
+        
         // Teste de diagnóstico:
         if (!file_exists($caminho)) {
             die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
         
         include $caminho;
+        
+        
     }
     public function playlists(){
         

@@ -29,16 +29,5 @@
         public function setName($name){
             $this->name = $name;
         }
-        public function save(){
-
-        }
-        public function update(){
-
-        }
-        public function listAll(){
-
-        }
-        public function delete(){
-            
-        }
+        
     }

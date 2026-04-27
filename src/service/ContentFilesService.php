@@ -26,7 +26,32 @@
             return $results;
             
         }
-        
+        public static function listContents(){
+            try{
+                $db = new Database();
+                $pdo = $db->getConnection();
+                $contentDao = new ContentDAO($pdo);
+                $medias = $contentDao->listAll();
+                $pageData = [
+                "playlist_name" => "teste",
+                "associatedDevices" => "teste",
+                "mediaItems" => array_map(function($m) {
+                    return [
+                        "media_name" => $m['filename'],
+                        "media_description" => $m['description'],
+                        "media_added_at" => date('d/m/Y', strtotime($m['created_at'])),
+                        "media_duration" => $m['duration'], // Formato "mm:ss"
+                        "media_origin" => "existing",
+                        "media_token" => $m['token'],
+                        "media_source_name" => $m['original_name']
+                    ];
+                }, $medias)
+            ];
+            }catch (Exception $e){
+                return $e->getMessage();
+            }
+            
+        }
         public static function pushFiles($fileData){
             $name = $fileData['name'];
             $base64code = $fileData['base64'];

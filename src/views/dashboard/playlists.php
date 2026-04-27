@@ -38,7 +38,7 @@ require_once __DIR__ . '/../../../config/config.php';
                 <div><p>Nome</p></div>
                 <div><p>Descri&ccedil;&atilde;o</p></div>
                 <div class="end invisible">
-                  <!-- OBS:  <a href="./playlist-config" class="fa-solid fa-gear"></i></a>-->
+                  
                   <i class="fa-solid fa-gear"></i>
                   <i class="fa-solid fa-trash"></i>
                 </div>
@@ -55,6 +55,7 @@ require_once __DIR__ . '/../../../config/config.php';
       </div>
     </main>
   </body>
+<!--mover playlists-data bara baixo-->
   <script src="<?= BASE_URL ?>/js/data/playlists-data.js"></script>
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/playlists.js"></script>
