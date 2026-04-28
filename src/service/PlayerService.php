@@ -7,7 +7,12 @@
     require_once(__DIR__ . "/../models/Player.php");
 
     class PlayerService{
-        
+        public static function getStatusFromServer(){
+            //$status = 'OFFLINE';
+            $status = 'ONLINE';
+            return $status;
+
+        }
         public function createPlayer($playerArray){
 
             $name = $playerArray["device_name"];
@@ -15,7 +20,9 @@
             $local = $playerArray["device_location"];
             $playlist = $playerArray["device_playlist"];
             $description = $playerArray["device_description"];
-            $status = 'online';
+            
+            $status = self::getStatusFromServer();
+
             $player  = new Player($ip,$name,$local,$description,$playlist,$status);
             try{
                 $db = new Database();

@@ -116,9 +116,10 @@ require_once __DIR__ . '/../../../config/config.php';
   </body>
   <script>
     // O PHP imprime o array do Service transformado em objeto JavaScript
-    window.PlaylistConfigPageData = <?= json_encode($playlistData, JSON_UNESCAPED_UNICODE) ?>;
+    window.PlaylistConfigPageData = <?= json_encode($pageData, JSON_UNESCAPED_UNICODE) ?>;
 </script>
-  <script src="<?= BASE_URL ?>/js/data/playlist-config-data.js"></script>
+  
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/playlist-config.js"></script>
+  <script src="<?= BASE_URL ?>/js/data/playlist-config-data.js"></script>
 </html>

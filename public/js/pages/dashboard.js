@@ -42,7 +42,7 @@
 
     function createStatusBadge(status) {
         const badge = document.createElement("p");
-        const normalizedStatus = status === "online" ? "online" : "offline";
+        const normalizedStatus = status === "ONLINE" ? "online" : "offline";
 
         badge.className = `status-badge ${normalizedStatus}`;
         badge.textContent = normalizedStatus === "online" ? "Online" : "Offline";

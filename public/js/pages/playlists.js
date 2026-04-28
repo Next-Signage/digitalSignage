@@ -15,22 +15,22 @@
         paragrafo.textContent = value || "";
         return paragrafo;
     }
-
-    function createDeleteForm(playlistName) {
+//passando o ID como parametro
+    function createDeleteForm(playlistId,playlistName) {
         const form = document.createElement("form");
         form.className = "inline-icon-form";
         form.method = "POST";
-        form.action = "/mock-api/playlists/delete";
-        form.dataset.endpoint = "/mock-api/playlists/delete";
+        form.action = "deleteplaylist";
+        form.dataset.endpoint = "deleteplaylist";
         form.dataset.reloadAfterSubmit = "true";
         form.dataset.playlistDelete = "true";
         form.id = "deletePlaylist"
         form.dataset.playlistName = playlistName;
-
+        //passando o ID para manipulação
         const hiddenInput = document.createElement("input");
         hiddenInput.type = "hidden";
-        hiddenInput.name = "playlist_name";
-        hiddenInput.value = playlistName;
+        hiddenInput.name = "playlist_id";
+        hiddenInput.value = playlistId;
 
         const submitButton = document.createElement("button");
         submitButton.type = "submit";
@@ -45,6 +45,8 @@
     function createPlaylistRow(playlist) {
         const row = document.createElement("div");
         row.className = "linha";
+        // Guardamos o ID no dataset da linha para qualquer necessidade futura
+        row.dataset.playlistId = playlist.playlist_id; 
 
         const nameCell = createCell();
         nameCell.appendChild(createParagraph(playlist.playlist_name));
@@ -55,33 +57,34 @@
         const actionsCell = createCell();
         actionsCell.className = "end playlist-actions";
 
+        // BOTÃO EDITAR: Agora guarda o ID para a URL
         const editButton = document.createElement("button");
         editButton.type = "button";
         editButton.className = "icon-button";
         editButton.dataset.playlistEdit = "true";
-        editButton.dataset.playlistName = playlist.playlist_name;
-        editButton.setAttribute("aria-label", "Editar playlist");
+        editButton.dataset.playlistId = playlist.playlist_id; // <-- CRUCIAL
         editButton.innerHTML = '<i class="fa-solid fa-gear"></i>';
 
-        actionsCell.append(editButton, createDeleteForm(playlist.playlist_name));
+        // FORM EXCLUIR: Passamos ID e Nome
+        const deleteForm = createDeleteForm(playlist.playlist_id, playlist.playlist_name);
+
+        actionsCell.append(editButton, deleteForm);
         row.append(nameCell, descriptionCell, actionsCell);
         return row;
     }
 
     function bindEditButtons(scope) {
         scope.querySelectorAll("[data-playlist-edit]").forEach((button) => {
-            if (button.dataset.bound === "true") {
-                return;
-            }
+            if (button.dataset.bound === "true") return;
 
             button.dataset.bound = "true";
             button.addEventListener("click", () => {
-                const playlistName = button.dataset.playlistName || "";
-                const query = playlistName ? `?playlist=${encodeURIComponent(playlistName)}` : "";
-                window.location.href = `${getPlaylistConfigPath()}${query}`;
+                // Buscamos o ID que salvamos no dataset
+                const playlistId = button.dataset.playlistId; 
+                window.location.href = `playlistConfig?id=${playlistId}`;
             });
         });
-    }
+    }   
 
     function bindDeletePrompts(scope) {
         scope.querySelectorAll("form[data-playlist-delete='true']").forEach((form) => {

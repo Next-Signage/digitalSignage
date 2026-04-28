@@ -14,7 +14,7 @@
             $this->ip = $ip;
             $this->local = $local;
             $this->description = $description;
-            $this->$playlist = $playlist;
+            $this->playlist = $playlist;
             $this->status = $status;
 
 
@@ -38,7 +38,7 @@
             return $this->playlist;
         }
         public function getStatus(){
-            return $this->playlist;
+            return $this->status;
         }
 
         public function setName($name){

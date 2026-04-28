@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . "/../models/Playlist.php");
 
 class PlaylistDAO {
     
@@ -23,6 +24,26 @@ class PlaylistDAO {
         $sql = $this->pdo->query('SELECT * FROM playlist');
         $rows = $sql->fetchAll(PDO::FETCH_ASSOC);
         return $rows;
+    }
+    public function remove($id) {
+        $sql = $this->pdo->prepare('DELETE FROM playlist WHERE id = :id');
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
+        $sql->execute();
+        
+    }
+    public function getById($id){
+    
+        $sql = $this->pdo->prepare('SELECT * FROM playlist WHERE id = :id;');
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
+        $sql->execute();
+        
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
+        if($row){
+            
+            return new Playlist($row["name"],$row["description"]);
+        }
+            
+        return null;
     }
 
 }

@@ -2,6 +2,8 @@
 require_once __DIR__ . '/../service/PlayerService.php';
 require_once __DIR__ . '/../service/PlaylistService.php';
 
+
+
 class NavgationAdmController {
     
     private $pdo;
@@ -39,6 +41,25 @@ class NavgationAdmController {
         include $caminho;
     }
     public function playlistConfig(){
+        $id =  $_GET["id"];
+        try{
+                $db = new Database();
+                $pdo = $db->getConnection();
+                $service = new PlaylistDAO($pdo);
+                $playlist = $service->getById($id);
+                
+               
+
+                $pageData = [
+                    "playlist_name" => $playlist->getName(),
+                    "associatedDevices" => ["VAZIO POR ENQUANTO"],
+
+                    "mediaItems" => ["VAZIO POR ENQUANTO"]
+
+                ];
+            }catch(Exception $e){
+                throw new Exception("playlistConfig dao has error");
+            }
         
          $caminho = __DIR__ . "/../views/dashboard/playlist-config.php";
          $menu = __DIR__ . "/../views/components/menu.php";
@@ -48,6 +69,7 @@ class NavgationAdmController {
             die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
         include $caminho;
+        
     }
 
 

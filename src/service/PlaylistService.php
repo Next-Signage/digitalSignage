@@ -50,7 +50,20 @@
                 throw new Exception("player dao has error");
             }
         }
+        public function deletePlaylist($id){
+            try{
+                $db = new Database();
+                $pdo = $db->getConnection();
+                $playerDao = new PlaylistDao($pdo);
+                $playerDao->remove($id);
+                
+            }catch(Exception $e){
+                throw new Exception("playlist dao has error");
+            }
 
+        }
+        
+        
         
     
     

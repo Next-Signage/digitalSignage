@@ -121,10 +121,10 @@
         </p>
         
         <div class="button-group">
-            <button onclick="window.history.back()" class="btn btn-secondary">
+    <!--<button onclick="window.history.back()" class="btn btn-secondary">
                 Voltar
-            </button>
-            <a href="/digitalSignageBACK/public/" class="btn btn-primary">
+            </button>-->
+            <a href="/digitalSignage/" class="btn btn-primary">
                 Painel Principal
             </a>
         </div>

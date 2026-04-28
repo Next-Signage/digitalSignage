@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../service/PlaylistService.php';
-class PlaylistController{
+require_once __DIR__ . '/../service/PlaylistConfigService.php';
+class PlaylistConfigController{
     
     private $pdo;
 
@@ -29,7 +29,7 @@ class PlaylistController{
         
         $data = json_decode($json, true);
         $service = new PlaylistService();
-        $service->deletePlaylist($data["playlist_id"]);
+        //$service->deletePlaylist($data["playlist_id"]);
 
         header('Content-Type: application/json');
         

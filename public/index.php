@@ -31,6 +31,9 @@ $router->post("/update",[ContentController::class,"update"]);
 $router->post("/deletecontent",[ContentController::class,"deleteContent"]);
 $router->post("/registerplayer",[PlayerController::class,"registerPlayer"]);
 $router->post("/createplaylist",[PlaylistController::class,"createPlaylist"]);
+$router->post("/deleteplaylist",[PlaylistController::class,"deletePlaylist"]);
+
+
 
 
 //testando a conexão
