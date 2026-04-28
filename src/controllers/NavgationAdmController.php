@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../service/PlayerService.php';
+require_once __DIR__ . '/../service/PlaylistService.php';
+
 class NavgationAdmController {
     
     private $pdo;
@@ -27,7 +29,8 @@ class NavgationAdmController {
         
          $caminho = __DIR__ . "/../views/dashboard/playlists.php";
          $menu = __DIR__ . "/../views/components/menu.php";
-
+         $service = new PlaylistService();
+         $pageData = $service->listAllPlaylists();
     
         // Teste de diagnóstico:
         if (!file_exists($caminho)) {

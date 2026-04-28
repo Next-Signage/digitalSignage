@@ -15,7 +15,7 @@
             $this->local = $local;
             $this->description = $description;
             $this->$playlist = $playlist;
-            $this->$status = $status;
+            $this->status = $status;
 
 
         }

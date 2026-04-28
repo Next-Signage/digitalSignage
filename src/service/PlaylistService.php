@@ -1,37 +1,50 @@
 <?php
     require_once(__DIR__ . "/../../config/config.php");
     require_once(__DIR__ . "/../core/Database.php");
-    require_once(__DIR__ . "/../dao/PlayerDAO.php");
-    require_once(__DIR__ . "/../models/Player.php");
+    require_once(__DIR__ . "/../dao/PlaylistDAO.php");
+    require_once(__DIR__ . "/../models/Playlist.php");
 
     class PlaylistService{
         
-        public function createPlaylist($playerArray){
-            header('Content-Type: application/json');
-            echo "oiiiii" ;
-        }
-        public function listAllPlayers(){
+       public function createPlaylist($playlistrArray){
+
+            $name = $playlistrArray["playlist_name"];
+            $description = $playlistrArray["playlist_description"];
+            
+            $player  = new Playlist($name,$description);
             try{
                 $db = new Database();
                 $pdo = $db->getConnection();
-                $playerDao = new PlayerDAO($pdo);
-                $dispositivosRaw = $playerDao->listAll();
+                $playlistDao = new PlaylistDAO($pdo);
+                $playlistDao->save($player);
+            }catch(Exception $e){
+                throw new Exception("player dao has error");
+            }
+            
+            
+
+
+        }
+        public function listAllPlaylists(){
+            try{
+                $db = new Database();
+                $pdo = $db->getConnection();
+                $playerDao = new PlaylistDao($pdo);
+                $playlistRaw = $playerDao->listAll();
                 $devicesFormatted = array_map(function($disp) {
                 return [
-                    "device_id" => $disp['id'],
-                    "device_name" => $disp['name'],
+                    "playlist_id" => $disp['id'],
+                    "playlist_name" => $disp['name'],
+
+                    "playlist_description" => $disp['description']
                     // Você precisará de uma lógica para definir se está online/offline
                     // (ex: last_ping < 5 minutos)
-                    "device_status" => $disp['status'], 
-                    "device_playlist" => $disp['playlist_name'] ?? "", // Nome da playlist vinculada
-                    "device_ip" => $disp['ip_adress'],
-                    "device_description" => $disp['description']
                 ];
-            }, $dispositivosRaw);
+            }, $playlistRaw);
             $playlists = [];
             return  $pageData = [
-                        "playlistOptions" => $playlists,
-                        "devices" => $devicesFormatted
+                        
+                        "playlists" => $devicesFormatted
                     ];
             }catch(Exception $e){
                 throw new Exception("player dao has error");

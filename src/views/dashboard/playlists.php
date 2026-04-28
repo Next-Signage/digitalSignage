@@ -56,7 +56,10 @@ require_once __DIR__ . '/../../../config/config.php';
     </main>
   </body>
 <!--mover playlists-data bara baixo-->
-  <script src="<?= BASE_URL ?>/js/data/playlists-data.js"></script>
+  <script>
+    window.PlaylistsPageData = <?=json_encode($pageData,JSON_UNESCAPED_UNICODE) ?>
+  </script>
+
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/playlists.js"></script>
 </html>

@@ -128,7 +128,7 @@
         form.method = "POST";
         form.action = "createplaylist";
         form.dataset.endpoint = "createplaylist";
-        form.dataset.reloadAfterSubmit = "false";
+        form.dataset.reloadAfterSubmit = "true";
 
         const nameCell = createCell();
         const nameInput = document.createElement("input");

@@ -4,9 +4,11 @@
         private $content;
         private $player;
         private $name;
-        public function __construct($name,$content) {
+        private $description;
+
+        public function __construct($name,$description) {
             $this->name = $name;
-            $this->content= $content;
+            $this->description= $description;
         }
         public function getId(){
             return $this->id;
@@ -17,9 +19,15 @@
         public function getPlayer(){
             return $this->player;
         }
-        public function getNName(){
+        public function getName(){
             return $this->name;
         } 
+        public function getDescription(){
+            return $this->description;
+        } 
+        public function setDescription($description){
+            $this->description = $description;
+        }
         public function setContent($content){
             $this->content = $content;
         }

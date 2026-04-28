@@ -2,6 +2,8 @@
     require_once(__DIR__ . "/../../config/config.php");
     require_once(__DIR__ . "/../core/Database.php");
     require_once(__DIR__ . "/../dao/PlayerDAO.php");
+    require_once(__DIR__ . "/../dao/PlaylistDAO.php");
+
     require_once(__DIR__ . "/../models/Player.php");
 
     class PlayerService{
@@ -13,7 +15,7 @@
             $local = $playerArray["device_location"];
             $playlist = $playerArray["device_playlist"];
             $description = $playerArray["device_description"];
-            $status = "ONLINE";
+            $status = 'online';
             $player  = new Player($ip,$name,$local,$description,$playlist,$status);
             try{
                 $db = new Database();
@@ -23,17 +25,23 @@
             }catch(Exception $e){
                 throw new Exception("player dao has error");
             }
-            
-            
-
-
         }
         public function listAllPlayers(){
             try{
                 $db = new Database();
                 $pdo = $db->getConnection();
+
                 $playerDao = new PlayerDAO($pdo);
                 $dispositivosRaw = $playerDao->listAll();
+                $playlistDao= new  PlaylistDAO($pdo);
+                $playlists = $playlistDao->listAll();
+
+                $playlistsFormatted =[];
+                $i = 0;
+                foreach ($playlists as $key => $value) {
+                    $playlistsFormatted[$i] = [($value["name"])];
+                    $i++;
+                }
                 $devicesFormatted = array_map(function($disp) {
                 return [
                     "device_id" => $disp['id'],
@@ -46,9 +54,9 @@
                     "device_description" => $disp['description']
                 ];
             }, $dispositivosRaw);
-            $playlists = [];
+            
             return  $pageData = [
-                        "playlistOptions" => $playlists,
+                        "playlistOptions" => $playlistsFormatted,
                         "devices" => $devicesFormatted
                     ];
             }catch(Exception $e){

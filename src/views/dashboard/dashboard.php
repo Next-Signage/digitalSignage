@@ -94,7 +94,7 @@ require_once __DIR__ . '/../../../config/config.php';
           method="POST"
           action="registerplayer"
           data-endpoint="registerplayer"
-          data-reload-after-submit="false"
+          data-reload-after-submit="true"
         >
           <label for="device_name">Nome</label>
           <input id="device_name" type="text" maxlength="30" name="device_name" placeholder="Dispositivo..." required />
