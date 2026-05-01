@@ -25,6 +25,13 @@ class PlaylistDAO {
         $rows = $sql->fetchAll(PDO::FETCH_ASSOC);
         return $rows;
     }
+    public function listalAllPlaylistContents($id){
+        $sql = $this->pdo->prepare('SELECT * FROM content INNER JOIN playlist_content on content.id  = FK_content and :id = FK_playlist;');
+        $sql->bindValue(':id', $id, PDO::PARAM_INT);
+        $sql->execute();
+        $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $row;
+    }
     public function remove($id) {
         $sql = $this->pdo->prepare('DELETE FROM playlist WHERE id = :id');
         $sql->bindValue(':id', $id, PDO::PARAM_INT);

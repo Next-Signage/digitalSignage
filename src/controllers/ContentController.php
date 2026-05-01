@@ -9,15 +9,21 @@ class ContentController {
      * Esta conexão será usada para criar os DAOs necessários.
      */
     public function update(){
+        //teste
+        
+
         $json = file_get_contents('php://input');
         $data = json_decode($json,true);
+
+        
+        $id_playlist = $data['id_playlist'];
         $playlistName = ['playlist_name'] ?? 'Sem nome';
         $mediaFiles = $data['media_files'] ?? [];
         
         $service =new  ContentFilesService();
-        $service->rollPushFiles($mediaFiles);
+        $service->rollPushFiles($mediaFiles,$id_playlist);
         header('Content-Type: application/json');
-        echo $service->listContents();
+        //echo $service->listContents();
         echo json_encode(["status" => "success", "received" => $playlistName]);
         
         

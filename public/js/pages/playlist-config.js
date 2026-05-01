@@ -1,8 +1,11 @@
 (function () {
     const pageData = window.PlaylistConfigPageData || {
+        id_playlist:null,
         playlist_name: "",
         associatedDevices: [],
-        mediaItems: []
+        mediaItems: [],
+        updated_at:"",
+        duration:0
     };
     let initialPlaylistState = null;
     let uploadedMediaState = [];
@@ -33,7 +36,10 @@
         return {
             media_name: media.media_name || "",
             media_description: media.media_description || "",
-            media_duration: media.media_duration || "00:00",
+            // Corrigido para ler "duration" do PHP
+            duration: media.duration || "00:00", 
+            // Corrigido para ler "updated_at" do PHP
+            updated_at: media.updated_at || "", 
             media_origin: media.media_origin || "existing",
             media_token: media.media_token || "",
             media_source_name: media.media_source_name || ""
@@ -48,7 +54,7 @@
             mediaItems: mediaRows.map((row) => ({
                 media_name: row.querySelector("input[name='media_name[]']")?.value || "",
                 media_description: row.querySelector("input[name='media_description[]']")?.value || "",
-                media_duration: row.querySelector("input[name='media_duration[]']")?.value || "",
+                duration: row.querySelector("input[name='media_duration[]']")?.value || "",
                 media_origin: row.querySelector("input[name='media_origin[]']")?.value || "",
                 media_token: row.querySelector("input[name='media_token[]']")?.value || "",
                 media_source_name: row.querySelector("input[name='media_source_name[]']")?.value || ""
@@ -79,6 +85,7 @@
         row.innerHTML = `
           <div><input class="row-input" type="text" name="media_name[]" maxlength="50" required></div>
           <div><input class="row-input" type="text" name="media_description[]" maxlength="80"></div>
+          <!-- O name aqui foi mantido, mas a injeção de dados mudou abaixo -->
           <div class="center" name="media_added_at[]"></div>
           <div class="center">
             <input
@@ -104,11 +111,17 @@
 
         row.querySelector("input[name='media_name[]']").value = media.media_name || "";
         row.querySelector("input[name='media_description[]']").value = media.media_description || "";
-        row.querySelector("div[name='media_added_at[]']").value = media.media_added_at || getCurrentDateLabel();
-        row.querySelector("input[name='media_duration[]']").value = media.media_duration || "00:00";
+        
+        // CORREÇÃO 1: DIV usa textContent, não value. E mapeia para o media.updated_at do PHP
+        row.querySelector("div[name='media_added_at[]']").textContent = media.updated_at || getCurrentDateLabel();
+        
+        // CORREÇÃO 2: Mapeia a duração para o media.duration do PHP
+        row.querySelector("input[name='media_duration[]']").value = media.duration || "00:00";
+        
         row.querySelector("input[name='media_origin[]']").value = media.media_origin || "existing";
         row.querySelector("input[name='media_token[]']").value = media.media_token || "";
         row.querySelector("input[name='media_source_name[]']").value = media.media_source_name || "";
+        
         row.querySelector("button").addEventListener("click", () => {
             uploadedMediaState = uploadedMediaState.filter((item) => item.token !== row.dataset.mediaToken);
             row.remove();
@@ -185,8 +198,8 @@
                 mediaBody.appendChild(createMediaRow({
                     media_name: file.name,
                     media_description: "",
-                    media_added_at: getCurrentDateLabel(),
-                    media_duration: "00:00",
+                    updated_at: getCurrentDateLabel(), // Corrigido para updated_at
+                    duration: "00:00",                 // Corrigido para duration
                     media_origin: "new",
                     media_token: token,
                     media_source_name: file.name
@@ -248,6 +261,10 @@
 
         payload.media_files = await window.ViewForms.filesToBase64(orderedFiles);
         payload.media_count = mediaRows.length;
+        payload.id_playlist = pageData.id_playlist;
+        payload.updated_at = pageData.updated_at;
+        payload.duration = pageData.duration;
+
         return payload;
     };
 

@@ -11,11 +11,12 @@
         //valor / 1024 = valorkb
         //5mb = 5*1024kb*1024
 
-        public function rollPushFiles($mediaFiles){
+        public function rollPushFiles($mediaFiles,$playlist_id){
+            
             $results = [];
             foreach($mediaFiles as $fileData){
                 try{
-                    self::pushFiles($fileData);
+                    self::pushFiles($fileData,$playlist_id);
                     $results[] = ["status" => "sucess","file"=>$fileData['name']];
                 }catch(Exception $e){
                     $results[] = ["status" => "error","file" => $fileData['name'],
@@ -52,8 +53,9 @@
             }
             
         }
-        public static function pushFiles($fileData){
+        public static function pushFiles($fileData,$playlist_id){
             $name = $fileData['name'];
+            
             $base64code = $fileData['base64'];
             $extensoesPermitidas = ["jpg", "jpeg", "png"];
             $extension = strtolower(pathinfo($name, PATHINFO_EXTENSION));
@@ -85,15 +87,15 @@
             $url = $path . $arqName . "." . $extension;
 
             if (file_put_contents($url, $arquivoBinario)) {
-                $content = new Content($url, $arqName, $extension);
+                $content = new Content($url, $arqName, $extension,"TESTEx3");
                 try{
                     $db = new Database();
                     $pdo = $db->getConnection();
                     $contentDao = new ContentDAO($pdo);
-                    $contentDao->save($content);
+                    $contentDao->save($content,$playlist_id);
                     return true;
                 }catch(\PDOException $e){
-
+                    throw new PDOException("Algo de errado na hora de cadastrar as imagens do banco");
                 }
             }else{
                 throw new Exception("Falha ao mover o arquivo para a pasta uploads.");

@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../service/PlayerService.php';
+require_once __DIR__ . '/../dao/PlayerDAO.php';
+
 require_once __DIR__ . '/../service/PlaylistService.php';
 
 
@@ -47,19 +49,39 @@ class NavgationAdmController {
                 $pdo = $db->getConnection();
                 $service = new PlaylistDAO($pdo);
                 $playlist = $service->getById($id);
+                $playlist_contents = $service->listalAllPlaylistContents($id);
                 
-               
+                $service_player = new PlayerDAO($pdo);
+                $players = $service_player->listAll();
+                $mediaItems = array_map(function($item) {
+                        return [
+                            "media_name"        => $item['name'], // mude para o nome real da coluna
+                            "media_description" => $item['realName'] ?? "TESTE",
+                            "duration"    => $item['duration_seconds'] ?? "11:00",
+                            "updated_at"    => $item['dataUpload'] ?? date("d/m/Y"),
+                            "media_origin"      => "existing",
+                            "media_token"       => "db-" . $item['id'], // um token único baseado no ID
+                            "media_source_name" => $item['url'] 
+                        ];
+                }, $playlist_contents);
+                
+                $playersId_Elem= [];
+                foreach($players as $key => $subElem){
+                    $playersId_Elem[$key] = [$subElem["name"]];
+                }
 
                 $pageData = [
+                    "id_playlist"=>$id,
                     "playlist_name" => $playlist->getName(),
-                    "associatedDevices" => ["VAZIO POR ENQUANTO"],
+                    "associatedDevices" => $playersId_Elem,
 
-                    "mediaItems" => ["VAZIO POR ENQUANTO"]
+                    "mediaItems" => $mediaItems
 
                 ];
-            }catch(Exception $e){
-                throw new Exception("playlistConfig dao has error");
+            }catch(PDOException $e){
+                throw new Exception($e->getMessage());
             }
+
         
          $caminho = __DIR__ . "/../views/dashboard/playlist-config.php";
          $menu = __DIR__ . "/../views/components/menu.php";
