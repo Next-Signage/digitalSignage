@@ -110,16 +110,26 @@
         if(!$id){
             throw new Exception("ID não fornecido para exclusão.");
         }
-        $db = new Database();
-        $pdo = $db->getConnection();
-        $contentDao = new ContentDAO($pdo);
-        $content = $contentDao->getById($id);
-        if($content){
-            if (file_exists($content->getUrl())) {
-                unlink($content->getUrl());
+        try{
+            $db = new Database();
+            $pdo = $db->getConnection();
+            $contentDao = new ContentDAO($pdo);
+            $content = $contentDao->getById($id);
+            // NO LINUX: sudo chmod -R 777 /opt/lampp/htdocs/digitalSignage/public/uploads/  # Ajuste para o seu caminho real
+            print_r($content);
+            if($content){
+                if (file_exists($content->getUrl())) {
+                    unlink($content->getUrl());
+                }else{
+                echo "Caminho inexistente!!";
+                }
+                $contentDao->remove($id);
             }
-             $contentDao->remove($id);
+        }catch (PDOException){
+            throw new Exception("Algo deu erro ao deletar!");
         }
+        
+        
         
     }
         

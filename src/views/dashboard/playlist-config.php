@@ -26,7 +26,7 @@ require_once __DIR__ . '/../../../config/config.php';
             action="update"
             data-endpoint="update"
             data-before-submit="preparePlaylistConfigSubmission"
-            data-reload-after-submit="false"
+            data-reload-after-submit="true"
           >
             <div class="information">
               <div class="right-info">

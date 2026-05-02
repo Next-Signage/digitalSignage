@@ -43,7 +43,7 @@ require_once __DIR__ . '/../../../config/config.php';
               </p>
               <p class="auth-switch auth-switch--mobile">
                 Não tem uma conta?
-                <a class="auth-switch__link" href="signup.php">Cadastrar</a>.
+                <a class="auth-switch__link" href="signup">Cadastrar</a>.
               </p>
             </header>
 
@@ -83,7 +83,7 @@ require_once __DIR__ . '/../../../config/config.php';
 
               <p class="auth-switch auth-switch--desktop">
                 Não tem uma conta?
-                <a class="auth-switch__link" href="signup.php">Cadastrar</a>
+                <a class="auth-switch__link" href="signup">Cadastrar</a>
               </p>
             </form>
           </div>

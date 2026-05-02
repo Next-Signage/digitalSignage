@@ -99,7 +99,7 @@ require_once __DIR__ . '/../../../config/config.php';
 
               <p class="auth-switch auth-switch--desktop">
                 J&aacute; possui uma conta?
-                <a class="auth-switch__link" href="login.php">Entrar</a>
+                <a class="auth-switch__link" href="login">Entrar</a>
               </p>
             </form>
           </div>

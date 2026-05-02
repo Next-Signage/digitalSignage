@@ -18,16 +18,19 @@ $router = new Router();
 
 // o nome a rota deve estar em minusculo
 
+//get method
+
 $router->get("/login",[AuthController::class,"login"]);
-$router->get("/exec",[AuthController::class,"exec"]);
+$router->get("/signup",[AuthController::class,"signup"]);
 $router->get("/v2",[AuthController::class,"viewTeste2"]);
 $router->get("/v1",[AuthController::class,"viewTeste1"]);
 $router->get("/dashboard",[NavgationAdmController::class,"dashboard"]);
 $router->get("/playlists",[NavgationAdmController::class,"playlists"]);
 $router->get("/playlistconfig",[NavgationAdmController::class,"playlistConfig"]);
 
+
+//post method 
 $router->post("/update",[ContentController::class,"update"]);
-//registerPlayer
 $router->post("/deletecontent",[ContentController::class,"deleteContent"]);
 $router->post("/registerplayer",[PlayerController::class,"registerPlayer"]);
 $router->post("/createplaylist",[PlaylistController::class,"createPlaylist"]);
@@ -42,7 +45,7 @@ try{
     $conectInst = new Database();
     $conectInst->getConnection();
 }catch( Exception){
-    throw new Exception("Algo deu errado!");
+    throw new Exception("Algo deu errado! -  Conexão com o banco NÃO estabelecida");
 }
 
 $router->dispach();

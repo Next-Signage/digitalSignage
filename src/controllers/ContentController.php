@@ -30,13 +30,14 @@ class ContentController {
 
     }
     public function deleteContent(){
+        header('Content-Type: application/json');
         $json = file_get_contents('php://input');
         $data = json_decode($json,true);
 
+        $id = (int)preg_replace('/[^0-9]/', '', $data["id"]);
+        $service =new  ContentFilesService();
+        $service->deleteFile($id);
         
-        /*$service =new  ContentFilesService();
-        $service->deleteFile($mediaFiles);*/
-        header('Content-Type: application/json');
         echo json_encode(["status" => "success", "received" => $data]);
         
         

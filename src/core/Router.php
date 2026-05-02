@@ -35,7 +35,7 @@ class Router {
         
         $uri = strtolower(str_replace(BASE_URL, "", $uri));
 
-        
+        echo $uri;
         if ($uri === "") {
             $uri = "/";
             echo "pagina incicial";

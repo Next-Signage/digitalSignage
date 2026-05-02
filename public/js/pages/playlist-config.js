@@ -33,7 +33,11 @@
     }
 
     function normalizeMediaItem(media) {
+        console.log(media.media_token);
+        
+
         return {
+            id: media.id || media.id_media || media.media_token||null, // Certifique-se de pegar o ID do PHP aqui
             media_name: media.media_name || "",
             media_description: media.media_description || "",
             // Corrigido para ler "duration" do PHP
@@ -122,12 +126,40 @@
         row.querySelector("input[name='media_token[]']").value = media.media_token || "";
         row.querySelector("input[name='media_source_name[]']").value = media.media_source_name || "";
         
-        row.querySelector("button").addEventListener("click", () => {
-            uploadedMediaState = uploadedMediaState.filter((item) => item.token !== row.dataset.mediaToken);
-            row.remove();
-            toggleEmptyMediaState();
-            updatePlaylistSubmitButtonState();
-        });
+        row.querySelector("button").addEventListener("click", async () => {
+        // Verifica se a mídia já existe no banco de dados e se possui um ID
+        // (Ajuste "media.id" para o nome exato da propriedade de ID que vem do seu PHP)
+        if (media.media_origin === "existing" && media.media_token) {
+            try {
+                // Exemplo de requisição DELETE via Fetch API
+                // Substitua '/sua-rota-de-delete' pela URL correta da sua API
+                const response = await fetch(`deletecontent`, {
+                    method: 'POST', // ou 'POST' dependendo de como sua API foi construída
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                    id: media.media_token 
+                })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Falha ao deletar a mídia no servidor.');
+                }
+                // Se chegou aqui, deletou com sucesso no backend
+            } catch (error) {
+                console.error(error);
+                alert('Erro ao tentar remover a mídia. Tente novamente.');
+                return; // Interrompe a execução para não remover da tela se a requisição falhar
+            }
+        }
+
+        // Comportamento padrão: remove a mídia do estado local e da tela
+        uploadedMediaState = uploadedMediaState.filter((item) => item.token !== row.dataset.mediaToken);
+        row.remove();
+        toggleEmptyMediaState();
+        updatePlaylistSubmitButtonState();
+    });
 
         return row;
     }
