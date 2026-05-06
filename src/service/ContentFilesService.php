@@ -120,6 +120,7 @@
             if($content){
                 if (file_exists($content->getUrl())) {
                     unlink($content->getUrl());
+
                 }else{
                 echo "Caminho inexistente!!";
                 }

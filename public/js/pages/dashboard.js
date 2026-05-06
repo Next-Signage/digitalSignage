@@ -218,8 +218,47 @@
     }
 
     window.prepareDashboardUpdateSubmission = function prepareDashboardUpdateSubmission({ payload }) {
-        payload.changed_devices = getChangedDevices();
-        return payload;
+        document.getElementById("dashboardUpdateForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Evita o reload da página
+
+    // Usa a sua função que já prepara os dados (incluindo os IDs)
+    let payload = {};
+    if (typeof window.prepareDashboardUpdateSubmission === "function") {
+        payload = window.prepareDashboardUpdateSubmission({ payload });
+    }
+
+    // Se não houver alterações, não faz a requisição
+    if (!payload.changed_devices || payload.changed_devices.length === 0) {
+        console.log("Nenhuma alteração detectada.");
+        return;
+    }
+
+    try {
+        // Envia os dados para a rota definida no action do form
+        const response = await fetch(this.action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Avisa o PHP que está chegando um JSON
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload) // Converte o objeto JS com os arrays para string JSON
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            // Sucesso! Você pode disparar um alerta ou atualizar a tabela
+            console.log("Sucesso:", result);
+            window.location.reload(); // Recarrega para limpar o estado dos botões
+        } else {
+            console.error("Erro do servidor:", result);
+            alert("Erro ao atualizar dispositivos.");
+        }
+
+    } catch (error) {
+        console.error("Erro na requisição AJAX:", error);
+    }
+});
     };
 
     document.addEventListener("DOMContentLoaded", () => {

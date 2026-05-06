@@ -7,6 +7,22 @@
     require_once(__DIR__ . "/../models/Player.php");
 
     class PlayerService{
+        public function updateDataPlayer($dados){
+            if (isset($dados['changed_devices']) && is_array($dados['changed_devices'])) {
+                try{
+                 $db = new Database();
+                 $pdo = $db->getConnection();
+                 $playerDao = new PlayerDAO($pdo);
+                 $playerDao->update($dados);
+                }catch(Exception $e){
+                    throw new Exception("player dao has error");
+                }
+            } else {
+                // Retorna erro se o payload estiver vazio
+                http_response_code(400);
+                echo json_encode(["status" => "error", "message" => "Nenhum dado de dispositivo recebido."]);
+            }
+        }
         public static function getStatusFromServer(){
             //$status = 'OFFLINE';
             $status = 'ONLINE';
@@ -20,6 +36,7 @@
             $local = $playerArray["device_location"];
             $playlist = $playerArray["device_playlist"];
             $description = $playerArray["device_description"];
+            
             
             $status = self::getStatusFromServer();
 

@@ -2,12 +2,6 @@
 require_once __DIR__ . '/../service/PlaylistService.php';
 class PlaylistController{
     
-    private $pdo;
-
-    /**
-     * O construtor recebe a conexão PDO via Injeção de Dependência.
-     * Esta conexão será usada para criar os DAOs necessários.
-     */
     public function createPlaylist(){
         
         $json = file_get_contents('php://input');
@@ -32,8 +26,22 @@ class PlaylistController{
         $service->deletePlaylist($data["playlist_id"]);
 
         header('Content-Type: application/json');
+        print_r($data);
+
+
+    }
+    public function associate(){
         
-        print_r($data["playlist_id"]);
+        $json = file_get_contents('php://input');
+        echo "oi";
+        $data = json_decode($json, true);
+        print_r($data);
+        $service = new PlaylistService();
+        $service->playlistAssoc($data["id_playlist"],$data["device_ids"]);
+
+        header('Content-Type: application/json');
+        
+        print_r($data["device_ids"]);
 
 
     }

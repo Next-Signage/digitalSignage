@@ -33,7 +33,12 @@ $router->get("/playlistconfig",[NavgationAdmController::class,"playlistConfig"])
 $router->post("/update",[ContentController::class,"update"]);
 $router->post("/deletecontent",[ContentController::class,"deleteContent"]);
 $router->post("/registerplayer",[PlayerController::class,"registerPlayer"]);
+
+$router->post("/updateplayer",[PlayerController::class,"updatePlayer"]);
+$router->post("/associate",[PlaylistController::class,"associate"]);
+
 $router->post("/createplaylist",[PlaylistController::class,"createPlaylist"]);
+
 $router->post("/deleteplaylist",[PlaylistController::class,"deletePlaylist"]);
 
 

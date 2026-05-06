@@ -186,20 +186,78 @@
         }
 
         container.innerHTML = "";
+        //console.log(pageData.associatedDevices[0].id);
+
         pageData.associatedDevices.forEach((deviceName) => {
             const row = document.createElement("div");
             row.className = "linha2";
             row.innerHTML = `
               <div><p></p></div>
-              <div><input type="checkbox" name="associated_devices[]" value=""></div>
-            `;
+              <div><input type="checkbox" id="btnSalvarAssociacao" name="associated_devices[]" value=""></div>`;
 
-            row.querySelector("p").textContent = deviceName;
-            row.querySelector("input").value = deviceName;
+            row.querySelector("p").textContent = deviceName.name;
+            row.querySelector("input").value = deviceName.id;
+            
             container.appendChild(row);
         });
-    }
 
+        
+    }
+function bindSubmitAssociation() {
+        // Substitua "confirmAssociate" pelo ID real do seu botão de confirmar/salvar no HTML
+        const submitButton = document.getElementById("confirmAssociate"); 
+        
+        if (submitButton) {
+            submitButton.addEventListener("click", (event) => {
+                event.preventDefault(); // Evita recarregar a página se estiver dentro de um <form>
+                sendAssociatedDevices();
+            });
+        }
+    }
+async function sendAssociatedDevices() {
+    const selectedCheckboxes = document.querySelectorAll('input[name="associated_devices[]"]:checked');
+    const selectedIds = Array.from(selectedCheckboxes).map(cb => cb.value);
+
+    // 1. ADICIONADO O ID DA PLAYLIST AQUI
+    const payload = {
+        id_playlist: pageData.id_playlist, 
+        device_ids: selectedIds 
+    };
+
+    try {
+        const response = await fetch('associate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+
+        // 2. LÊ A RESPOSTA COMO TEXTO PRIMEIRO PARA PODER DEBUGAR
+        const textResponse = await response.text(); 
+
+        if (!response.ok) {
+            console.error("Erro HTTP do servidor:", response.status);
+            console.error("Corpo da resposta do erro:", textResponse);
+            throw new Error(`Erro no servidor: ${response.status}`);
+        }
+
+        // 3. TENTA TRANSFORMAR O TEXTO EM JSON
+        try {
+            const result = JSON.parse(textResponse);
+            console.log("Sucesso:", result);
+            console.log("Associação realizada com sucesso!");
+        } catch (parseError) {
+            // Se cair aqui, é porque o servidor não respondeu com JSON.
+            console.error("O servidor NÃO retornou um JSON válido. Veja o que ele retornou:");
+            console.error(textResponse); // Isso vai imprimir o erro exato do PHP no console!
+            console.log("Erro: O servidor retornou um formato inválido. Verifique o console.");
+        }
+
+    } catch (error) {
+        console.error("Erro ao tentar fazer a requisição:", error);
+    }
+}
     function bindSelectAllDevices() {
         const selectAll = document.querySelector("[data-select-all-devices]");
 
@@ -296,7 +354,7 @@
         payload.id_playlist = pageData.id_playlist;
         payload.updated_at = pageData.updated_at;
         payload.duration = pageData.duration;
-
+        
         return payload;
     };
 
@@ -318,5 +376,6 @@
         bindMediaUpload();
         bindAssociationModal();
         bindPlaylistStateTracking();
+        bindSubmitAssociation();
     });
 })();

@@ -24,6 +24,21 @@ class PlayerDAO {
         $sql->execute();
         return $this->pdo->lastInsertId();
     }
+    public function update(Player $Object) {
+        $sql = $this->pdo->prepare("UPDATE  player SET name = :name, description = :description, ip_adress = :ip_adress, locale = :locale, status = :status, playlist = :playlist WHERE = player.id = :ip;");
+        
+        $sql->bindValue(':name', $Object->getName());
+        $sql->bindValue(':ip_adress', $Object->getIp());
+        $sql->bindValue(':locale', $Object->getLocal());
+        $sql->bindValue(':playlist', $Object->getPlaylist());
+        $sql->bindValue(':description', $Object->getDescription());
+        $sql->bindValue(':status', $Object->getStatus());
+        $sql->bindValue(':ip', $Object->getId());
+
+
+        $sql->execute();
+        return $this->pdo->lastInsertId();
+    }
     public function remove($id) {
         $sql = $this->pdo->prepare('DELETE FROM player WHERE id = :id');
         $sql->bindValue(':id', $id, PDO::PARAM_INT);

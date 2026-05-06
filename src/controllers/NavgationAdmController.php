@@ -8,19 +8,12 @@ require_once __DIR__ . '/../service/PlaylistService.php';
 
 class NavgationAdmController {
     
-    private $pdo;
-
-    /**
-     * O construtor recebe a conexão PDO via Injeção de Dependência.
-     * Esta conexão será usada para criar os DAOs necessários.
-     */
     public function dashboard(){
         
         $caminho = __DIR__ . "/../views/dashboard/dashboard.php";
         $service = new PlayerService();
         $pageData = $service->listAllPlayers();
         
-        // Teste de diagnóstico:
         if (!file_exists($caminho)) {
             die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
@@ -36,7 +29,6 @@ class NavgationAdmController {
          $service = new PlaylistService();
          $pageData = $service->listAllPlaylists();
     
-        // Teste de diagnóstico:
         if (!file_exists($caminho)) {
             die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
@@ -67,7 +59,7 @@ class NavgationAdmController {
                 
                 $playersId_Elem= [];
                 foreach($players as $key => $subElem){
-                    $playersId_Elem[$key] = [$subElem["name"]];
+                    $playersId_Elem[$key] = ["name"=>$subElem["name"],"id"=>$subElem["id"]];
                 }
 
                 $pageData = [
