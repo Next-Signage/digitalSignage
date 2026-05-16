@@ -10,7 +10,6 @@ require_once __DIR__ . '/../../../config/config.php';
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/variaveis.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/leftnav.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/dashboardstyle.css" />
-    <script src="<?= BASE_URL ?>/js/menu.js"></script>
   </head>
   <body data-page="playlistconfig" data-logo-src="<?= BASE_URL ?>/images/others/logo.png">
     <main>

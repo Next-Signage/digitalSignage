@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../../config/config.php';
 ?>
+<script src="<?= BASE_URL ?>/js/menu.js"></script>
 <div class="left-painel">
 	<div class="mini-profilelogo">
 		<div>
@@ -14,11 +15,11 @@ require_once __DIR__ . '/../../../config/config.php';
 	<div class="botoes">
 		<div class="cima">
 <!--referencia dos componentes da dashbord e outras telas--->
-			<a class="botao" href="./dashboard">
+			<a class="botao conections-menu-button" href="./dashboard">
 				<i class="fa-solid fa-plug"></i>
 				<p>Conexões</p>
 			</a>
-			<a class="botao" href="./playlists">
+			<a class="botao playlists-menu-button" href="./playlists">
 				<i class="fa-solid fa-list"></i>
 				<p>Playlists</p>
 			</a>
