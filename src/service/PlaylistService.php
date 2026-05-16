@@ -62,7 +62,19 @@
             }
 
         }
-        
+        public function playlistAssoc($id_playlist, $ids_players){
+            try{
+                $db = new Database();
+                $pdo = $db->getConnection();
+                $playerDao = new PlaylistDao($pdo);
+                $playerDao->savePlayerPlaylist($id_playlist,$ids_players);
+                
+            }catch(Exception $e){
+                echo "não foi";
+                throw new Exception("playlist dao has error");
+            }
+
+        }
         
         
     

@@ -35,6 +35,7 @@ class Router {
         
         $uri = strtolower(str_replace(BASE_URL, "", $uri));
 
+        
         if ($uri === "") {
             $uri = "/";
         }

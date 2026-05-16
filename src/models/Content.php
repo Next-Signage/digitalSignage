@@ -6,15 +6,22 @@
         private $fileType;
         private $realName;
         private $dataUpload;
+        private $description;
+
         public function __construct($url,$name,$fileType,$realName) {
             $this->url = $url;
             $this->name = $name;
             $this->fileType = $fileType;
             $this->realName = $realName;
+            $this->description = "";
+
             
         }
         public function getId(){
             return $this->id;
+        }
+        public function getDescription(){
+            return $this->description;
         }
         public function getRealName(){
             return $this->realName;
@@ -42,6 +49,9 @@
         }
         public function setRealName($realName){
             $this->realName = $realName;
+        }
+        public function setDescription($description){
+            $this->description = $description;
         }
         public function setDateUpload($dataUpload){
             $this->dataUpload = $dataUpload;

@@ -121,6 +121,11 @@
         </p>
         
         <div class="button-group">
+            <?php
+            var_dump($_GET);
+            var_dump($_POST);
+
+            ?>
     <!--<button onclick="window.history.back()" class="btn btn-secondary">
                 Voltar
             </button>-->

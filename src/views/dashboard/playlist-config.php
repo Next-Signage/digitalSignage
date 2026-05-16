@@ -89,8 +89,8 @@ require_once __DIR__ . '/../../../config/config.php';
           id="associarPlaylistForm"
           class="association-form"
           method="POST"
-          action="/associate"
-          data-endpoint="/mock-api/playlists/associate"
+          action="associate"
+          data-endpoint="associate"
           data-reload-after-submit="true"
         >
           <h2>Associe essa playlist aos seus dispositivos</h2>
@@ -105,7 +105,7 @@ require_once __DIR__ . '/../../../config/config.php';
           </div>
           <div>
             <button type="button" class="cancelar" id="cancelAssociate">Cancelar</button>
-            <button type="submit" class="confirm">Confirmar</button>
+            <button type="submit" id="confirmAssociate" class="confirm">Confirmar</button>
           </div>
         </form>
       </div>
