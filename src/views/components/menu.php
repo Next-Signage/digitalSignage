@@ -5,8 +5,8 @@ require_once __DIR__ . '/../../../config/config.php';
 	<div class="mini-profilelogo">
 		<div>
 			<div>
-				<img class="systemlogo" alt="Digital Signage" />
-				<p>Digital Signage</p>
+				<img class="systemlogo" alt="Next Signage" />
+				<p>Next<br>Signage</p>
 			</div>
 			<a class="avatar" href="./dashboard"><p>P</p></a>
 		</div>

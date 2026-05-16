@@ -58,7 +58,7 @@ class PlayerDAO {
         
         $row = $sql->fetch(PDO::FETCH_ASSOC);
         if($row){
-            return new Player($row["ip"],$row["name"]);
+            return new Player($row["ip"],$row["name"],$row["local"],$row["description"],$row["playlist"],$row["status"]);
         }
         return null;
     }

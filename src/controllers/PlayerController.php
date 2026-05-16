@@ -14,14 +14,16 @@ class PlayerController{
 
     }
     public function updatePlayer(){
+        //recebendo apenas os meta dados
+        echo"Updating Player request";
         $json = file_get_contents('php://input');
         $service = new PlayerService();
         $data = json_decode($json,true);
-        $service->updateDataPlayer($data);
+       // $service->updateDataPlayer($data);
         print_r($data);
 
-        header('Content-Type: application/json');
-        print_r($data);
+       // header('Content-Type: application/json');
+       // print_r($data);
 
 
     }

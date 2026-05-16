@@ -35,8 +35,10 @@ class NavgationAdmController {
         include $caminho;
     }
     public function playlistConfig(){
-        $id =  $_GET["id"];
-        try{
+        $id =  $_GET["id"]?? null;
+        
+        if($id != null){
+            try{
                 $db = new Database();
                 $pdo = $db->getConnection();
                 $service = new PlaylistDAO($pdo);
@@ -73,6 +75,10 @@ class NavgationAdmController {
             }catch(PDOException $e){
                 throw new Exception($e->getMessage());
             }
+        }else{
+           header("Location".__DIR__ . "/../views/dashboard/playlists.php");
+        }
+        
 
         
          $caminho = __DIR__ . "/../views/dashboard/playlist-config.php";

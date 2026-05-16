@@ -35,6 +35,7 @@ $router->post("/deletecontent",[ContentController::class,"deleteContent"]);
 $router->post("/registerplayer",[PlayerController::class,"registerPlayer"]);
 
 $router->post("/updateplayer",[PlayerController::class,"updatePlayer"]);
+
 $router->post("/associate",[PlaylistController::class,"associate"]);
 
 $router->post("/createplaylist",[PlaylistController::class,"createPlaylist"]);
