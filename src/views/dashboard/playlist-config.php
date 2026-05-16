@@ -56,14 +56,14 @@ require_once __DIR__ . '/../../../config/config.php';
               </div>
             </div>
             <div class="main">
-              <div class="table">
+              <div class="table playlist-media-table">
                 <p class="title">Todas as M&iacute;dias</p>
                 <div class="linha-info">
                   <div><p>Nome</p></div>
-                  <div><p>Descri&ccedil;&atilde;o</p></div>
-                  <div class="center"><p>Data de Adi&ccedil;&atilde;o</p></div>
-                  <div class="center"><p>Dura&ccedil;&atilde;o</p></div>
-                  <button type="button" style="opacity: 0;"><img src="<?= BASE_URL ?>/images/icons/trash.svg" class="svg-branco" /></button>
+                  <div><p>Descrição</p></div>
+                  <div class="center"><p>Data de Adição</p></div>
+                  <div class="center"><p>Duração</p></div>
+                  <div class="end media-actions-cell" aria-hidden="true"></div>
                 </div>
                 <div class="table-body" data-media-body></div>
                 <p id="nomidia">Sem m&iacute;dia</p>

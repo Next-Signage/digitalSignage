@@ -42,7 +42,7 @@ require_once __DIR__ . '/../../../config/config.php';
 
             <header class="auth-card__header">
               <h1 class="auth-card__title">Cadastre-se agora</h1>
-              <p class="auth-card__subtitle">Crie uma conta de gra&ccedil;a</p>
+              <p class="auth-card__subtitle">Crie uma conta de graça</p>
               <p class="auth-switch auth-switch--mobile">
                 J&aacute; possui uma conta?
                 <a class="auth-switch__link" href="login.php">Entrar</a>.

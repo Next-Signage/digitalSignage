@@ -17,8 +17,9 @@ body {
 }
 
 .systemlogo {
-    height: 40px;
+    height: 50px;
     max-width: 100%;
+    cursor: pointer;
 }
 
 .avatar {
@@ -80,14 +81,17 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            > div {
+            > a {
                 display: flex;
                 align-items: center;
                 gap: 10px;
+                text-decoration: none;
                 > p {
+                    cursor: pointer;
                     font-size: 90%;
-                    cursor: default;
                     margin-left: 15px;
+                    text-decoration: none;
+                    font-weight: bolder;
                 }
             }
         }
@@ -141,53 +145,50 @@ img.svg-branco {
     filter: brightness(0) invert(1);
 }
 
-/* Responsividade para o menu lateral */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .left-painel {
-        position: fixed;
-        top: 0;
-        left: -300px;
-        width: 280px;
-        height: 100vh;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        z-index: 1000;
-        transition: transform 0.3s ease;
-    }
-    
-    .left-painel.open {
-        transform: translateX(300px);
-    }
-    
-    main {
-        flex-direction: column;
+        width: 72px;
+        min-width: 72px;
+
+        .mini-profilelogo {
+            margin: 10px 0;
+            margin-inline: 0;
+            justify-content: center;
+
+            > div {
+                justify-content: center;
+
+                > a {
+                    justify-content: center;
+                    gap: 0;
+
+                    > p {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .systemlogo {
+            height: 40px;
+        }
+
+        .botao {
+            justify-content: center;
+            gap: 0;
+            min-height: 48px;
+            padding: 0;
+
+            i {
+                width: 24px;
+                flex: 0 0 24px;
+                font-size: 120%;
+            }
+
+            p {
+                display: none;
+            }
+        }
     }
 }
 
-/* Ajustes para mobile muito pequeno */
-@media (max-width: 320px) {
-    .left-painel {
-        width: 100%;
-        left: -100%;
-    }
-    
-    .left-painel.open {
-        transform: translateX(100%);
-    }
-}
-
-/* Ajustes para acessibilidade */
-@media (prefers-reduced-motion: reduce) {
-    .left-painel {
-        transition: none;
-    }
-}
-
-/* Suporte a toque */
-@media (hover: none) and (pointer: coarse) {
-    .botao, .avatar {
-        min-height: 44px;
-        min-width: 44px;
-    }
-}

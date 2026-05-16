@@ -120,4 +120,10 @@ require_once __DIR__ . '/../../../config/config.php';
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/dashboard.js"></script>
   <script src="<?= BASE_URL ?>/js/data/dashboard-data.js"></script>
+
+  <style>
+    .left-painel .conections-menu-button {
+        background-color: var(--background4);
+    }
+  </style>
 </html>

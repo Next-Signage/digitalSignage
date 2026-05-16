@@ -35,7 +35,7 @@ require_once __DIR__ . '/../../../config/config.php';
             <div class="table">
               <div class="linha-info">
                 <div><p>Nome</p></div>
-                <div><p>Descri&ccedil;&atilde;o</p></div>
+                <div><p>Descrição</p></div>
                 <div class="end invisible">
                   
                   <i class="fa-solid fa-gear"></i>
@@ -61,4 +61,10 @@ require_once __DIR__ . '/../../../config/config.php';
 
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/playlists.js"></script>
+
+  <style>
+    .left-painel .playlists-menu-button {
+        background-color: var(--background4);
+    }
+  </style>
 </html>

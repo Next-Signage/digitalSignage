@@ -7,6 +7,7 @@
         updated_at:"",
         duration:0
     };
+    const DEFAULT_MEDIA_DESCRIPTION = "Sem descrição...";
     let initialPlaylistState = null;
     let uploadedMediaState = [];
 
@@ -39,7 +40,7 @@
         return {
             id: media.id || media.id_media || media.media_token||null, // Certifique-se de pegar o ID do PHP aqui
             media_name: media.media_name || "",
-            media_description: media.media_description || "",
+            media_description: media.media_description || DEFAULT_MEDIA_DESCRIPTION,
             // Corrigido para ler "duration" do PHP
             duration: media.duration || "00:00", 
             // Corrigido para ler "updated_at" do PHP
@@ -88,7 +89,7 @@
 
         row.innerHTML = `
           <div><input class="row-input" type="text" name="media_name[]" maxlength="50" required></div>
-          <div><input class="row-input" type="text" name="media_description[]" maxlength="80"></div>
+          <div><input class="row-input" type="text" name="media_description[]" maxlength="80" placeholder="Insira descrição..."></div>
           <!-- O name aqui foi mantido, mas a injeção de dados mudou abaixo -->
           <div class="center" name="media_added_at[]"></div>
           <div class="center">
@@ -103,7 +104,7 @@
               style="width: 40px"
             >
           </div>
-          <div class="end">
+          <div class="end media-actions-cell">
             <input type="hidden" name="media_origin[]">
             <input type="hidden" name="media_token[]">
             <input type="hidden" name="media_source_name[]">
@@ -114,7 +115,7 @@
         `;
 
         row.querySelector("input[name='media_name[]']").value = media.media_name || "";
-        row.querySelector("input[name='media_description[]']").value = media.media_description || "";
+        row.querySelector("input[name='media_description[]']").value = media.media_description || DEFAULT_MEDIA_DESCRIPTION;
         
         // CORREÇÃO 1: DIV usa textContent, não value. E mapeia para o media.updated_at do PHP
         row.querySelector("div[name='media_added_at[]']").textContent = media.updated_at || getCurrentDateLabel();
@@ -229,7 +230,7 @@
                 uploadedMediaState.push({ token, file });
                 mediaBody.appendChild(createMediaRow({
                     media_name: file.name,
-                    media_description: "",
+                    media_description: DEFAULT_MEDIA_DESCRIPTION,
                     updated_at: getCurrentDateLabel(), // Corrigido para updated_at
                     duration: "00:00",                 // Corrigido para duration
                     media_origin: "new",

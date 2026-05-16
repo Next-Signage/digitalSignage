@@ -5,11 +5,10 @@ require_once __DIR__ . '/../../../config/config.php';
 <div class="left-painel">
 	<div class="mini-profilelogo">
 		<div>
-			<div>
+			<a href="./dashboard">
 				<img class="systemlogo" alt="Digital Signage" />
 				<p>Digital Signage</p>
-			</div>
-			<a class="avatar" href="./dashboard"><p>P</p></a>
+			</a>
 		</div>
 	</div>
 	<div class="botoes">

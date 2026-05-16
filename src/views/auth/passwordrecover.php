@@ -17,7 +17,7 @@ require_once __DIR__ . '/../../../config/config.php';
     <main>
       <div class="normal-container passrecover">
         <h1>Esqueceu a senha?</h1>
-        <p>Preencha seu e-mail abaixo para receber um link de redefini&ccedil;&atilde;o de senha</p>
+        <p>Preencha seu e-mail abaixo para receber um link de redefinição de senha</p>
         <form
           method="POST"
           action="/mock-api/auth/password-recover"
@@ -27,7 +27,7 @@ require_once __DIR__ . '/../../../config/config.php';
           <label for="Email"><strong>E-mail</strong></label>
           <input id="Email" type="email" name="email" />
           <label for="Email" class="obrigatorio">Esse campo &eacute; obrigat&oacute;rio</label>
-          <input type="submit" value="Enviar Solicita&ccedil;&atilde;o" name="submit" />
+          <input type="submit" value="Enviar Solicitação" name="submit" />
         </form>
         <p class="lemb">Lembrou sua senha? <a href="login.php">Fazer login</a></p>
       </div>
