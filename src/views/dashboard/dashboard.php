@@ -16,8 +16,7 @@ require_once __DIR__ . '/../../../config/config.php';
   <!---<a width = '500' href="src/views/components/menu.php"></a> -->
   <main>
       <?php 
-       include  __DIR__.'/../components/menu.php';
-      
+        include  __DIR__.'/../components/menu.php';
       ?>
       <div class="right-painel">
         <div class="up">
@@ -116,8 +115,8 @@ require_once __DIR__ . '/../../../config/config.php';
   </body>
 
   <script>
-      window.DashboardPageData = <?= json_encode($pageData, JSON_UNESCAPED_UNICODE) ?>;
-    </script>
+    window.DashboardPageData = <?= json_encode($pageData, JSON_UNESCAPED_UNICODE) ?>;
+  </script>
   
   <script src="<?= BASE_URL ?>/js/viewforms.js"></script>
   <script src="<?= BASE_URL ?>/js/pages/dashboard.js"></script>

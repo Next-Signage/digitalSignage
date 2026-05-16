@@ -24,15 +24,15 @@ require_once __DIR__ . '/../../../config/config.php';
 			</a>
 		</div>
 		<div class="baixo">
-			<a class="botao">
+			<!-- <a class="botao">
 				<i class="fa-solid fa-align-left"></i>
 				<p>Documentação</p>
-			</a>
+			</a> -->
 			<a class="botao">
 				<i class="fa-solid fa-people-group"></i>
 				<p>Sobre nós</p>
 			</a>
-			<a
+			<!-- <a
 				class="botao"
 				target="_blank"
 				rel="noreferrer"
@@ -40,10 +40,7 @@ require_once __DIR__ . '/../../../config/config.php';
 			>
 				<i class="fa-brands fa-github"></i>
 				<p>Github</p>
-			</a>
+			</a> -->
 		</div>
 	</div>
-	<script>
-		
-	</script>
 </div>
