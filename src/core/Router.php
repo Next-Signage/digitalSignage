@@ -35,10 +35,8 @@ class Router {
         
         $uri = strtolower(str_replace(BASE_URL, "", $uri));
 
-        echo $uri;
         if ($uri === "") {
             $uri = "/";
-            echo "pagina incicial";
         }
         if (isset($this->routes[$type_request_method_post_get][$uri])){
             
