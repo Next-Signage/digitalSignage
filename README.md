@@ -52,4 +52,29 @@ so:
 remember to import the Router class and all Controllers
   
 # Database settings
-Every updating made in database need to be add in ```setupdatabase.php``` , for exemple, to create a new table, the sql code needs to stay in the archive
+Every updating made in database need to be add in ```setup_database.php``` , for exemple, to create a new table, the sql code needs to stay in the archive
+
+1- For exemple:
+```
+
+    $sql = "
+     CREATE TABLE IF NOT EXISTS adm ( 
+        id int(11) NOT NULL AUTO_INCREMENT, 
+        admCode varchar(50) NOT NULL, 
+        name varchar(100) NOT NULL, 
+        birthDate date NOT NULL, 
+        username varchar(50) NOT NULL, 
+        password varchar(255) NOT NULL, 
+        cpf varchar(14) NOT NULL, 
+        email varchar(100) NOT NULL, 
+        PRIMARY KEY (id), UNIQUE KEY 
+        username (username), UNIQUE KEY 
+        cpf (cpf),
+        UNIQUE KEY email (email), 
+        KEY idx_adm_username (username), 
+        KEY idx_adm_password (password) 
+    ) ;
+    
+```
+- your new DDL query stay in a string to set up database
+- Warning: This feature won't be avalible in the final product, just at the moment for tests and studies.
