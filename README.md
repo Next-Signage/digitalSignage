@@ -76,5 +76,15 @@ Every updating made in database need to be add in ```setup_database.php``` , for
     ) ;
     
 ```
-- your new DDL query stay in a string to set up database
+- Your new DDL query stay in a string to setup database
 - Warning: This feature won't be avalible in the final product, just at the moment for tests and studies.
+
+# Architecture
+
+The main design pattern is MVC - Model, View and Controller, but in addition, new structures: Service,Core, Dao. 
+## Service: 
+     recive data from controller and execute all tasks. querrys in database, change visibility, and all about execution in the project.
+## Core:
+      This part contains modules like Router.php and Database.php an all parts essential to make the system work
+## DAO: 
+      Abstraction of Database in php language. It is a modules union to represent the data and methods to manipulate  data in the program. Contains methods like: ```save()```, ```delete()```, ```update()```, ```listAll()```, ```getById()``` and ```others()```   
