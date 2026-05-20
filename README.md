@@ -15,7 +15,9 @@ This design centralizes request handling and ensures consistent routing behavior
 so:
 - 1st:
     Create a new var router from Router class and create a class controller to reference this entity (NavigationController for exemple, to controll all routes for all users)
-  1- ``$router = new Router();``
+  
+  1- ```$router = new Router();```
+  
   2-
   ```
   class NavgationAdmController {
@@ -37,11 +39,17 @@ so:
         
         include $caminho;
     }```
+
 - 2nd:
     Register the path using some method (GET or POST ) from Router using the next syntax:
-  ``$router->get("/NewRoutePath",[NameClassController::class,"nameMethodInsidController"]); ``
+  ```$router->get("/NewRoutePath",[NameClassController::class,"nameMethodInsidController"]); ```
+
 - 3rt:
     Run the dispatch:
-   ``$router->dispach();`` 
+
+   ```$router->dispach();```
+
 remember to import the Router class and all Controllers
   
+# Database settings
+Every updating made in database need to be add in ```setupdatabase.php``` , for exemple, to create a new table, the sql code needs to stay in the archive
