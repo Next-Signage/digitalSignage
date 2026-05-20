@@ -20,6 +20,7 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/../src/core/Database.php';
 require_once __DIR__ . '/config.php';
 
+echo "<h2>Verifique se a base já existe nos eu banco de dados: digitalSignage_reestruct</h2>";
 echo "<h1>Iniciando Setup do Banco de Dados...</h1>";
 
 try {
