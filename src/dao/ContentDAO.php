@@ -22,7 +22,9 @@ class ContentDAO {
             $sql->execute();
 
             $lastId = $this->pdo->lastInsertId();
-
+            // SALVAR O ORDER_INDEX
+            // SAVAR DURATION SECONDS
+            // SALVAR  
             $sql2 = $this->pdo->prepare("INSERT INTO playlist_content(FK_playlist,FK_content,order_index) VALUES (:FK_playlist, :FK_content,:order_index)");  
             $sql2->bindValue(':FK_playlist', $playlistId);
             $sql2->bindValue(':FK_content', $lastId);

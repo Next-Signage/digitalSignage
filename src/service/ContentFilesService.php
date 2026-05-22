@@ -37,6 +37,7 @@
                 "playlist_name" => "teste",
                 "associatedDevices" => "teste",
                 "mediaItems" => array_map(function($m) {
+                    // CONSULTA SQL NA PĹAYLIST_CONTENT
                     return [
                         "media_name" => $m['filename'],
                         "media_description" => $m['description'],
@@ -55,6 +56,7 @@
         }
         public static function pushFiles($fileData,$playlist_id){
             $name = $fileData['name'];
+            //PASSAR  O ORER_INDEX E  O DURATION_SECONDS
             
             $base64code = $fileData['base64'];
             $extensoesPermitidas = ["jpg", "jpeg", "png"];
