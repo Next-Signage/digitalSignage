@@ -51,7 +51,7 @@ class NavgationAdmController {
                         return [
                             "media_name"        => $item['name'], // mude para o nome real da coluna
                             "media_description" => $item['realName'] ?? "TESTE",
-                            "duration"    => $item['duration_seconds'] ?? "11:00",
+                            "duration"    => $item['duration_seconds'] ?? "00:05:00",
                             "updated_at"    => $item['dataUpload'] ?? date("d/m/Y"),
                             "media_origin"      => "existing",
                             "media_token"       => "db-" . $item['id'], // um token único baseado no ID

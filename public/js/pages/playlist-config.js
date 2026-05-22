@@ -27,25 +27,38 @@
   function getVideoDuration(file) {
     return new Promise((resolve) => {
       if (!file.type.startsWith("video/")) {
-        resolve("00:05");
+        resolve("00:00:05");
         return;
       }
       const video = document.createElement("video");
       video.preload = "metadata";
       video.onloadedmetadata = () => {
         const totalSeconds = Math.round(video.duration);
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        const formatted = minutes + ":" + String(seconds).padStart(2, "0");
+        const h = Math.floor(totalSeconds / 3600);
+        const m = Math.floor((totalSeconds % 3600) / 60);
+        const s = totalSeconds % 60;
+        const formatted = String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
         URL.revokeObjectURL(video.src);
         resolve(formatted);
       };
       video.onerror = () => {
         URL.revokeObjectURL(video.src);
-        resolve("00:05");
+        resolve("00:00:05");
       };
       video.src = URL.createObjectURL(file);
     });
+  }
+
+  function durationToSeconds(duration) {
+    if (!duration) return 5;
+    const parts = duration.split(":").map(Number);
+    if (parts.length === 3) {
+      return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    }
+    if (parts.length === 2) {
+      return parts[0] * 60 + parts[1];
+    }
+    return 5;
   }
 
   function toggleEmptyMediaState() {
@@ -64,7 +77,7 @@
       id: media.id || media.id_media || media.media_token||null,
       media_name: media.media_name || "",
       media_description: media.media_description || DEFAULT_MEDIA_DESCRIPTION,
-      duration: media.duration || "00:00",
+      duration: media.duration || "00:00:00",
       updated_at: media.updated_at || "",
       media_origin: media.media_origin || "existing",
       media_token: media.media_token || "",
@@ -112,16 +125,11 @@
       <div><input class="row-input" type="text" name="media_name[]" maxlength="50" required></div>
       <div><input class="row-input" type="text" name="media_description[]" maxlength="80" placeholder="Insira descrição..."></div>
       <div class="center" name="media_added_at[]"></div>
-      <div class="center">
+      <div class="center duration-cell">
         <input
-          class="row-input"
-          type="text"
+          type="time"
+          step="1"
           name="media_duration[]"
-          placeholder="00:00"
-          maxlength="5"
-          pattern="^[0-9]{1,2}:[0-9]{2}$"
-          title="Use o formato mm:ss (ex: 0:03)"
-          style="width: 40px"
         >
       </div>
       <div class="end media-actions-cell">
@@ -131,13 +139,16 @@
         <button type="button" class="icon-button" aria-label="Remover mídia">
           <i class="fa-solid fa-trash"></i>
         </button>
+        <button type="button" class="icon-button" aria-label="Mover mídia">
+          <i class="fa-solid fa-arrows-up-down"></i>
+        </button>
       </div>
     `;
 
     row.querySelector("input[name='media_name[]']").value = media.media_name || "";
     row.querySelector("input[name='media_description[]']").value = media.media_description || DEFAULT_MEDIA_DESCRIPTION;
     row.querySelector("div[name='media_added_at[]']").textContent = media.updated_at || getCurrentDateLabel();
-    row.querySelector("input[name='media_duration[]']").value = media.duration || "00:00";
+    row.querySelector("input[name='media_duration[]']").value = media.duration || "00:00:00";
     row.querySelector("input[name='media_origin[]']").value = media.media_origin || "existing";
     row.querySelector("input[name='media_token[]']").value = media.media_token || "";
     row.querySelector("input[name='media_source_name[]']").value = media.media_source_name || "";
@@ -357,7 +368,7 @@
         const durationInput = row.querySelector("input[name='media_duration[]']");
         return {
           file: stateItem?.file,
-          duration: durationInput?.value || stateItem?.duration || "00:05"
+          duration: durationInput?.value || stateItem?.duration || "00:00:05"
         };
       })
       .filter((item) => item.file);
@@ -366,7 +377,7 @@
 
     payload.media_files = base64Files.map((file, index) => ({
       ...file,
-      media_duration: orderedItems[index].duration
+      media_duration: durationToSeconds(orderedItems[index].duration)
     }));
 
     payload.media_count = mediaRows.length;

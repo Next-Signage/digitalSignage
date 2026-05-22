@@ -452,8 +452,8 @@ body {
 
 .playlist-media-table .media-actions-cell {
     justify-content: center;
-    min-width: 56px;
-    width: 56px;
+    min-width: 140px;
+    width: 140px;
     margin-inline: 0;
 }
 
