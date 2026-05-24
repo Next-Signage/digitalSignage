@@ -10,25 +10,28 @@ class ContentDAO {
     public function __construct(PDO $pdo) {
         $this->pdo = $pdo;
     }
-    public function save(Content $Object, int $playlistId) {
+    public function save(Content $Object, int $playlistId,$total_seconds,) {
         //ORDEM DE DURAÇÃO PRECISA DE AJUDA
+        echo "Prestes ao banco >".$Object->getDescription();
         try{
             $this->pdo->beginTransaction();
-            $sql = $this->pdo->prepare("INSERT INTO content(name,url,fileType,realName) VALUES (:name, :url, :fileType,:realName);");  
+            $sql = $this->pdo->prepare("INSERT INTO content(name,url,fileType,description) VALUES (:name, :url, :fileType,:description);");  
             $sql->bindValue(':url', $Object->getUrl());
             $sql->bindValue(':name', $Object->getName());
             $sql->bindValue(':fileType', $Object->getFileType());
-            $sql->bindValue(':realName', $Object->getRealName());
+            $sql->bindValue(':description', $Object->getDescription());
             $sql->execute();
 
             $lastId = $this->pdo->lastInsertId();
             // SALVAR O ORDER_INDEX
             // SAVAR DURATION SECONDS
             // SALVAR  
-            $sql2 = $this->pdo->prepare("INSERT INTO playlist_content(FK_playlist,FK_content,order_index) VALUES (:FK_playlist, :FK_content,:order_index)");  
+            $sql2 = $this->pdo->prepare("INSERT INTO playlist_content(FK_playlist,FK_content,order_index,duration_seconds) VALUES (:FK_playlist, :FK_content,:order_index,:duration_seconds)");  
             $sql2->bindValue(':FK_playlist', $playlistId);
             $sql2->bindValue(':FK_content', $lastId);
             $sql2->bindValue(':order_index', $lastId+1);
+            $sql2->bindValue(':duration_seconds',$total_seconds);
+
 
             $sql2->execute();
 

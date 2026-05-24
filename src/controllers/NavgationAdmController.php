@@ -48,9 +48,10 @@ class NavgationAdmController {
                 $service_player = new PlayerDAO($pdo);
                 $players = $service_player->listAll();
                 $mediaItems = array_map(function($item) {
+                    
                         return [
                             "media_name"        => $item['name'], // mude para o nome real da coluna
-                            "media_description" => $item['realName'] ?? "TESTE",
+                            "media_description" => $item['description'] ?? NULL,
                             "duration"    => $item['duration_seconds'] ?? "00:05:00",
                             "updated_at"    => $item['dataUpload'] ?? date("d/m/Y"),
                             "media_origin"      => "existing",

@@ -11,12 +11,12 @@
         //valor / 1024 = valorkb
         //5mb = 5*1024kb*1024
 
-        public function rollPushFiles($mediaFiles,$playlist_id){
+        public function rollPushFiles($mediaFiles,$playlist_id,$media_duration,$media_description){
             
             $results = [];
-            foreach($mediaFiles as $fileData){
+            foreach($mediaFiles as $key => $fileData){
                 try{
-                    self::pushFiles($fileData,$playlist_id);
+                    self::pushFiles($fileData,$playlist_id,$media_duration[$key],$media_description[$key]);
                     $results[] = ["status" => "sucess","file"=>$fileData['name']];
                 }catch(Exception $e){
                     $results[] = ["status" => "error","file" => $fileData['name'],
@@ -54,14 +54,25 @@
             }
             
         }
-        public static function pushFiles($fileData,$playlist_id){
+        public static function pushFiles($fileData,$playlist_id,$media_duration,$media_description){
+        
+            echo "na pushFiles> ".$media_description;
             $name = $fileData['name'];
             //PASSAR  O ORER_INDEX E  O DURATION_SECONDS
             
             $base64code = $fileData['base64'];
             $extensoesPermitidas = ["jpg", "jpeg", "png"];
             $extension = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-            
+            $time  =explode(":",$media_duration);
+            //0 -> hora
+            //1 -> minuto
+            //2  -> segundo
+            $hora_segundos = (int)$time[0]* 3600;
+            $minutos_segundos = (int)$time[1]*60;
+            $segundos = (int)$time[2];
+
+            $total_seconds = (int) $hora_segundos+$minutos_segundos+$segundos;
+                        
             //tratamento da base64
 
             if (strpos($base64code, ',') !== false) {
@@ -89,12 +100,12 @@
             $url = $path . $arqName . "." . $extension;
 
             if (file_put_contents($url, $arquivoBinario)) {
-                $content = new Content($url, $arqName, $extension,"TESTEx3");
+                $content = new Content($url, $arqName, $extension,$media_description);
                 try{
                     $db = new Database();
                     $pdo = $db->getConnection();
                     $contentDao = new ContentDAO($pdo);
-                    $contentDao->save($content,$playlist_id);
+                    $contentDao->save($content,$playlist_id,$total_seconds);
                     return true;
                 }catch(\PDOException $e){
                     throw new PDOException("Algo de errado na hora de cadastrar as imagens do banco");

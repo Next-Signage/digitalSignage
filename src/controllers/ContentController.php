@@ -16,9 +16,15 @@ class ContentController {
         $id_playlist = $data['id_playlist'];
         $playlistName = ['playlist_name'] ?? 'Sem nome';
         $mediaFiles = $data['media_files'] ?? [];
+        $media_duration = $data['media_duration'];
+        $media_description = $data['media_description'];
+        
+
+        print_r($media_duration);
+        print_r($media_description);
 
         $service =new  ContentFilesService();
-        $service->rollPushFiles($mediaFiles,$id_playlist);
+        $service->rollPushFiles($mediaFiles,$id_playlist,$media_duration,$media_description);
 
         header('Content-Type: application/json');
         echo json_encode(["status" => "success", "received" => $playlistName]);

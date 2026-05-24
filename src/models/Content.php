@@ -4,16 +4,14 @@
         private $url;
         private $name;
         private $fileType;
-        private $realName;
         private $dataUpload;
         private $description;
 
-        public function __construct($url,$name,$fileType,$realName) {
+        public function __construct($url,$name,$fileType,$description) {
             $this->url = $url;
             $this->name = $name;
             $this->fileType = $fileType;
-            $this->realName = $realName;
-            $this->description = "";
+            $this->description = $description;
 
             
         }
@@ -23,9 +21,7 @@
         public function getDescription(){
             return $this->description;
         }
-        public function getRealName(){
-            return $this->realName;
-        }
+        
         public function getDateUpload(){
             return $this->dataUpload;
         }
@@ -47,9 +43,7 @@
         public function fileType($fileType){
             $this->$fileType = $fileType;
         }
-        public function setRealName($realName){
-            $this->realName = $realName;
-        }
+        
         public function setDescription($description){
             $this->description = $description;
         }
