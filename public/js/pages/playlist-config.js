@@ -139,7 +139,7 @@
         <button type="button" class="icon-button" aria-label="Remover mídia">
           <i class="fa-solid fa-trash"></i>
         </button>
-        <button type="button" class="icon-button" aria-label="Mover mídia">
+        <button type="button" class="icon-button drag-handle" aria-label="Mover mídia">
           <i class="fa-solid fa-arrows-up-down"></i>
         </button>
       </div>
@@ -153,7 +153,7 @@
     row.querySelector("input[name='media_token[]']").value = media.media_token || "";
     row.querySelector("input[name='media_source_name[]']").value = media.media_source_name || "";
 
-    row.querySelector("button").addEventListener("click", async () => {
+    row.querySelector("button[aria-label='Remover mídia']").addEventListener("click", async () => {
       if (media.media_origin === "existing" && media.media_token) {
         try {
           const response = await fetch(`deletecontent`, {
@@ -388,13 +388,92 @@
     return payload;
   };
 
+  function bindDragAndDrop() {
+    const mediaBody = document.querySelector("[data-media-body]");
+    if (!mediaBody) return;
+
+    let dragSourceRow = null;
+
+    mediaBody.addEventListener("mousedown", (e) => {
+      const handle = e.target.closest(".drag-handle");
+      if (!handle) return;
+      const row = handle.closest("[data-media-row='true']");
+      if (row) row.draggable = true;
+    });
+
+    mediaBody.addEventListener("mouseup", () => {
+      mediaBody.querySelectorAll("[data-media-row='true']").forEach((row) => {
+      row.draggable = false;
+      });
+    });
+
+    mediaBody.addEventListener("dragstart", (e) => {
+      const row = e.target.closest("[data-media-row='true']");
+      if (!row) {
+      e.preventDefault();
+      return;
+      }
+      dragSourceRow = row;
+      row.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("text/plain", "");
+    });
+
+    mediaBody.addEventListener("dragend", (e) => {
+      const row = e.target.closest("[data-media-row='true']");
+      if (row) {
+      row.classList.remove("dragging");
+      row.draggable = false;
+      }
+      dragSourceRow = null;
+      document.querySelectorAll(".drag-over").forEach((el) => el.classList.remove("drag-over"));
+    });
+
+    mediaBody.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "move";
+
+      const targetRow = e.target.closest("[data-media-row='true']");
+      if (!targetRow || targetRow === dragSourceRow) return;
+
+      document.querySelectorAll(".drag-over").forEach((el) => el.classList.remove("drag-over"));
+      targetRow.classList.add("drag-over");
+    });
+
+    mediaBody.addEventListener("dragleave", (e) => {
+      const targetRow = e.target.closest("[data-media-row='true']");
+      if (targetRow && !targetRow.contains(e.relatedTarget)) {
+      targetRow.classList.remove("drag-over");
+      }
+    });
+
+    mediaBody.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const targetRow = e.target.closest("[data-media-row='true']");
+      if (!targetRow || !dragSourceRow || targetRow === dragSourceRow) return;
+
+      targetRow.classList.remove("drag-over");
+
+      const rows = Array.from(mediaBody.querySelectorAll("[data-media-row='true']"));
+      const sourceIndex = rows.indexOf(dragSourceRow);
+      const targetIndex = rows.indexOf(targetRow);
+
+      if (sourceIndex < targetIndex) {
+      mediaBody.insertBefore(dragSourceRow, targetRow.nextSibling);
+      } else {
+      mediaBody.insertBefore(dragSourceRow, targetRow);
+      }
+
+      updatePlaylistSubmitButtonState();
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     if (document.body?.dataset?.page !== "playlistconfig") {
       return;
     }
 
     const titleInput = document.getElementById("title");
-
     if (titleInput) {
       titleInput.value = pageData.playlist_name || "";
     }
@@ -406,6 +485,7 @@
     bindMediaUpload();
     bindAssociationModal();
     bindPlaylistStateTracking();
+    bindDragAndDrop();
     bindSubmitAssociation();
   });
 })();

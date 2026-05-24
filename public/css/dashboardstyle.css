@@ -694,3 +694,19 @@ body {
 #idnumber {
     cursor: default;
 }
+
+.drag-handle {
+    cursor: grab;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.media-row.dragging {
+    opacity: 0.4;
+}
+
+.media-row.drag-over {
+    border: 1px solid var(--second, #3DA86A);
+}
