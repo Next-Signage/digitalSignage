@@ -27,7 +27,7 @@ class PlaylistDAO {
     }
 
     public function listalAllPlaylistAssocPlayers($id){
-        $sql = $this->pdo->prepare('SELECT * FROM content INNER JOIN playlist_content on content.id  = FK_content and :id = FK_playlist;');
+        $sql = $this->pdo->prepare('SELECT * FROM player INNER JOIN player_playlist on player.id  = FK_player and :ip = player.ip_adress;');
         $sql->bindValue(':id', $id, PDO::PARAM_INT);
         $sql->execute();
         $row = $sql->fetchAll(PDO::FETCH_ASSOC);

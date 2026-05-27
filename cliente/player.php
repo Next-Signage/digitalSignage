@@ -3,60 +3,127 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 require_once("core/Database.php");
 require_once("dao/PlaylistDAO.php");
 
-
 $ip_servidor = $_SERVER['SERVER_ADDR'];
-echo "Eu sou o Player no IP: " . $ip_servidor;
+$port = $_SERVER['SERVER_PORT'];
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Player</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* Fundo preto para painéis */
+            overflow: hidden;
+        }
 
+        .carousel {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
 
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            opacity: 0;
+            z-index: 1;
+            /* Transição de 1.5s bem suave no canal alfa (transparência) */
+            transition: opacity 1.5s ease-in-out; 
+        }
+
+        /* A classe active joga a imagem para frente e deixa 100% visível */
+        .carousel img.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .debug-logs {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="debug-logs">
+<?php
+    echo "Eu sou o Player no IP: " . $ip_servidor . ":" . $port;
+?>
+</div>
+
+<div class="carousel">
+<?php
 try{
- $db = new  Database();
- $pdo = $db->getConnection();
- $playlistDAO = new PlaylistDAO($pdo);
-$playlists = $playlistDAO->listAll();
+    $db = new Database();
+    $pdo = $db->getConnection();
+    $playlistDAO = new PlaylistDAO($pdo);
+    $playlists = $playlistDAO->listAll();
 
-$onlyPlayersAssoc  = $playlistDAO->listalAllPlayerPlaylist($ip_servidor);
-echo "<pre>";
- print_r($onlyPlayersAssoc);
-echo "</pre>";
-echo "<pre>";
- //print_r($fotos);
-$fotos = $playlistDAO->listalAllPlaylistContents($playlists[0]["id"]);
- // eu sei que IP expostos é má prática mas tenho pressa pra acabar
- foreach($fotos as $foto){
-    
-    print_r($foto["order_index"]);
-    $urlServer = str_replace('/opt/lampp/htdocs/', '', $foto["url"]);
-    $urlPublica = str_replace('/src/service/../../', '/', $urlServer);
+    $onlyPlayersAssoc  = $playlistDAO->listalAllPlayerPlaylist($ip_servidor);
+    $fotos = $playlistDAO->listalAllPlaylistContents($playlists[0]["id"]);
+     
+    foreach($fotos as $index => $foto){
+        $urlServer = str_replace('/opt/lampp/htdocs/', '', $foto["url"]);
+        $urlPublica = str_replace('/src/service/../../', '/', $urlServer);
 
-    
-    echo "<pre>http://localhost:55/".$urlPublica."\n</pre>";
-    echo "<a href =http://localhost:55/".$urlPublica."><img id=".$foto["order_index"]." src=http://localhost:55/".$urlPublica."></a>";
- }
-echo "</pre>";
+        $activeClass = ($index === 0) ? 'active' : '';
+        
+        echo "<img class='{$activeClass}' id='".$foto["order_index"]."' src='http://localhost:55/".$urlPublica."'>\n";
+    }
 
-}catch(PDOException){
-    echo "deu merda";
-    throw new PDOException("Algo de errado"); 
+} catch(PDOException $e) {
+    echo "<h1 style='color:red; text-align:center; padding-top:20%;'>deu merda</h1>";
 }
 ?>
+</div>
+
 <script>
-    /*async function atualizarPlaylists() {
-    const res = await fetch('player.php');
-    const playlists = await res.json();
-    console.log(playlists);
-    // Aqui você atualiza o DOM (telas, vídeos, etc)
-    }*/
+    const tempoPorSlide = 5000; // 5 segundos parado em cada tela
+    const tempoDeTransicao = 1500; // 1.5 segundos de efeito visual (bate com o CSS)
+    const imagens = document.querySelectorAll('.carousel img');
+    let indexAtual = 0;
 
-// Chama a cada 5 segundos sem travar o navegador
-// Recarrega a página agora
+    if (imagens.length > 1) {
+        setInterval(() => {
+            const imgAntiga = imagens[indexAtual];
+            
+            // Calcula qual é a próxima imagem
+            indexAtual = (indexAtual + 1) % imagens.length;
+            const imgNova = imagens[indexAtual];
 
+            // 1. A nova imagem vem pra frente e começa a aparecer
+            imgNova.classList.add('active');
 
-// Recarrega a página a cada 5 minutos (300.000 milissegundos)
-setTimeout(() => {
-    location.reload();
-}, 5000);
+            // 2. A imagem antiga vai pra trás (z-index 1 via CSS), mas AINDA fica visível
+            imgAntiga.style.zIndex = '1';
+            
+            // 3. Espera a nova imagem terminar de aparecer para só então apagar a antiga
+            setTimeout(() => {
+                imgAntiga.classList.remove('active');
+                imgAntiga.style.zIndex = ''; // Reseta o z-index
+            }, tempoDeTransicao);
+
+        }, tempoPorSlide);
+    }
+
+    // Calcula o tempo total para dar refresh no PHP e puxar novas mídias do banco
+    const tempoTotalPlaylist = imagens.length > 0 ? (imagens.length * tempoPorSlide) : 5000;
+
+    setTimeout(() => {
+        location.reload();
+    }, tempoTotalPlaylist);
 </script>
+
+</body>
+</html>
