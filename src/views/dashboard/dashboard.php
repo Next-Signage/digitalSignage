@@ -26,7 +26,7 @@ require_once __DIR__ . '/../../../config/config.php';
             action="updateplayer"
             data-endpoint="updateplayer"
             data-before-submit="prepareDashboardUpdateSubmission"
-            data-reload-after-submit="false"
+            data-reload-after-submit="true"
           >
             <div class="information">
               <div class="right-info">

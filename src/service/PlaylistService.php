@@ -71,7 +71,7 @@
                 
             }catch(Exception $e){
                 echo "não foi";
-                throw new Exception("playlist dao has error");
+                throw new Exception("playlist assoc  has error");
             }
 
         }
