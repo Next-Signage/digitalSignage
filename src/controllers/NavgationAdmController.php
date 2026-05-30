@@ -15,7 +15,7 @@ class NavgationAdmController {
         $pageData = $service->listAllPlayers();
         
         if (!file_exists($caminho)) {
-            die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
+            throw new Exception("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
         
         include $caminho;
@@ -30,7 +30,7 @@ class NavgationAdmController {
          $pageData = $service->listAllPlaylists();
     
         if (!file_exists($caminho)) {
-            die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
+            throw new Exception("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
         include $caminho;
     }
@@ -87,7 +87,7 @@ class NavgationAdmController {
     
         // Teste de diagnóstico:
         if (!file_exists($caminho)) {
-            die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
+            throw new Exception("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
         include $caminho;
         

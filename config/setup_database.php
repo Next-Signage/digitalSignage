@@ -54,7 +54,7 @@ try {
         url varchar(255) NOT NULL, 
         name varchar(255) NOT NULL, 
         fileType varchar(50) NOT NULL, 
-        realName varchar(45) NOT NULL, 
+        description varchar(200),
         dataUpload datetime DEFAULT current_timestamp(), 
         PRIMARY KEY (id), 
         KEY idx_adm_content_url (url) 

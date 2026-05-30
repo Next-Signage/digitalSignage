@@ -9,7 +9,7 @@ class AuthController {
     
         // Teste de diagnóstico:
         if (!file_exists($caminho)) {
-        die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
+        throw new Exception("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
         include $caminho;
     }
@@ -18,7 +18,7 @@ class AuthController {
     
         // Teste de diagnóstico:
         if (!file_exists($caminho)) {
-        die("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
+        throw new Exception("Erro: O PHP não encontrou o arquivo no caminho: " . $caminho);
         }
         include $caminho;
     }
