@@ -51,7 +51,7 @@ require_once __DIR__ . '/../../../config/config.php';
                 </button>
                 <button type="submit" class="stylisedbutton refresh" id="updatePlaylist" disabled>
                   <i class="fa-solid fa-rotate"></i>
-                  <p>Atualizar Playlist</p>
+                  <p>Atualizar teste</p>
                 </button>
               </div>
             </div>
